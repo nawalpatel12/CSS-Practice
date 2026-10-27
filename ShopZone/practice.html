@@ -1,0 +1,639 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ShopZone | Online Shopping</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<script>
+const API_URL = "http://localhost:5000/api";
+
+async function loadProducts(category = "All", search = "") {
+  const grid = document.getElementById("productGrid");
+  const empty = document.getElementById("emptyMessage");
+
+  try {
+    const params = new URLSearchParams();
+
+    if (category !== "All") params.set("category", category);
+    if (search) params.set("search", search);
+
+    const response = await fetch(
+      `${API_URL}/products?${params.toString()}`
+    );
+
+    if (!response.ok) throw new Error("Unable to load products");
+
+    const products = await response.json();
+
+    grid.innerHTML = products.map(product => `
+      <article class="bg-white rounded-xl shadow-sm overflow-hidden">
+        <img src="${escapeHtml(product.image)}"
+             alt="${escapeHtml(product.name)}"
+             class="w-full h-48 object-contain p-4 bg-gray-50">
+
+        <div class="p-4">
+          <h3 class="font-semibold">${escapeHtml(product.name)}</h3>
+          <p class="text-sm text-gray-500 mt-1">
+            ${escapeHtml(product.category)}
+          </p>
+          <p class="text-xl font-bold mt-2">
+            Rs. ${product.price.toLocaleString()}
+          </p>
+          <p class="text-sm text-gray-400 line-through">
+            ${product.originalPrice
+              ? "Rs. " + product.originalPrice.toLocaleString()
+              : ""}
+          </p>
+          <p class="text-sm mt-2">Stock: ${product.stock}</p>
+
+          <button
+            onclick="addBackendCart('${product._id}')"
+            class="w-full mt-4 bg-yellow-400 hover:bg-yellow-500
+                   py-2 rounded-lg font-bold">
+            Add to Cart
+          </button>
+        </div>
+      </article>
+    `).join("");
+
+    empty.classList.toggle("hidden", products.length > 0);
+  } catch (error) {
+    grid.innerHTML = "";
+    empty.textContent =
+      "Unable to load products. Check that the backend and database are running.";
+    empty.classList.remove("hidden");
+    console.error(error);
+  }
+}
+
+function escapeHtml(value) {
+  return String(value ?? "").replace(/[&<>"']/g, char => ({
+    "&": "&amp;",
+    "<": "&lt;",
+    ">": "&gt;",
+    '"': "&quot;",
+    "'": "&#39;"
+  })[char]);
+}
+
+// Simple frontend cart using product IDs.
+let backendCart = [];
+
+function addBackendCart(productId) {
+  backendCart.push(productId);
+  alert("Product added to your cart!");
+}
+
+// Initial load
+loadProducts();
+
+// Call this from your search form or category buttons.
+function searchBackendProducts() {
+  loadProducts("All", document.getElementById("searchInput").value);
+}
+
+function filterBackendCategory(category) {
+  loadProducts(category, document.getElementById("searchInput").value);
+}
+</script>
+
+<body class="bg-gray-100 text-gray-800">
+
+  <!-- Top Navigation -->
+  <header class="bg-slate-900 text-white">
+    <div class="max-w-7xl mx-auto px-4 py-3 flex flex-wrap
+                items-center gap-4 justify-between">
+
+      <a href="#" class="text-2xl font-bold text-yellow-400">
+        ShopZone<span class="text-white">.</span>
+      </a>
+
+      <div class="text-xs hidden md:block">
+        Deliver to
+        <p class="font-bold text-sm">Your Location</p>
+      </div>
+
+      <!-- Search -->
+      <form id="searchForm"
+            class="flex flex-1 min-w-[200px] max-w-2xl">
+        <input id="searchInput" type="search"
+               placeholder="Search products, brands and more..."
+               class="w-full px-4 py-2 rounded-l-md text-gray-800
+                      outline-none focus:ring-2 focus:ring-yellow-400">
+
+        <button type="submit"
+                class="bg-yellow-400 hover:bg-yellow-500
+                       text-black px-5 rounded-r-md font-bold">
+          Search
+        </button>
+      </form>
+
+      <a href="#" class="text-sm hover:text-yellow-400">
+        <span class="block text-gray-300">Hello, User</span>
+        <b>Account</b>
+      </a>
+
+      <a href="#" class="font-bold hover:text-yellow-400">
+        Orders
+      </a>
+
+      <button id="cartButton"
+              class="font-bold text-yellow-400">
+        🛒 Cart (<span id="cartCount">0</span>)
+      </button>
+    </div>
+  </header>
+
+  <!-- Category Navigation -->
+  <nav class="bg-white shadow">
+    <div class="max-w-7xl mx-auto px-4 py-3 flex gap-6
+                overflow-x-auto text-sm font-semibold whitespace-nowrap">
+      <button class="category-btn hover:text-blue-600"
+              data-category="All">All</button>
+      <button class="category-btn hover:text-blue-600"
+              data-category="Electronics">Electronics</button>
+      <button class="category-btn hover:text-blue-600"
+              data-category="Fashion">Fashion</button>
+      <button class="category-btn hover:text-blue-600"
+              data-category="Home">Home & Kitchen</button>
+      <button class="category-btn hover:text-blue-600"
+              data-category="Beauty">Beauty</button>
+      <button class="category-btn hover:text-blue-600"
+              data-category="Books">Books</button>
+      <button class="category-btn hover:text-blue-600"
+              data-category="Sports">Sports</button>
+    </div>
+  </nav>
+
+  <!-- Hero Banner -->
+  <section class="max-w-7xl mx-auto px-4 mt-5">
+    <div class="rounded-xl overflow-hidden bg-indigo-700 text-white
+                grid md:grid-cols-2 items-center">
+
+      <div class="p-8 md:p-14">
+        <p class="text-yellow-300 font-semibold mb-3">
+          THE BIG SHOPPING FESTIVAL
+        </p>
+
+        <h1 class="text-4xl md:text-5xl font-extrabold leading-tight">
+          Everything You Need, All in One Place!
+        </h1>
+
+        <p class="mt-4 text-indigo-100">
+          Discover amazing products, great deals and exciting offers.
+        </p>
+
+        <button onclick="document.getElementById('products')
+                         .scrollIntoView({behavior:'smooth'})"
+                class="mt-6 bg-yellow-400 hover:bg-yellow-500
+                       text-black font-bold px-7 py-3 rounded-lg">
+          Shop Now →
+        </button>
+      </div>
+
+      <div class="p-6">
+        <img
+          src="https://images.unsplash.com/photo-1607082349566-187342175e2f?auto=format&fit=crop&w=900&q=80"
+          alt="Shopping bags and online shopping"
+          class="w-full h-64 md:h-80 object-cover rounded-xl">
+      </div>
+    </div>
+  </section>
+
+  <!-- Category Cards -->
+  <section class="max-w-7xl mx-auto px-4 mt-8">
+    <h2 class="text-2xl font-bold mb-4">Shop by Category</h2>
+
+    <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-4">
+
+      <button onclick="filterCategory('Electronics')"
+              class="bg-white p-5 rounded-xl text-center hover:shadow-lg">
+        <div class="text-4xl mb-2">📱</div>
+        <p class="font-semibold">Electronics</p>
+      </button>
+
+      <button onclick="filterCategory('Fashion')"
+              class="bg-white p-5 rounded-xl text-center hover:shadow-lg">
+        <div class="text-4xl mb-2">👕</div>
+        <p class="font-semibold">Fashion</p>
+      </button>
+
+      <button onclick="filterCategory('Home')"
+              class="bg-white p-5 rounded-xl text-center hover:shadow-lg">
+        <div class="text-4xl mb-2">🏠</div>
+        <p class="font-semibold">Home</p>
+      </button>
+
+      <button onclick="filterCategory('Beauty')"
+              class="bg-white p-5 rounded-xl text-center hover:shadow-lg">
+        <div class="text-4xl mb-2">💄</div>
+        <p class="font-semibold">Beauty</p>
+      </button>
+
+      <button onclick="filterCategory('Books')"
+              class="bg-white p-5 rounded-xl text-center hover:shadow-lg">
+        <div class="text-4xl mb-2">📚</div>
+        <p class="font-semibold">Books</p>
+      </button>
+
+      <button onclick="filterCategory('Sports')"
+              class="bg-white p-5 rounded-xl text-center hover:shadow-lg">
+        <div class="text-4xl mb-2">⚽</div>
+        <p class="font-semibold">Sports</p>
+      </button>
+
+    </div>
+  </section>
+
+  <!-- Products -->
+  <main id="products" class="max-w-7xl mx-auto px-4 py-8">
+
+    <div class="flex items-center justify-between mb-5">
+      <h2 class="text-2xl font-bold">Trending Products</h2>
+      <button onclick="filterCategory('All')"
+              class="text-blue-600 font-semibold">
+        View All
+      </button>
+    </div>
+
+    <p id="resultMessage" class="text-sm text-gray-500 mb-4">
+      Explore our latest products.
+    </p>
+
+    <div id="productGrid"
+         class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4
+                gap-4 md:gap-6">
+
+      <!-- Product 1 -->
+      <article data-category="Electronics"
+               data-name="Wireless Headphones"
+               class="product-card bg-white rounded-xl overflow-hidden
+                      shadow-sm hover:shadow-xl transition">
+
+        <div class="relative bg-gray-50">
+          <span class="absolute top-3 left-3 bg-green-600 text-white
+                       text-xs px-2 py-1 rounded">25% OFF</span>
+          <img src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?auto=format&fit=crop&w=600&q=80"
+               alt="Wireless headphones"
+               class="w-full h-44 md:h-56 object-contain p-4">
+        </div>
+
+        <div class="p-4">
+          <h3 class="font-semibold">Wireless Headphones</h3>
+          <p class="text-sm text-yellow-500 mt-1">★★★★★
+            <span class="text-gray-500">(120)</span>
+          </p>
+          <p class="mt-2 text-xl font-bold">Rs. 2,999</p>
+          <p class="text-sm text-gray-400 line-through">Rs. 3,999</p>
+          <button onclick="addToCart('Wireless Headphones')"
+                  class="add-btn mt-4 w-full bg-yellow-400
+                         hover:bg-yellow-500 py-2 rounded-lg font-bold">
+            Add to Cart
+          </button>
+        </div>
+      </article>
+
+      <!-- Product 2 -->
+      <article data-category="Electronics"
+               data-name="Smart Watch"
+               class="product-card bg-white rounded-xl overflow-hidden
+                      shadow-sm hover:shadow-xl transition">
+
+        <div class="relative bg-gray-50">
+          <span class="absolute top-3 left-3 bg-green-600 text-white
+                       text-xs px-2 py-1 rounded">20% OFF</span>
+          <img src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?auto=format&fit=crop&w=600&q=80"
+               alt="Smart watch"
+               class="w-full h-44 md:h-56 object-contain p-4">
+        </div>
+
+        <div class="p-4">
+          <h3 class="font-semibold">Smart Watch</h3>
+          <p class="text-sm text-yellow-500 mt-1">★★★★★
+            <span class="text-gray-500">(85)</span>
+          </p>
+          <p class="mt-2 text-xl font-bold">Rs. 3,999</p>
+          <p class="text-sm text-gray-400 line-through">Rs. 4,999</p>
+          <button onclick="addToCart('Smart Watch')"
+                  class="add-btn mt-4 w-full bg-yellow-400
+                         hover:bg-yellow-500 py-2 rounded-lg font-bold">
+            Add to Cart
+          </button>
+        </div>
+      </article>
+
+      <!-- Product 3 -->
+      <article data-category="Fashion"
+               data-name="Casual Sneakers"
+               class="product-card bg-white rounded-xl overflow-hidden
+                      shadow-sm hover:shadow-xl transition">
+
+        <div class="relative bg-gray-50">
+          <span class="absolute top-3 left-3 bg-green-600 text-white
+                       text-xs px-2 py-1 rounded">30% OFF</span>
+          <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&fit=crop&w=600&q=80"
+               alt="Casual sneakers"
+               class="w-full h-44 md:h-56 object-contain p-4">
+        </div>
+
+        <div class="p-4">
+          <h3 class="font-semibold">Casual Sneakers</h3>
+          <p class="text-sm text-yellow-500 mt-1">★★★★☆
+            <span class="text-gray-500">(65)</span>
+          </p>
+          <p class="mt-2 text-xl font-bold">Rs. 2,099</p>
+          <p class="text-sm text-gray-400 line-through">Rs. 2,999</p>
+          <button onclick="addToCart('Casual Sneakers')"
+                  class="add-btn mt-4 w-full bg-yellow-400
+                         hover:bg-yellow-500 py-2 rounded-lg font-bold">
+            Add to Cart
+          </button>
+        </div>
+      </article>
+
+      <!-- Product 4 -->
+      <article data-category="Electronics"
+               data-name="Digital Camera"
+               class="product-card bg-white rounded-xl overflow-hidden
+                      shadow-sm hover:shadow-xl transition">
+
+        <div class="relative bg-gray-50">
+          <span class="absolute top-3 left-3 bg-green-600 text-white
+                       text-xs px-2 py-1 rounded">15% OFF</span>
+          <img src="https://images.unsplash.com/photo-1516035069371-29a1b244cc32?auto=format&fit=crop&w=600&q=80"
+               alt="Digital camera"
+               class="w-full h-44 md:h-56 object-contain p-4">
+        </div>
+
+        <div class="p-4">
+          <h3 class="font-semibold">Digital Camera</h3>
+          <p class="text-sm text-yellow-500 mt-1">★★★★★
+            <span class="text-gray-500">(42)</span>
+          </p>
+          <p class="mt-2 text-xl font-bold">Rs. 24,999</p>
+          <p class="text-sm text-gray-400 line-through">Rs. 29,999</p>
+          <button onclick="addToCart('Digital Camera')"
+                  class="add-btn mt-4 w-full bg-yellow-400
+                         hover:bg-yellow-500 py-2 rounded-lg font-bold">
+            Add to Cart
+          </button>
+        </div>
+      </article>
+
+      <!-- Product 5 -->
+      <article data-category="Home"
+               data-name="Modern Table Lamp"
+               class="product-card bg-white rounded-xl overflow-hidden
+                      shadow-sm hover:shadow-xl transition">
+
+        <img src="https://images.unsplash.com/photo-1507473885765-e6ed057f782c?auto=format&fit=crop&w=600&q=80"
+             alt="Modern table lamp"
+             class="w-full h-44 md:h-56 object-contain p-4 bg-gray-50">
+
+        <div class="p-4">
+          <h3 class="font-semibold">Modern Table Lamp</h3>
+          <p class="text-sm text-yellow-500 mt-1">★★★★☆
+            <span class="text-gray-500">(38)</span>
+          </p>
+          <p class="mt-2 text-xl font-bold">Rs. 1,499</p>
+          <button onclick="addToCart('Modern Table Lamp')"
+                  class="add-btn mt-4 w-full bg-yellow-400
+                         hover:bg-yellow-500 py-2 rounded-lg font-bold">
+            Add to Cart
+          </button>
+        </div>
+      </article>
+
+      <!-- Product 6 -->
+      <article data-category="Beauty"
+               data-name="Skincare Essentials"
+               class="product-card bg-white rounded-xl overflow-hidden
+                      shadow-sm hover:shadow-xl transition">
+
+        <img src="https://images.unsplash.com/photo-1608248543803-ba4f8c70ae0b?auto=format&fit=crop&w=600&q=80"
+             alt="Skincare products"
+             class="w-full h-44 md:h-56 object-contain p-4 bg-gray-50">
+
+        <div class="p-4">
+          <h3 class="font-semibold">Skincare Essentials</h3>
+          <p class="text-sm text-yellow-500 mt-1">★★★★★
+            <span class="text-gray-500">(91)</span>
+          </p>
+          <p class="mt-2 text-xl font-bold">Rs. 899</p>
+          <button onclick="addToCart('Skincare Essentials')"
+                  class="add-btn mt-4 w-full bg-yellow-400
+                         hover:bg-yellow-500 py-2 rounded-lg font-bold">
+            Add to Cart
+          </button>
+        </div>
+      </article>
+
+      <!-- Product 7 -->
+      <article data-category="Books"
+               data-name="Programming Books"
+               class="product-card bg-white rounded-xl overflow-hidden
+                      shadow-sm hover:shadow-xl transition">
+
+        <img src="https://images.unsplash.com/photo-1512820790803-83ca734da794?auto=format&fit=crop&w=600&q=80"
+             alt="Books"
+             class="w-full h-44 md:h-56 object-contain p-4 bg-gray-50">
+
+        <div class="p-4">
+          <h3 class="font-semibold">Programming Books</h3>
+          <p class="text-sm text-yellow-500 mt-1">★★★★★
+            <span class="text-gray-500">(57)</span>
+          </p>
+          <p class="mt-2 text-xl font-bold">Rs. 699</p>
+          <button onclick="addToCart('Programming Books')"
+                  class="add-btn mt-4 w-full bg-yellow-400
+                         hover:bg-yellow-500 py-2 rounded-lg font-bold">
+            Add to Cart
+          </button>
+        </div>
+      </article>
+
+      <!-- Product 8 -->
+      <article data-category="Sports"
+               data-name="Football"
+               class="product-card bg-white rounded-xl overflow-hidden
+                      shadow-sm hover:shadow-xl transition">
+
+        <img src="https://images.unsplash.com/photo-1614632537423-1e6c2e7e0aab?auto=format&fit=crop&w=600&q=80"
+             alt="Sports football"
+             class="w-full h-44 md:h-56 object-contain p-4 bg-gray-50">
+
+        <div class="p-4">
+          <h3 class="font-semibold">Football</h3>
+          <p class="text-sm text-yellow-500 mt-1">★★★★☆
+            <span class="text-gray-500">(33)</span>
+          </p>
+          <p class="mt-2 text-xl font-bold">Rs. 999</p>
+          <button onclick="addToCart('Football')"
+                  class="add-btn mt-4 w-full bg-yellow-400
+                         hover:bg-yellow-500 py-2 rounded-lg font-bold">
+            Add to Cart
+          </button>
+        </div>
+      </article>
+
+    </div>
+
+    <p id="emptyMessage" class="hidden text-center py-12 text-gray-500">
+      No products found. Try another search.
+    </p>
+  </main>
+
+  <!-- Benefits -->
+  <section class="bg-white mt-4">
+    <div class="max-w-7xl mx-auto px-4 py-8 grid grid-cols-1
+                sm:grid-cols-3 gap-6 text-center">
+
+      <div>
+        <div class="text-3xl mb-2">🚚</div>
+        <h3 class="font-bold">Fast Delivery</h3>
+        <p class="text-sm text-gray-500">Convenient doorstep delivery</p>
+      </div>
+
+      <div>
+        <div class="text-3xl mb-2">🔒</div>
+        <h3 class="font-bold">Secure Shopping</h3>
+        <p class="text-sm text-gray-500">Shop with confidence</p>
+      </div>
+
+      <div>
+        <div class="text-3xl mb-2">↩️</div>
+        <h3 class="font-bold">Easy Returns</h3>
+        <p class="text-sm text-gray-500">Simple return experience</p>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-slate-900 text-white mt-8">
+    <div class="max-w-7xl mx-auto px-4 py-8 grid
+                grid-cols-2 md:grid-cols-4 gap-8">
+
+      <div>
+        <h3 class="text-xl font-bold text-yellow-400 mb-3">ShopZone.</h3>
+        <p class="text-gray-300 text-sm">
+          Your one-stop destination for online shopping.
+        </p>
+      </div>
+
+      <div>
+        <h4 class="font-bold mb-3">Quick Links</h4>
+        <p class="text-gray-300 text-sm mb-2">About Us</p>
+        <p class="text-gray-300 text-sm mb-2">Contact Us</p>
+        <p class="text-gray-300 text-sm">Careers</p>
+      </div>
+
+      <div>
+        <h4 class="font-bold mb-3">Customer Service</h4>
+        <p class="text-gray-300 text-sm mb-2">Help Center</p>
+        <p class="text-gray-300 text-sm mb-2">Returns</p>
+        <p class="text-gray-300 text-sm">Shipping Policy</p>
+      </div>
+
+      <div>
+        <h4 class="font-bold mb-3">Follow Us</h4>
+        <p class="text-gray-300 text-sm">Facebook</p>
+        <p class="text-gray-300 text-sm">Instagram</p>
+        <p class="text-gray-300 text-sm">YouTube</p>
+      </div>
+
+    </div>
+
+    <div class="border-t border-gray-700 text-center p-4 text-sm
+                text-gray-400">
+      © 2026 ShopZone. All rights reserved.
+    </div>
+  </footer>
+
+  <!-- JavaScript for search, categories and cart -->
+  <script>
+    let cart = [];
+
+    const products = [...document.querySelectorAll(".product-card")];
+    const searchInput = document.getElementById("searchInput");
+    const productGrid = document.getElementById("productGrid");
+    const resultMessage = document.getElementById("resultMessage");
+    const emptyMessage = document.getElementById("emptyMessage");
+
+    let selectedCategory = "All";
+
+    function displayProducts() {
+      const query = searchInput.value.toLowerCase().trim();
+      let visibleCount = 0;
+
+      products.forEach(product => {
+        const name = product.dataset.name.toLowerCase();
+        const category = product.dataset.category;
+        const matchesSearch = name.includes(query) ||
+                              category.toLowerCase().includes(query);
+        const matchesCategory = selectedCategory === "All" ||
+                                category === selectedCategory;
+
+        const show = matchesSearch && matchesCategory;
+        product.classList.toggle("hidden", !show);
+
+        if (show) visibleCount++;
+      });
+
+      resultMessage.textContent =
+        visibleCount + " product(s) found";
+
+      emptyMessage.classList.toggle("hidden", visibleCount !== 0);
+    }
+
+    document.getElementById("searchForm").addEventListener(
+      "submit", function(event) {
+        event.preventDefault();
+        displayProducts();
+        document.getElementById("products").scrollIntoView({
+          behavior: "smooth"
+        });
+      }
+    );
+
+    searchInput.addEventListener("input", displayProducts);
+
+    document.querySelectorAll(".category-btn").forEach(button => {
+      button.addEventListener("click", () => {
+        filterCategory(button.dataset.category);
+      });
+    });
+
+    function filterCategory(category) {
+      selectedCategory = category;
+      displayProducts();
+      document.getElementById("products").scrollIntoView({
+        behavior: "smooth"
+      });
+    }
+
+    function addToCart(name) {
+      cart.push(name);
+      document.getElementById("cartCount").textContent = cart.length;
+
+      alert(name + " added to your cart!");
+    }
+
+    document.getElementById("cartButton").addEventListener("click", () => {
+      if (cart.length === 0) {
+        alert("Your cart is empty.");
+        return;
+      }
+
+      alert("Your cart:\n\n" + cart.map(
+        (name, index) => (index + 1) + ". " + name
+      ).join("\n"));
+    });
+  </script>
+
+</body>
+</html>
