@@ -14,82 +14,97 @@
 
     .navbar {
       width: 100%;
-      height: 100px;
-      background-color: whitesmoke;
+      height: 60px;
+      background-color: white;
       display: flex;
       border-top-left-radius: 4px;
       border-top-right-radius: 4px;
     }
 
     .navbar-section {
-      padding: 20px;
+      padding: 15px;
       display: flex;
       position: relative;
       align-items: center;
       padding-left: 30px;
     }
 
-    .software{
-        position: absolute;
-        margin-top: 61px;
-        padding-left: 37px;
+    .software {
+      position: absolute;
+      margin-top: 51px;
+      padding-left: 33px;
     }
 
-    .Company{
-        color: rgb(92, 159, 201);
-        position: absolute;
-        margin-top: 61px;
-        padding-left: 100px;
+    .Company {
+      color: rgb(92, 159, 201);
+      position: absolute;
+      margin-top: 51px;
+      padding-left: 95px;
     }
 
-    img {
+    #image {
       padding-top: 10px;
-      width: 33px;
-      height: 38px;
+      width: 30px;
+      height: 30px;
       background-color: whitesmoke;
-      border-radius: 80px;
+      border-radius: 70px;
     }
 
     .navbar-select {
       display: flex;
       align-items: center;
       gap: 20px;
-      margin-left: 250px;
+      margin-left: 430px;
     }
 
     .sales {
+      height: 12px;
+      font: 20px sans-serif;
+      font-weight: bolder;
       display: flex;
       align-items: center;
       color: rgb(92, 159, 201);
     }
 
     .fusion {
+      height: 12px;
+      font: 20px sans-serif;
+      font-weight: bolder;
       display: flex;
       align-items: center;
+      position: relative;
+    }
+
+    sup {
+      position: absolute;
+      font-size: 5px;
+      margin-bottom: 20px;
+      margin-left: 50px;
     }
 
     .selectedCategory {
       display: flex;
       align-items: center;
       border: none;
-      background-color: #f5f5f5;
-      font-weight: bold;
+      background-color: white;
+      font-size: 14px;
+      font-weight: bolder;
+    }
+
+    .selectedCategory:hover {
+      color: #44a5db;
     }
 
     a {
-        color: black;
-        font-weight: bold;
-        margin-bottom: 4px;
-        text-decoration: none;
-        font-family: Arial, Helvetica, sans-serif;
-        font-size: 13px;
-
+      color: black;
+      font-weight: bold;
+      text-decoration: none;
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 14px;
     }
 
-    sup {
-      font-size: 7px;
-      margin-bottom: 20px;
-      margin-left: -12px;
+    a:hover {
+      color: #44a5db;
     }
 
     .button-section {
@@ -101,49 +116,169 @@
 
     .book {
       color: #44a5db;
-      font: 14px sans-serif;
+      font: 13px sans-serif;
       font-weight: bolder;
       text-transform: uppercase;
       background-color: #ddefff;
       border: none;
       width: 150px;
-      height: 50px;
+      height: 45px;
       border-radius: 5px;
       padding: 12px 8px;
+    }
+
+    .book:hover {
+      background-color: #cce7fe;
     }
 
     .login {
       color: #44a5db;
-      font: 14px sans-serif;
-       font-weight: bolder;
-       text-transform: uppercase;
+      font: 13px sans-serif;
+      font-weight: bolder;
+      text-transform: uppercase;
       background-color: #ddefff;
       border: none;
       width: 120px;
-      height: 50px;
+      height: 45px;
       border-radius: 5px;
       padding: 12px 8px;
     }
 
+    .login:hover {
+      background-color: #cce7fe;
+    }
+    
+    /*********** Navbar Completed and Main-Content **********/
+
     .main-content {
-        background-color: #0e4a7b;
-        width: full;
-        height: 600px;
+      background-color: #0e4a7b;
+      width: full;
+      height: 650px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 60px;
     }
 
+    .main-content-section {
+      margin-top: 50px;
+      width: 570px;
+      height: 370px;
+      border-radius: 10px;
+      background-color: #1c5685;
+      position: relative;
+    }
 
+    video {
+      margin: 10px;
+      width: 550px;
+      height: 350px;
+      border-radius: 10px;
+      object-fit: cover;
+    }
+
+    .realtime {
+      color: black;
+      font: 14px sans-serif;
+      font-weight: bolder;
+      position: absolute;
+      width: 35%;
+      height: 25px;
+      background-color: white;
+      border-radius: 10px;
+      text-align: center;
+      padding-top: 10px;
+    }
+
+    #image7 {
+      background-color: #1c5685;
+      margin-top: 20px;
+      width: 550px;
+      height: 350px;
+      border-radius: 10px;
+    }
+
+    .main-content-section-one {
+      color: white;
+    }
+
+    .salesfusion {
+      color: white;
+      font: 15px sans-serif;
+      background-color: #1c5685;
+      font-weight: bold;
+      width: 35%;
+      height: 25px;
+      border-radius: 25px;
+      text-align: center;
+      padding-top: 10px;
+    }
+
+    .features {
+      margin-top: 20px;
+      font-family: sans-serif;
+      line-height: 40px;
+    }
+
+    .Paragraph {
+      margin-top: 20px;
+      line-height: 25px;
+    }
+
+    /***********Main-Content Completed *******After-Main-Content********/
+
+    .after-main-content {
+      display: flex;
+      align-items: center;
+    }
+
+    .Paragraph-section-content-one {
+      display: flex;
+    }
+
+    /***********After-Main-Content Completed ***** Sales Fusion Started **************/
+
+     .header {
+      background-color: #f4f4f4;
+        margin-top: 30px;
+        padding: 30px;
+        text-align: center;
+    }
+
+    #header-one {
+      color: rgb(72 164 221 );
+    }
+
+    .Column-row-patition{
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 20px;
+        margin : 30px;
+        text-align: center;
+        font-family:'Times New Roman', Times, serif
+    }
+
+    img{
+        width: 40px;
+        height: 40px;
+        border-radius: 50px;
+
+    }
+
+    h3{
+        color: rgb(72, 164, 221);
+    }
   </style>
 
   <body>
     <div class="navbar">
       <div class="navbar-section">
-        <img src="image.png" alt="image" />
+        <img id="image" src="image.png" alt="image" />
         <h1 class="sales">sales</h1>
         <h1 class="fusion">fusion<sup>320</sup></h1>
-        <p class="software">Software </p> <p class="Company"> Company</p>
-
+        <p class="software">Software</p>
+        <p class="Company">Company</p>
       </div>
-
 
       <div class="navbar-select">
         <a href="#">Home</a>
@@ -167,9 +302,94 @@
       </div>
     </div>
 
-    <div class="main-content" >
+    <div class="main-content">
+      <div class="main-content-section">
+        <video autoplay muted loop playsinline>
+          <source src="bannervideo2.mp4" type="video/mp4" />
+        </video>
+        <h3 class="realtime">Real-time FMCG Analytics</h3>
+      </div>
 
+      <div class="main-content-section-one">
+        <h3 class="salesfusion">SalesFusion Platform</h3>
+        <h1 class="features">
+          Features Enhancing <br />FMCG Distribution Management
+        </h1>
+        <p class="Paragraph">
+          Gain complete visibility and control over inventory, sales, payments,
+          promotions,<br />
+          and distributor performance — all from one intelligent platform.
+        </p>
+        <img id="image7" src="hero6.webp" alt="image" />
+      </div>
+    </div>
 
+    <div class="after-main-content">
+      <div class="Paragraph-section-content">
+        <h1 class="trusted">Trusted by great brands</h1>
+        <p id="Paragraph-section">
+          HSPL’s esteemed customers derive huge business benefits as a result of
+          the <br> automation of after-sales value-chain using our state-of-the-art
+          technology <br> solutions. We are proud to maintain long, trusted
+          associations with global <br> leaders.
+        </p>
+        <div class="Paragraph-section-content-one">
+        <h1 id="vewiers">18K <br>DMS Users</h1>
+        <h1 id="Years"> 15 Years <br>Trusted Partnership</h1>
+      </div>
+      </div>
+      <div class="image-section-content">
+        <img id="image-slide" src="trusted1.webp" alt="image" /img>
+        <img id="image-slide" src="trusted2.webp" alt="image" /img>
+        <img id="image-slide" src="trusted3.webp" alt="image" /img>
+      </div>
+    </div>
+    <div class = "header">
+      <div>
+      <h1 id="header-one"> How Sales Fusion can help you?</h1>
+    
+    </div>
+    <div class="Column-row-patition">
+        <div>
+            <img src = "distributor.webp" alt="image" /img>
+            <h3> Distrubutor Operation Platform</h3>
+            <p> Achieve sales growth & secondary sales</p>
+            <p> visibility through Heera's Distribution</p>
+            <p> Management Solutions</p>
+        </div>
+        <div>
+             <img src = "team.webp" alt="image" /img>
+            <h3> Salees Team Automation</h3>
+            <p> Single platform that captures market</p>
+            <p> demand, manages merchandising, journey</p>
+            <p> planning & tracking for salesforce in real time</p>
+
+        </div>
+        <div>
+             <img src = "partner.webp" alt="image" /img>
+            <h3> Retail Partner App</h3>
+            <p> Discover new RTM ( Route-to-market) and</p>
+            <p> directly communicate with your retailers</p>
+        </div>
+        <div> 
+             <img src = "rural.webp" alt="image" /img>
+            <h3> Rural Distribution Management</h3>
+            <p> Expand your rural sales channels to match</p>
+            <p> the pace of rural economic growth</p>
+        </div>
+        <div>
+             <img src = "asset.webp" alt="image" /img>
+            <h3> Asset Tracking Sytem</h3>
+            <p> Tracking & Monitoring Asset Deployments at</p>
+            <p> Retail outlets and dealers</p>
+        </div>
+        <div>
+            <img src = "ai.webp" alt="image" /img>
+            <h3> AI & Data Intelligence</h3>
+            <p> Cutting edge AI to generate actionable</p>
+            <p> insights from your distribution data</p>
+        </div>
+    </div>
     </div>
   </body>
 </html>
