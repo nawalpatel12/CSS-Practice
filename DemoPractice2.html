@@ -4,271 +4,1420 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-  </head>
 
-  <style>
-    body {
-      margin: 0px;
-      padding: 0px;
-    }
+    <style>
+      body {
+        margin: 0px;
+        padding: 0px;
+      }
 
-    .navbar {
-      width: 100%;
-      height: 60px;
-      background-color: white;
-      display: flex;
-      border-top-left-radius: 4px;
-      border-top-right-radius: 4px;
-    }
+      .navbar {
+        width: 100%;
+        height: 75px;
+        background-color: white;
+        display: flex;
+        border-top-left-radius: 4px;
+        border-top-right-radius: 4px;
+        box-shadow: 0 0px 5px rgba(0, 0, 0, 0.1);
+        position: sticky;
+        top: 0px;
+        z-index: 100;
+      }
 
-    .navbar-section {
-      padding: 15px;
-      display: flex;
-      position: relative;
-      align-items: center;
-      padding-left: 30px;
-    }
+      .navbar-section {
+        padding: 15px;
+        display: flex;
+        position: relative;
+        align-items: center;
+        padding-left: 30px;
+      }
 
-    .software {
-      position: absolute;
-      margin-top: 51px;
-      padding-left: 33px;
-    }
+      .software {
+        font: 11px sans-serif;
+        font-weight: bold;
+        position: absolute;
+        margin-top: 45px;
+        padding-left: 33px;
+      }
 
-    .Company {
-      color: rgb(92, 159, 201);
-      position: absolute;
-      margin-top: 51px;
-      padding-left: 95px;
-    }
+      .Company {
+        font: 11px sans-serif;
+        font-weight: bold;
+        color: rgb(92, 159, 201);
+        position: absolute;
+        margin-top: 45px;
+        padding-left: 85px;
+      }
 
-    #image {
-      padding-top: 10px;
-      width: 30px;
-      height: 30px;
-      background-color: whitesmoke;
-      border-radius: 70px;
-    }
+      #image {
+        padding-top: 10px;
+        width: 30px;
+        height: 35px;
+        border-radius: 70px;
+      }
 
-    .navbar-select {
-      display: flex;
-      align-items: center;
-      gap: 20px;
-      margin-left: 430px;
-    }
+      .navbar-select {
+        display: flex;
+        align-items: center;
+        gap: 20px;
+        margin-left: 385px;
+      }
 
-    .sales {
-      height: 12px;
-      font: 20px sans-serif;
-      font-weight: bolder;
-      display: flex;
-      align-items: center;
-      color: rgb(92, 159, 201);
-    }
+      .sales {
+        height: 12px;
+        font: 20px sans-serif;
+        font-weight: bolder;
+        display: flex;
+        align-items: center;
+        color: rgb(92, 159, 201);
+      }
 
-    .fusion {
-      height: 12px;
-      font: 20px sans-serif;
-      font-weight: bolder;
-      display: flex;
-      align-items: center;
-      position: relative;
-    }
+      .fusion {
+        height: 12px;
+        font: 20px sans-serif;
+        font-weight: bolder;
+        display: flex;
+        align-items: center;
+        position: relative;
+      }
 
-    sup {
-      position: absolute;
-      font-size: 5px;
-      margin-bottom: 20px;
-      margin-left: 50px;
-    }
+      sup {
+        position: absolute;
+        font-size: 5px;
+        margin-bottom: 20px;
+        margin-left: 50px;
+      }
 
-    .selectedCategory {
-      display: flex;
-      align-items: center;
-      border: none;
-      background-color: white;
-      font-size: 14px;
-      font-weight: bolder;
-    }
+      .dropdown {
+        position: relative;
+        display: inline-block;
+      }
 
-    .selectedCategory:hover {
-      color: #44a5db;
-    }
+      .dropdown-trigger {
+        font: 14px sans-serif;
+        font-weight: bold;
+        cursor: pointer;
+        padding: 5px;
+      }
 
-    a {
-      color: black;
-      font-weight: bold;
-      text-decoration: none;
-      font-family: Arial, Helvetica, sans-serif;
-      font-size: 14px;
-    }
+      .dropdown-trigger:hover {
+        color: #44a5db;
+      }
 
-    a:hover {
-      color: #44a5db;
-    }
+      .dropdown-button:hover {
+        rotate: 180deg;
 
-    .button-section {
-      display: flex;
-      align-items: center;
-      gap: 30px;
-      margin-left: 50px;
-    }
+        color: #44a5db;
+      }
 
-    .book {
-      color: #44a5db;
-      font: 13px sans-serif;
-      font-weight: bolder;
-      text-transform: uppercase;
-      background-color: #ddefff;
-      border: none;
-      width: 150px;
-      height: 45px;
-      border-radius: 5px;
-      padding: 12px 8px;
-    }
+      .dropdown-button {
+        display: inline-block;
+        width: 5px;
+        height: 5px;
+        font-weight: bolder;
+        border-right: 1px solid black;
+        border-bottom: 1px solid black;
+        transform: rotate(45deg);
+        margin-bottom: 3px;
+      }
 
-    .book:hover {
-      background-color: #cce7fe;
-    }
+      .dropdown-content {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        background-color: white;
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+        padding: 10px 0;
+        border-bottom-left-radius: 10px;
+        border-bottom-right-radius: 10px;
+        border-top: 2px solid #44a5db;
+        z-index: 1;
+      }
 
-    .login {
-      color: #44a5db;
-      font: 13px sans-serif;
-      font-weight: bolder;
-      text-transform: uppercase;
-      background-color: #ddefff;
-      border: none;
-      width: 120px;
-      height: 45px;
-      border-radius: 5px;
-      padding: 12px 8px;
-    }
+      .dropdown-content:hover {
+        display: block;
+        color: #44a5db;
+      }
 
-    .login:hover {
-      background-color: #cce7fe;
-    }
-    
-    /*********** Navbar Completed and Main-Content **********/
+      .dropdown-content a {
+        width: 300px;
+        line-height: 3;
+        font: 10px sans-serif;
+        color: gray;
+        padding: 8px 16px;
+        display: block;
+      }
 
-    .main-content {
-      background-color: #0e4a7b;
-      width: full;
-      height: 650px;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      gap: 60px;
-    }
+      .dropdown-content a:hover {
+        background-color: #f0f4f8;
+        color: #0e67d3;
+      }
 
-    .main-content-section {
-      margin-top: 50px;
-      width: 570px;
-      height: 370px;
-      border-radius: 10px;
-      background-color: #1c5685;
-      position: relative;
-    }
+      .dropdown:hover .dropdown-content {
+        display: block;
+        color: #44a5db;
+      }
 
-    video {
-      margin: 10px;
-      width: 550px;
-      height: 350px;
-      border-radius: 10px;
-      object-fit: cover;
-    }
+      .navbar-select a {
+        color: black;
+        font-weight: bold;
+        text-decoration: none;
+        font-family: Arial, Helvetica, sans-serif;
+        font-size: 14px;
+      }
 
-    .realtime {
-      color: black;
-      font: 14px sans-serif;
-      font-weight: bolder;
-      position: absolute;
-      width: 35%;
-      height: 25px;
-      background-color: white;
-      border-radius: 10px;
-      text-align: center;
-      padding-top: 10px;
-    }
+      .navbar-select a:hover {
+        color: #44a5db;
+      }
 
-    #image7 {
-      background-color: #1c5685;
-      margin-top: 20px;
-      width: 550px;
-      height: 350px;
-      border-radius: 10px;
-    }
+      .button-section {
+        display: flex;
+        align-items: center;
+        gap: 30px;
+        margin-left: 50px;
+      }
 
-    .main-content-section-one {
-      color: white;
-    }
+      .book {
+        color: #44a5db;
+        font: 13px sans-serif;
+        font-weight: bolder;
+        text-transform: uppercase;
+        background-color: #ddefff;
+        border: none;
+        width: 150px;
+        height: 45px;
+        border-radius: 5px;
+        padding: 12px 8px;
+      }
 
-    .salesfusion {
-      color: white;
-      font: 15px sans-serif;
-      background-color: #1c5685;
-      font-weight: bold;
-      width: 35%;
-      height: 25px;
-      border-radius: 25px;
-      text-align: center;
-      padding-top: 10px;
-    }
+      .book:hover {
+        background-color: #cce7fe;
+      }
 
-    .features {
-      margin-top: 20px;
-      font-family: sans-serif;
-      line-height: 40px;
-    }
+      .login {
+        color: #44a5db;
+        font: 13px sans-serif;
+        font-weight: bolder;
+        text-transform: uppercase;
+        background-color: #ddefff;
+        border: none;
+        width: 120px;
+        height: 45px;
+        border-radius: 5px;
+        padding: 12px 8px;
+      }
 
-    .Paragraph {
-      margin-top: 20px;
-      line-height: 25px;
-    }
+      .login:hover {
+        background-color: #cce7fe;
+      }
+      /* ***********************************************SalesFusion Platform ***********************************/
 
-    /***********Main-Content Completed *******After-Main-Content********/
+      .main-content {
+        background-color: #0e4b81;
+        width: full;
+        height: 700px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 60px;
+      }
 
-    .after-main-content {
-      display: flex;
-      align-items: center;
-    }
+      .main-content-section {
+        margin-top: 50px;
+        width: 600px;
+        height: 370px;
+        border-radius: 10px;
+        background-color: #0c5391;
+        position: relative;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+      }
 
-    .Paragraph-section-content-one {
-      display: flex;
-    }
+      video {
+        margin: 10px;
+        width: 580px;
+        height: 350px;
+        border-radius: 10px;
+        object-fit: cover;
+        display: block;
+      }
 
-    /***********After-Main-Content Completed ***** Sales Fusion Started **************/
+      .realtime {
+        position: absolute;
+        top: 95%;
+        left: 32px;
+        background: #f5f5f5;
+        color: #242360;
+        padding: 12px 20px;
+        border-radius: 10px;
+        font: 14px sans-serif;
+        font-weight: bold;
+      }
 
-     .header {
-      background-color: #f4f4f4;
-        margin-top: 30px;
-        padding: 30px;
+      #image7 {
+        background-color: #0e4b81;
+        margin-top: 20px;
+        width: 550px;
+        height: 350px;
+        border-radius: 10px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+      }
+
+      .main-content-section-one {
+        color: white;
+      }
+
+      .salesfusion {
+        color: white;
+        font: 15px sans-serif;
+        background-color: #1c5685;
+        font-weight: bold;
+        width: 35%;
+        height: 25px;
+        border-radius: 25px;
         text-align: center;
-    }
+        margin: 0px;
+        padding-top: 10px;
+      }
 
-    #header-one {
-      color: rgb(72 164 221 );
-    }
+      .features {
+        margin-top: 20px;
+        font-family: sans-serif;
+        line-height: 40px;
+      }
 
-    .Column-row-patition{
+      .Paragraph {
+        margin-top: 20px;
+        line-height: 25px;
+      }
+
+      /********************** Trusted by great brands ****************************************/
+
+      .after-main-content {
+        margin: 30px;
+        padding: 30px;
+        width: full;
+        height: 400px;
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        margin: 0px 0px 50px;
+      }
+
+      .Paragraph-section-content #trusted {
+        color: #242360;
+        font: 30px sans-serif;
+        font-weight: bold;
+        margin: 40px 0px 40px;
+        position: relative;
+      }
+
+      .Paragraph-section-content #trusted::before {
+        content: "";
+        position: absolute;
+        margin-top: 50px;
+        width: 80px;
+        height: 8px;
+        border-radius: 25px;
+        background-color: #44a5db;
+      }
+
+      .Paragraph-section-content #esteemed {
+        color: gray;
+        font: 16px sans-serif;
+        line-height: 25px;
+        margin: 0 0 10px;
+        position: relative;
+      }
+
+      .Paragraph-section-content #esteemed::before {
+        content: "";
+        position: absolute;
+        margin-top: 22%;
+        width: 16cm;
+        height: 0.1px;
+        border-radius: 25px;
+        background-color: rgb(238, 236, 236);
+      }
+
+      .Paragraph-section-content-one {
+       padding-top: 20px;
+        display: flex;
+        flex-direction: flex-start;
+        margin-top: 25px;
+        gap: 30px;
+      }
+
+      .DM-user-image {
+        display: flex;
+        margin-right: 50px;
+      }
+
+      .DM-user {
+        font: 16px sans-serif;
+        margin-bottom: -10px;
+        position: relative;
+      }
+
+      .DM-user p {
+        color: gray;
+        font: 16px sans-serif;
+        font-weight: 100px;
+        margin-top: 0px;
+      }
+
+      .DM-user img {
+        width: 20px;
+        height: 20px;
+        border-radius: 0%;
+        position: absolute;
+      }
+
+      .Viewers-image {
+        display: flex;
+      }
+
+      .Viewers {
+        font: 16px sans-serif;
+        margin-bottom: -10px;
+      }
+
+      .Viewers p {
+        color: gray;
+        font: 16px sans-serif;
+        font-weight: 100px;
+        text-transform: uppercase;
+        margin-top: 0px;
+        position: relative;
+      }
+
+      .Viewers img {
+        width: 20px;
+        height: 20px;
+        border-radius: 0%;
+        position: absolute;
+      }
+
+      #image-slide {
+        width: 500px;
+        height: 280px;
+        border-radius: 2px;
+        overflow: hidden;
+        background-color: #0e3b60;
+      }
+
+      /* How SalesFusion can help you */
+
+      .header {
+        background-color: rgb(237, 245, 250);
+        padding: 40px;
+        text-align: center;
+      }
+
+      #header-one {
+        padding: 30px;
+        color: rgb(72 164 221);
+        font: 30px sans-serif;
+        font-weight: bold;
+      }
+
+      .Column-row-patition {
         display: grid;
         grid-template-columns: repeat(3, 1fr);
-        gap: 20px;
-        margin : 30px;
+        row-gap: 30px;
+        column-gap: 20px;
+        margin: 30px;
         text-align: center;
-        font-family:'Times New Roman', Times, serif
-    }
+        font: 16px sans-serif;
+      }
 
-    img{
+      .Column-row-patition img {
+        padding: 10px;
+        background-color: white;
         width: 40px;
         height: 40px;
         border-radius: 50px;
+        object-fit: fill;
+      }
 
-    }
-
-    h3{
+      h3 {
         color: rgb(72, 164, 221);
-    }
-  </style>
+        font: 16px sans-serif;
+        font-weight: bold;
+      }
+
+      .Column-row-patition p {
+        color: gray;
+        font: 16px sans-serif;
+        line-height: 15px;
+      }
+
+      /********************************* Why businesses choose SalesFusion*************************** */
+
+      .business-salefusion {
+        width: full;
+        height: 450px;
+        background-color: #0e4b81;
+        padding: 40px;
+      }
+
+      #business-header {
+        margin: 0px 0px 48px;
+        padding: 10px;
+        color: white;
+        font: 30px sans-serif;
+        text-align: center;
+        font-weight: bold;
+      }
+
+      .business-section {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 30px;
+      }
+
+      .business-section-content {
+        width: 1100px;
+        height: 350px;
+        border-top-left-radius: 50px;
+        border-bottom-right-radius: 50px;
+        background-color: white;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        justify-content: space-evenly;
+      }
+
+      #end-to-end {
+        width: 500px;
+        height: 275px;
+      }
+
+      #second-header {
+        color: #242360;
+        font: 30px sans-serif;
+        font-weight: bold;
+        margin: 0px 0px 20px;
+      }
+
+      #business-paragraph {
+        color: gray;
+        font: 16px sans-serif;
+        line-height: 23px;
+      }
+
+      #left-button {
+        color: white;
+        background-color: #0e4b81;
+        width: 40px;
+        height: 40px;
+        border-radius: 50px;
+        border: none;
+        font-size: 25px;
+        font-weight: bolder;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+      }
+
+      #right-button {
+        color: white;
+        background-color: #0e4b81;
+        width: 40px;
+        height: 40px;
+        border-radius: 50px;
+        border: none;
+        font-size: 25px;
+        font-weight: bolder;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+      }
+
+      /************************************************************* Industries******************************* */
+      .Industries {
+        padding: 80px;
+        background-color: rgb(221, 240, 253);
+        width: full;
+        height: max-content;
+      }
+
+      .industrie-header {
+        padding: 20px;
+        color: #0a0a0a;
+        font: 16px sans-serif;
+        text-align: center;
+        position: relative;
+      }
+
+      .industrie-content {
+        display: grid;
+        grid-template-columns: repeat(3, 2fr);
+        align-items: center;
+        column-gap: 25px;
+        row-gap: 25px;
+        padding: 0 85px 0 85px;
+      }
+
+      .Fmc-import {
+        width: 400px;
+        height: 222px;
+        padding: 30px 30px;
+        background-color: #f3f4f6;
+        box-sizing: border-box;
+      }
+
+      .Fmc-import h1 {
+        color: var(--color-gray-800);
+        font: 16px sans-serif;
+        font-weight: bold;
+        margin: 0 0 15px;
+      }
+
+      .Fmc-import p {
+        color: gray;
+        font: 16px sans-serif;
+        line-height: 1.6;
+        margin: 0 0 20px;
+      }
+
+      .Fmc-import h2 {
+        color: rgb(72 164 221);
+        font: 12px sans-serif;
+        font-weight: bolder;
+        margin: 0 0 20px;
+        position: relative;
+        z-index: 1;
+      }
+
+      .Fmc-import span {
+        font-size: 15px;
+        font-weight: bolder;
+        margin-left: 10px;
+      }
+      .Fmc-import h2::before {
+        content: "";
+        position: absolute;
+        width: 40px;
+        height: 40px;
+        background-color: #bcd8fa;
+        border-radius: 50%;
+        left: -8px;
+        top: -6px;
+        z-index: -1;
+      }
+
+      .Fmc-import:hover {
+        box-shadow: 0 8px 15px rgba(0, 0, 0, 0.12);
+      }
+
+      .manufracturing {
+        width: 400px;
+        height: 222px;
+        padding: 30px 30px;
+        background-color: #f3f4f6;
+        box-sizing: border-box;
+      }
+
+      .manufracturing h1 {
+        color: var(--color-gray-800);
+        font: 16px sans-serif;
+        font-weight: bold;
+        margin: 0 0 15px;
+      }
+
+      .manufracturing p {
+        color: gray;
+        font: 16px sans-serif;
+        line-height: 1.6;
+        margin: 0 0 20px;
+      }
+
+      .manufracturing h2 {
+        color: rgb(72 164 221);
+        font: 12px sans-serif;
+        font-weight: bolder;
+        margin: 0 0 20px;
+        position: relative;
+        z-index: 1;
+      }
+
+      .manufracturing span {
+        font-size: 15px;
+        font-weight: bolder;
+        margin-left: 10px;
+      }
+      .manufracturing h2::before {
+        content: "";
+        position: absolute;
+        width: 40px;
+        height: 40px;
+        background-color: #bcd8fa;
+        border-radius: 50%;
+        left: -8px;
+        top: -6px;
+        z-index: -1;
+      }
+
+      .manufracturing:hover {
+        box-shadow: 0 8px 15px rgba(0, 0, 0, 0.12);
+      }
+
+      .supermarket {
+        width: 400px;
+        height: 222px;
+        padding: 30px 30px;
+        background-color: #f3f4f6;
+        box-sizing: border-box;
+      }
+
+      .supermarket h1 {
+        color: var(--color-gray-800);
+        font: 16px sans-serif;
+        font-weight: bold;
+        margin: 0 0 15px;
+      }
+
+      .supermarket p {
+        color: gray;
+        font: 16px sans-serif;
+        line-height: 1.6;
+        margin: 0 0 20px;
+      }
+
+      .supermarket h2 {
+        color: rgb(72 164 221);
+        font: 12px sans-serif;
+        font-weight: bolder;
+        margin: 0 0 20px;
+        position: relative;
+        z-index: 1;
+      }
+
+      .supermarket span {
+        font-size: 15px;
+        font-weight: bolder;
+        margin-left: 10px;
+      }
+
+      .supermarket h2::before {
+        content: "";
+        position: absolute;
+        width: 40px;
+        height: 40px;
+        background-color: #bcd8fa;
+        border-radius: 50%;
+        left: -8px;
+        top: -6px;
+        z-index: -1;
+      }
+
+      .supermarket:hover {
+        box-shadow: 0 8px 15px rgba(0, 0, 0, 0.12);
+      }
+
+      .Education {
+        width: 400px;
+        height: 222px;
+        padding: 30px 30px;
+        background-color: #f3f4f6;
+        box-sizing: border-box;
+      }
+
+      .Education h1 {
+        color: var(--color-gray-800);
+        font: 16px sans-serif;
+        font-weight: bold;
+        margin: 0 0 15px;
+      }
+
+      .Education p {
+        color: gray;
+        font: 16px sans-serif;
+        line-height: 1.6;
+        margin: 0 0 20px;
+      }
+
+      .Education h2 {
+        color: rgb(72 164 221);
+        font: 12px sans-serif;
+        font-weight: bolder;
+        margin: 0 0 20px;
+        position: relative;
+        z-index: 1;
+      }
+
+      .Education span {
+        font-size: 15px;
+        font-weight: bolder;
+        margin-left: 10px;
+      }
+      .Education h2::before {
+        content: "";
+        position: absolute;
+        width: 40px;
+        height: 40px;
+        background-color: #bcd8fa;
+        border-radius: 50%;
+        left: -8px;
+        top: -6px;
+        z-index: -1;
+      }
+
+      .Education:hover {
+        box-shadow: 0 8px 15px rgba(0, 0, 0, 0.12);
+      }
+
+      .Hospitality {
+        width: 400px;
+        height: 222px;
+        padding: 30px 30px;
+        background-color: #f3f4f6;
+        border-radius: 10px;
+        box-sizing: border-box;
+      }
+
+      .Hospitality h1 {
+        color: var(--color-gray-800);
+        font: 16px sans-serif;
+        font-weight: bold;
+        margin: 0 0 15px;
+      }
+
+      .Hospitality p {
+        color: gray;
+        font: 16px sans-serif;
+        line-height: 1.6;
+        margin: 0 0 20px;
+      }
+
+      .Hospitality h2 {
+        color: rgb(72 164 221);
+        font: 12px sans-serif;
+        font-weight: bolder;
+        margin: 0 0 20px;
+        position: relative;
+        z-index: 1;
+      }
+
+      .Hospitality span {
+        font-size: 15px;
+        font-weight: bolder;
+        margin-left: 10px;
+      }
+      .Hospitality h2::before {
+        content: "";
+        position: absolute;
+        width: 40px;
+        height: 40px;
+        background-color: #bcd8fa;
+        border-radius: 50%;
+        left: -8px;
+        top: -6px;
+        z-index: -1;
+      }
+
+      .Hospitality:hover {
+        box-shadow: 0 8px 15px rgba(0, 0, 0, 0.12);
+      }
+
+      .Media {
+        width: 400px;
+        height: 222px;
+        padding: 30px 30px;
+        background-color: #f3f4f6;
+        box-sizing: border-box;
+      }
+
+      .Media h1 {
+        color: var(--color-gray-800);
+        font: 16px sans-serif;
+        font-weight: bold;
+        margin: 0 0 15px;
+      }
+
+      .Media p {
+        color: gray;
+        font: 16px sans-serif;
+        line-height: 1.6;
+        margin: 0 0 20px;
+      }
+
+      .Media h2 {
+        color: rgb(72 164 221);
+        font: 12px sans-serif;
+        font-weight: bolder;
+        margin: 0 0 20px;
+        position: relative;
+        z-index: 1;
+      }
+
+      .Media span {
+        font-size: 15px;
+        font-weight: bolder;
+        margin-left: 10px;
+      }
+
+      .Media h2::before {
+        content: "";
+        position: absolute;
+        width: 40px;
+        height: 40px;
+        background-color: #bcd8fa;
+        border-radius: 50%;
+        left: -8px;
+        top: -6px;
+        z-index: -1;
+      }
+
+      .Media:hover {
+        box-shadow: 0 8px 15px rgba(0, 0, 0, 0.12);
+      }
+
+      .Agriculture {
+        width: 400px;
+        height: 222px;
+        padding: 30px 30px;
+        background-color: #f3f4f6;
+        box-sizing: border-box;
+      }
+
+      .Agriculture h1 {
+        color: var(--color-gray-800);
+        font: 16px sans-serif;
+        font-weight: bold;
+        margin: 0 0 15px;
+      }
+
+      .Agriculture p {
+        color: gray;
+        font: 16px sans-serif;
+        line-height: 1.6;
+        margin: 0 0 20px;
+      }
+
+      .Agriculture h2 {
+        color: rgb(72 164 221);
+        font: 12px sans-serif;
+        font-weight: bolder;
+        margin: 0 0 20px;
+        position: relative;
+        z-index: 1;
+      }
+
+      .Agriculture span {
+        font-size: 15px;
+        font-weight: bolder;
+        margin-left: 10px;
+      }
+      .Agriculture h2::before {
+        content: "";
+        position: absolute;
+        width: 40px;
+        height: 40px;
+        background-color: #bcd8fa;
+        border-radius: 50%;
+        left: -8px;
+        top: -6px;
+        z-index: -1;
+      }
+
+      .Agriculture:hover {
+        box-shadow: 0 8px 15px rgba(0, 0, 0, 0.12);
+      }
+
+      .Food {
+        width: 400px;
+        height: 222px;
+        padding: 30px 30px;
+        background-color: #f3f4f6;
+        box-sizing: border-box;
+      }
+
+      .Food h1 {
+        color: var(--color-gray-800);
+        font: 16px sans-serif;
+        font-weight: bold;
+        margin: 0 0 15px;
+      }
+
+      .Food p {
+        color: gray;
+        font: 16px sans-serif;
+        line-height: 1.6;
+        margin: 0 0 20px;
+      }
+
+      .Food h2 {
+        color: rgb(72 164 221);
+        font: 12px sans-serif;
+        font-weight: bolder;
+        margin: 0 0 20px;
+        position: relative;
+        z-index: 1;
+      }
+
+      .Food span {
+        font-size: 15px;
+        font-weight: bolder;
+        margin-left: 10px;
+      }
+
+      .Food h2::before {
+        content: "";
+        position: absolute;
+        width: 40px;
+        height: 40px;
+        background-color: #bcd8fa;
+        border-radius: 50%;
+        left: -8px;
+        top: -6px;
+        z-index: -1;
+      }
+
+      .Food:hover {
+        box-shadow: 0 8px 15px rgba(0, 0, 0, 0.12);
+      }
+
+      /* Case study */
+
+      .case-study {
+        padding: 30px;
+        background-color: #0e4b81;
+        width: full;
+        height: 700px;
+        display: flex;
+        justify-content: center;
+        gap: 3cm;
+        align-items: center;
+      }
+
+      .case-study-image img {
+        width: 448px;
+        height: 597px;
+        border-top-left-radius: 30px;
+        border-bottom-right-radius: 20%;
+        margin-left: 15px;
+      }
+
+      .case-study-paragraph h2 {
+        color: #c9c8c8;
+        font: 14px sans-serif;
+        margin: 0 0 12px;
+        text-transform: uppercase;
+        font-weight: bolder;
+      }
+
+      .case-study-paragraph h1 {
+        font: 30px sans-serif;
+        color: white;
+        font-weight: bolder;
+        margin: 0 0 40px;
+      }
+
+      .case-study-paragraph p {
+        color: white;
+        font: 16px sans-serif;
+        line-height: 1.6;
+        margin: 0 0 20px;
+      }
+
+      .case-study-paragraph button {
+        background-color: white;
+        margin-top: 12px;
+        color: #3aa0df;
+        font: 14px sans-serif;
+        font-weight: bolder;
+        width: 170px;
+        padding: 14px;
+        border: none;
+        border-radius: 10px;
+      }
+
+      /***********************************Realted-Blogs*******************************************************/
+
+      .related-blogs {
+        width: full;
+        height: 650px;
+        padding: 45px;
+      }
+
+      .related-blogs-header {
+        position: relative;
+        text-align: center;
+        color: #242360;
+        font: 16px sans-serif;
+      }
+
+      .related-blogs-paragraph {
+        display: grid;
+        grid-template-columns: repeat(4, 0fr);
+        column-gap: 30px;
+        margin: 10px 0 35px;
+        padding: 40px;
+      }
+      .related-blogs-one {
+        width: 280px;
+        height: 460px;
+        overflow: hidden;
+        box-shadow: 0 5px 10px rgba(0, 0, 0, 0.15);
+        padding: 16px;
+      }
+      .related-blogs-one img {
+        width: 280px;
+        height: 160px;
+        border-radius: 10px;
+        margin: 0 0 12px;
+        overflow: hidden;
+      }
+
+      .related-blogs-one h1 {
+        font: 20px sans-serif;
+        color: #242360;
+        margin: 0 0 12px;
+        font-weight: bolder;
+        padding-top: 20px;
+        line-height: 1.3;
+      }
+
+      .related-blogs-one p {
+        color: gray;
+        font: 14px sans-serif;
+        margin: 0 0 12px;
+        line-height: 1.5;
+        padding-top: 10px;
+      }
+
+      .related-blogs-one button {
+        margin: 0px 0 0 27%;
+        color: white;
+        text-align: center;
+        border: none;
+        background-color: #0e4b81;
+        text-transform: uppercase;
+        width: 3.5cm;
+        height: 1.1cm;
+        border-radius: 7px;
+        font-weight: 500px;
+      }
+
+      .related-blogs-two {
+        width: 280px;
+        height: 460px;
+        overflow: hidden;
+        box-shadow: 0 5px 10px rgba(0, 0, 0, 0.15);
+        padding: 16px;
+      }
+      .related-blogs-two img {
+        width: 280px;
+        height: 160px;
+        border-radius: 10px;
+        margin: 0 0 12px;
+        overflow: hidden;
+      }
+
+      .related-blogs-two h1 {
+        font: 20px sans-serif;
+        color: #242360;
+        margin: 0 0 12px;
+        font-weight: bolder;
+        padding-top: 20px;
+        line-height: 1.3;
+      }
+
+      .related-blogs-two p {
+        color: gray;
+        font: 14px sans-serif;
+        margin: 0 0 12px;
+        line-height: 1.5;
+        padding-top: 10px;
+      }
+
+      .related-blogs-two button {
+        margin: 26px 0 0 27%;
+        color: white;
+        text-align: center;
+        border: none;
+        background-color: #0e4b81;
+        text-transform: uppercase;
+        width: 3.5cm;
+        height: 1.1cm;
+        border-radius: 7px;
+        font-weight: 500px;
+      }
+
+      .related-blogs-three {
+        width: 280px;
+        height: 460px;
+        overflow: hidden;
+        box-shadow: 0 5px 10px rgba(0, 0, 0, 0.15);
+        padding: 16px;
+      }
+      .related-blogs-three img {
+        width: 280px;
+        height: 160px;
+        border-radius: 10px;
+        margin: 0 0 12px;
+        overflow: hidden;
+      }
+
+      .related-blogs-three h1 {
+        font: 20px sans-serif;
+        color: #242360;
+        margin: 0 0 12px;
+        font-weight: bolder;
+        padding-top: 20px;
+        line-height: 1.3;
+      }
+
+      .related-blogs-three p {
+        color: gray;
+        font: 14px sans-serif;
+        margin: 0 0 12px;
+        line-height: 1.5;
+        padding-top: 10px;
+      }
+
+      .related-blogs-three button {
+        margin: 52px 0 0 27%;
+        color: white;
+        text-align: center;
+        border: none;
+        background-color: #0e4b81;
+        text-transform: uppercase;
+        width: 3.5cm;
+        height: 1.1cm;
+        border-radius: 7px;
+        font-weight: 500px;
+      }
+
+      .related-blogs-four {
+        width: 280px;
+        height: 460px;
+        overflow: hidden;
+        box-shadow: 0 5px 10px rgba(0, 0, 0, 0.15);
+        padding: 16px;
+      }
+
+      .related-blogs-four img {
+        width: 280px;
+        height: 160px;
+        border-radius: 10px;
+        margin: 0 0 12px;
+        overflow: hidden;
+      }
+
+      .related-blogs-four h1 {
+        font: 20px sans-serif;
+        color: #242360;
+        margin: 0 0 12px;
+        font-weight: bolder;
+        padding-top: 20px;
+        line-height: 1.3;
+      }
+
+      .related-blogs-four p {
+        color: gray;
+        font: 14px sans-serif;
+        margin: 0 0 12px;
+        line-height: 1.5;
+        padding-top: 10px;
+      }
+
+      .related-blogs-four button {
+        margin: 25px 0 0 27%;
+        color: white;
+        text-align: center;
+        border: none;
+        background-color: #0e4b81;
+        text-transform: uppercase;
+        width: 3.5cm;
+        height: 1.1cm;
+        border-radius: 7px;
+        font-weight: 500px;
+      }
+
+      /* *****************************Looking for a first-class distribution platform?********************************** */
+
+      .First-Class-Distribution {
+        width: full;
+        height: 50px;
+        padding: 25px;
+        background-color: black;
+        display: flex;
+        justify-content: center;
+        justify-content: start;
+        align-items: center;
+      }
+
+      .First-Class-Distribution p {
+        color: white;
+        font: 24px sans-serif;
+        margin-left: 8%;
+      }
+
+      .First-Class-Distribution span {
+        color: white;
+        font: 24px sans-serif;
+        margin: 0 0 12px;
+        font-weight: bolder;
+        padding-top: 10px;
+      }
+
+      .First-Class-Distribution button {
+        font: 16px sans-serif;
+        color: white;
+        text-align: center;
+        border: none;
+        background-color: red;
+        text-transform: uppercase;
+        width: 3.5cm;
+        height: 1cm;
+        border-radius: 7px;
+        font-weight: 500px;
+        margin-left: 25%;
+        margin-top: 5px;
+      }
+
+      /***************************************Footer******************************************************/
+
+      .footer {
+        display: grid;
+        grid-template-columns: repeat(5, 1fr);
+        gap: 30px;
+        padding: 80px 10% 60px;
+        background-color: #f3f4f7;
+      }
+
+      .footer-logo {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 30px;
+      }
+
+      .logo {
+        display: flex;
+        align-items: center;
+      }
+
+      .logo img {
+        background-color: #f3f4f7;
+        width: 32px;
+        height: 32px;
+        object-fit: contain;
+        border-radius: 100%;
+      }
+
+      .sales {
+        font-size: 25px;
+        font-weight: bold;
+        color: #44a5db;
+      }
+
+      .fusion {
+        font-size: 25px;
+        font-weight: bold;
+        color: #222;
+        position: relative;
+      }
+
+      sup {
+        position: absolute;
+        font-size: 5px;
+        margin-bottom: 20px;
+        margin-left: 65px;
+      }
+
+      .social-Media {
+        display: flex;
+        gap: 15px;
+      }
+
+      .social-Media a {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 30px;
+        height: 30px;
+        border-radius: 50%;
+        background-color: #d9dce2;
+        color: #4c596b;
+        font-size: 16px;
+        font-weight: bolder;
+        text-decoration: none;
+      }
+
+      .footer-contact {
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+      }
+
+      .address {
+        display: flex;
+        align-items: flex-start;
+        gap: 20px;
+        margin: 0;
+        color: #657386;
+        font: 16px sans-serif;
+        line-height: 1.6;
+      }
+
+      .address img {
+        width: 30px;
+        height: 25px;
+      }
+
+      .contact-item {
+        display: flex;
+        align-items: flex-start;
+        gap: 18px;
+        margin: 0;
+        color: #657386;
+        font: 14px sans-serif;
+        line-height: 1.6;
+      }
+
+      .contact-icon {
+        width: 15px;
+        color: #657386;
+        font-size: 14px;
+      }
+
+      .footer-contact a {
+        color: #657386;
+        text-decoration: none;
+      }
+
+      .footer-column {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 15px;
+      }
+
+      .footer-column h2 {
+        margin: 0 0 8px;
+        color: #111;
+        font: 16px sans-serif;
+        font-weight: bold;
+      }
+
+      .footer-column a {
+        color: #657386;
+        font: 14px sans-serif;
+        text-decoration: none;
+      }
+
+      .footer a:hover {
+        color: #44a5db;
+      }
+
+      .social-Media a:hover {
+        background-color: #44a5db;
+        color: white;
+        text-decoration: none;
+      }
+    </style>
+  </head>
 
   <body>
     <div class="navbar">
@@ -282,18 +1431,44 @@
 
       <div class="navbar-select">
         <a href="#">Home</a>
+        <p>
+          <span class="dropdown">
+            <span class="dropdown-trigger">Solutions</span>
+            <span class="dropdown-button"> </span>
+            <span class="dropdown-content">
+              <a href="#">Distributor Operation Platform</a>
+              <a href="#">Sales Team Automation</a>
+              <a href="#">Retail Partner App</a>
+              <a href="#">Rural Distribution Management</a>
+              <a href="#">Asset Tracking System</a>
+              <a href="#">AI & Data Intelligence</a>
+            </span>
+          </span>
+        </p>
 
-        <select class="selectedCategory">
-          <option>Solutions</option>
-        </select>
+        <p>
+          <span class="dropdown">
+            <span class="dropdown-trigger">Resources</span>
+            <span class="dropdown-button"> </span>
+            <span class="dropdown-content">
+              <a href="#">Blogs</a>
+              <a href="#">Customer Stories</a>
+            </span>
+          </span>
+        </p>
 
-        <select class="selectedCategory">
-          <option>Resources</option>
-        </select>
-
-        <select class="selectedCategory">
-          <option>About Us</option>
-        </select>
+        <p>
+          <span class="dropdown">
+            <span class="dropdown-trigger">About Us</span>
+            <span class="dropdown-button"> </span>
+            <span class="dropdown-content">
+              <a href="#">About salesfusion</a>
+              <a href="#">Careers</a>
+              <a href="#">Contact Us</a>
+              <a href="#">Partners</a>
+            </span>
+          </span>
+        </p>
       </div>
 
       <div class="button-section">
@@ -307,7 +1482,7 @@
         <video autoplay muted loop playsinline>
           <source src="bannervideo2.mp4" type="video/mp4" />
         </video>
-        <h3 class="realtime">Real-time FMCG Analytics</h3>
+        <div class="realtime">Real-time FMCG Analytics</div>
       </div>
 
       <div class="main-content-section-one">
@@ -326,70 +1501,346 @@
 
     <div class="after-main-content">
       <div class="Paragraph-section-content">
-        <h1 class="trusted">Trusted by great brands</h1>
-        <p id="Paragraph-section">
+        <h1 id="trusted">Trusted by great brands</h1>
+        <p id="esteemed">
           HSPL’s esteemed customers derive huge business benefits as a result of
-          the <br> automation of after-sales value-chain using our state-of-the-art
-          technology <br> solutions. We are proud to maintain long, trusted
-          associations with global <br> leaders.
+          the
+          <br />
+          automation of after-sales value-chain using our state-of-the-art
+          technology
+          <br />
+          solutions. We are proud to maintain long, trusted associations with
+          global
+          <br />
+          leaders.
         </p>
         <div class="Paragraph-section-content-one">
-        <h1 id="vewiers">18K <br>DMS Users</h1>
-        <h1 id="Years"> 15 Years <br>Trusted Partnership</h1>
-      </div>
+          <div class="DM-user">
+            <div class="DM-user-image">
+              <img src="users.jpeg" alt="image" />
+              <h1>18K</h1>
+            </div>
+            <p>DM USERS</p>
+          </div>
+          <div class="Viewers">
+            <div class="Viewers-image">
+              <img src="trusted.jpeg" alt="image" />
+              <h1>15 Years</h1>
+            </div>
+            <p>Trusted Partnership</p>
+          </div>
+        </div>
       </div>
       <div class="image-section-content">
-        <img id="image-slide" src="trusted1.webp" alt="image" /img>
-        <img id="image-slide" src="trusted2.webp" alt="image" /img>
-        <img id="image-slide" src="trusted3.webp" alt="image" /img>
+        <img id="image-slide" src="trusted1.webp" alt="image" />
       </div>
     </div>
-    <div class = "header">
+    <div class="header">
       <div>
-      <h1 id="header-one"> How Sales Fusion can help you?</h1>
-    
-    </div>
-    <div class="Column-row-patition">
+        <h1 id="header-one">How Sales Fusion can help you?</h1>
+      </div>
+      <div class="Column-row-patition">
         <div>
-            <img src = "distributor.webp" alt="image" /img>
-            <h3> Distrubutor Operation Platform</h3>
-            <p> Achieve sales growth & secondary sales</p>
-            <p> visibility through Heera's Distribution</p>
-            <p> Management Solutions</p>
+          <img src="distributor.webp" alt="image" />
+          <h3>Distrubutor Operation Platform</h3>
+          <p>Achieve sales growth &amp; secondary sales</p>
+          <p>visibility through Heera's Distribution</p>
+          <p>Management Solutions</p>
         </div>
         <div>
-             <img src = "team.webp" alt="image" /img>
-            <h3> Salees Team Automation</h3>
-            <p> Single platform that captures market</p>
-            <p> demand, manages merchandising, journey</p>
-            <p> planning & tracking for salesforce in real time</p>
+          <img src="team.webp" alt="image" />
+          <h3>Salees Team Automation</h3>
+          <p>Single platform that captures market</p>
+          <p>demand, manages merchandising, journey</p>
+          <p>planning &amp; tracking for salesforce in real time</p>
+        </div>
+        <div>
+          <img src="partner.webp" alt="image" />
+          <h3>Retail Partner App</h3>
+          <p>Discover new RTM ( Route-to-market) and</p>
+          <p>directly communicate with your retailers</p>
+        </div>
+        <div>
+          <img src="rural.webp" alt="image" />
+          <h3>Rural Distribution Management</h3>
+          <p>Expand your rural sales channels to match</p>
+          <p>the pace of rural economic growth</p>
+        </div>
+        <div>
+          <img src="asset.webp" alt="image" />
+          <h3>Asset Tracking Sytem</h3>
+          <p>Tracking &amp; Monitoring Asset Deployments at</p>
+          <p>Retail outlets and dealers</p>
+        </div>
+        <div>
+          <img src="ai.webp" alt="image" />
+          <h3>AI &amp; Data Intelligence</h3>
+          <p>Cutting edge AI to generate actionable</p>
+          <p>insights from your distribution data</p>
+        </div>
+      </div>
+    </div>
+    <div class="business-salefusion">
+      <div>
+        <h1 id="business-header">
+          Why do businesses choose SalesFusion over others?
+        </h1>
+      </div>
+      <div class="business-section">
+        <div>
+          <button id="left-button"><</button>
+        </div>
+        <div class="business-section-content">
+          <div>
+            <h2 id="second-header">End-to-end Emplementation</h2>
+            <p id="business-paragraph">
+              We stand with you every step of the way in your distribution
+              <br />
+              journey. Taking ownership of the project from inception to
+              <br />
+              completion by closely working with stakeholders and ensuring
+              <br />
+              satisfaction at every stage.
+            </p>
+          </div>
+          <img id="end-to-end" src="image8.png" alt="image" />
+        </div>
+        <div>
+          <button id="right-button">></button>
+        </div>
+      </div>
+    </div>
 
+    <div class="Industries">
+      <div class="industrie-header">
+        <h1>Industries We Serve</h1>
+      </div>
+
+      <div class="industrie-content">
+        <div class="Fmc-import">
+          <h1>FMCG IMPORT & DISTRIBUTION</h1>
+          <p>
+            Our FMCG import and distribution division operates through
+            Vishwanath Trade House, Vishwanath Overseas, and DV...
+          </p>
+          <h2>KNOW MORE <span>→</span></h2>
         </div>
-        <div>
-             <img src = "partner.webp" alt="image" /img>
-            <h3> Retail Partner App</h3>
-            <p> Discover new RTM ( Route-to-market) and</p>
-            <p> directly communicate with your retailers</p>
+        <div class="manufracturing">
+          <h1>MANUFACTURING</h1>
+          <p>
+            Gopal Soap Industries Pvt. Ltd., established in 1997, represents our
+            manufacturing strength. The division focu...
+          </p>
+          <h2>KNOW MORE <span>→</span></h2>
         </div>
-        <div> 
-             <img src = "rural.webp" alt="image" /img>
-            <h3> Rural Distribution Management</h3>
-            <p> Expand your rural sales channels to match</p>
-            <p> the pace of rural economic growth</p>
+        <div class="supermarket">
+          <h1>SUPERMARKETS / RETAIL</h1>
+          <p>
+            Our supermarket and retail division has built a strong and growing
+            presence in the FMCG segment. We focus on o...
+          </p>
+          <h2>KNOW MORE <span>→</span></h2>
         </div>
-        <div>
-             <img src = "asset.webp" alt="image" /img>
-            <h3> Asset Tracking Sytem</h3>
-            <p> Tracking & Monitoring Asset Deployments at</p>
-            <p> Retail outlets and dealers</p>
+
+        <div class="Education">
+          <h1>EDUCATION</h1>
+          <p>
+            We strongly believe that quality education is the foundation of
+            long-term societal development. Our education ...
+          </p>
+          <h2>KNOW MORE <span>→</span></h2>
         </div>
-        <div>
-            <img src = "ai.webp" alt="image" /img>
-            <h3> AI & Data Intelligence</h3>
-            <p> Cutting edge AI to generate actionable</p>
-            <p> insights from your distribution data</p>
+
+        <div class="Hospitality">
+          <h1>HOSPITALITY</h1>
+          <p>
+            DV Hospitality is developing its first hospitality property
+            featuring 81 keys, designed to deliver comfort, qu...
+          </p>
+          <h2>KNOW MORE <span>→</span></h2>
         </div>
+
+        <div class="Media">
+          <h1>MEDIA</h1>
+          <p>
+            The group has an active presence in the media sector, focusing on
+            content creation, advertising, and communica...
+          </p>
+          <h2>KNOW MORE <span>→</span></h2>
+        </div>
+
+        <div class="Agriculture">
+          <h1>AGRICULTURE</h1>
+          <p>
+            Our agriculture division includes Trishakti Organic Fertilizer,
+            located in Janakpur, dedicated to sustainable ...
+          </p>
+          <h2>KNOW MORE <span>→</span></h2>
+        </div>
+
+        <div class="Food">
+          <h1>FOOD & BEVERAGE</h1>
+          <p>
+            Starting with its first restaurant in 2010, Masala Cottage
+            Restaurant marked our entry into the food and bever...
+          </p>
+          <h2>KNOW MORE <span>→</span></h2>
+        </div>
+      </div>
     </div>
+
+    <div class="case-study">
+      <div class="case-study-image">
+        <img src="casestudy3.webp" alt="image" />
+      </div>
+      <div class="case-study-paragraph">
+        <h2>Case Study</h2>
+        <h1>
+          DMS Implementation <br />
+          for Rural Nepal
+        </h1>
+        <p>
+          . Sales Fusion offers a dedicated and customized solution called
+          SubERP, <br />
+          designed specifically to address the automation needs of rural
+          sub-stockists.
+        </p>
+        <p>
+          . The SubERP implementation has enabled greater visibility and
+          streamlined
+          <br />
+          management of distribution chains deep within the rural areas of
+          Nepal. This
+          <br />
+          ensures smoother operations, better tracking, and improved efficiency
+          across the
+          <br />
+          network.
+        </p>
+        <p>
+          . Sales Fusion provides end-to-end ownership of the entire
+          implementation <br />
+          process – from selecting the right solution, configuring it for
+          specific needs, to <br />
+          providing hands-on support to ensure tangible results.
+        </p>
+        <button>DOWNLOAD NOW</button>
+      </div>
     </div>
+
+    <div class="related-blogs">
+      <div class="related-blogs-header">
+        <h1>Related Blogs</h1>
+      </div>
+      <div class="related-blogs-paragraph">
+        <div class="related-blogs-one">
+          <img src="aianddata.webp" alt="image" />
+          <h1>
+            Distributor Management involves planning, monitoring, and optimizing
+            the flow of
+          </h1>
+          <p>
+            Discover the top challenges facing the distribution industry and
+            effective ways to overcome them using modern technology solutions.
+          </p>
+          <button>Read More</button>
+        </div>
+        <div class="related-blogs-two">
+          <img src="assetmanagement.webp" alt="image" />
+          <h1>Asset Management in a Distributor Management System (DMS)</h1>
+          <p>
+            In the dynamic landscape of Consumer Packaged Goods (CPG) companies,
+            having a robust DMS is crucial for scaling and efficiency.
+          </p>
+          <button>Read More</button>
+        </div>
+        <div class="related-blogs-three">
+          <img src="distributerplateform.webp" alt="image" />
+          <h1>Complete Guide A Distributor Management System (DMS)</h1>
+          <p>
+            Explore our comprehensive guide to Distribution Management Systems
+            (DMS), covering features, benefits, and implementation strategies.
+          </p>
+          <button>Read More</button>
+        </div>
+        <div class="related-blogs-four">
+          <img src="retailerpartnerapp.webp" alt="image" />
+          <h1>Retailer Application in Distributor Management System</h1>
+          <p>
+            Discover the top challenges facing the distribution industry and
+            effective ways to overcome them using modern technology solutions.
+          </p>
+          <button>Read More</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="First-Class-Distribution">
+      <p>Looking for a First-Class <span>Distribution</span> Solution?</p>
+      <button>Contact us</button>
+    </div>
+
+    <footer class="footer">
+      <div class="footer-logo">
+        <div class="logo">
+          <img src="image.png" alt="SalesFusion logo" />
+          <span class="sales">sales</span
+          ><span class="fusion">fusion<sup>360</sup></span>
+        </div>
+
+        <div class="social-Media">
+          <a href="#" aria-label="Facebook">f</a>
+          <a href="#" aria-label="LinkedIn">in</a>
+        </div>
+      </div>
+
+      <div class="footer-contact">
+        <p class="address">
+          <span class="contact-icon">
+            <img
+              src="https://static.vecteezy.com/system/resources/thumbnails/072/276/119/small/a-simple-black-location-pin-icon-on-transparency-background-often-used-to-represent-map-marker-or-gps-location-this-minimalist-design-is-commonly-seen-in-navigation-apps-and-maps-png.png"
+              alt="Location icon"
+            />
+          </span>
+
+          2nd Floor, Baneshwar, B &amp; S Complex, Sankhamul - Balkumari Rd,
+          Kathmandu 44600
+        </p>
+
+        <p class="contact-item">
+          <span class="contact-icon">☎</span>
+          <a href="telphone">+977 9805600000</a>
+        </p>
+
+        <p class="contact-item">
+          <span class="contact-icon">✉</span>
+          <a href="mail">sales@salesfusion.online</a>
+        </p>
+      </div>
+
+      <div class="footer-column">
+        <h2>Solutions</h2>
+        <a href="#">Distributor Management System</a>
+        <a href="#">Salesforce Automation</a>
+        <a href="#">Retailer App</a>
+        <a href="#">Rural DMS</a>
+        <a href="#">Asset Management</a>
+        <a href="#">AI &amp; Data Analytics</a>
+      </div>
+
+      <div class="footer-column">
+        <h2>Resources</h2>
+        <a href="#">Blogs</a>
+        <a href="#">Customer Stories</a>
+        <a href="#">Request A Demo</a>
+      </div>
+
+      <div class="footer-column">
+        <h2>Company</h2>
+        <a href="#">About Us</a>
+        <a href="#">Careers</a>
+        <a href="#">Privacy Policy</a>
+      </div>
+    </footer>
   </body>
 </html>
