@@ -1,0 +1,709 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+    />
+    <title>Document</title>
+
+    <style>
+      body {
+        margin: 0;
+        padding: 0;
+      }
+
+      .navbar {
+        width: 100%;
+        height: 75px;
+        background-color: white;
+        display: flex;
+        border-top-left-radius: 4px;
+        border-top-right-radius: 4px;
+        box-shadow: 0 0px 5px rgba(0, 0, 0, 0.1);
+        position: sticky;
+        top: 0px;
+        z-index: 100;
+      }
+
+      .navbar-section {
+        padding: 15px;
+        display: flex;
+        position: relative;
+        align-items: center;
+        padding-left: 30px;
+      }
+
+      .software {
+        font: 10px sans-serif;
+        font-weight: bold;
+        position: absolute;
+        margin-top: 44px;
+        padding-left: 33px;
+      }
+
+      .Company {
+        font: 10px sans-serif;
+        font-weight: bold;
+        color: rgb(92, 159, 201);
+        position: absolute;
+        margin-top: 44px;
+        padding-left: 78px;
+      }
+
+      #image {
+        padding-top: 10px;
+        width: 30px;
+        height: 35px;
+        border-radius: 70px;
+      }
+
+      .navbar-select {
+        display: flex;
+        align-items: center;
+        gap: 20px;
+        margin-left: 385px;
+      }
+
+      .sales {
+        height: 12px;
+        font: 20px sans-serif;
+        font-weight: bolder;
+        display: flex;
+        align-items: center;
+        color: rgb(92, 159, 201);
+      }
+
+      .fusion {
+        height: 12px;
+        font: 20px sans-serif;
+        font-weight: bolder;
+        display: flex;
+        align-items: center;
+        position: relative;
+      }
+
+      sup {
+        position: absolute;
+        font-size: 5px;
+        margin-bottom: 20px;
+        margin-left: 50px;
+      }
+
+      .dropdown {
+        position: relative;
+        display: inline-block;
+      }
+
+      .dropdown-trigger {
+        font: 14px sans-serif;
+        font-weight: bold;
+        cursor: pointer;
+        padding: 5px;
+      }
+
+      .dropdown-trigger:hover {
+        color: #44a5db;
+      }
+
+      .dropdown-button i {
+        margin-left: 3px;
+        font-size: 10px;
+      }
+
+      .dropdown-button:hover {
+        color: #44a5db;
+      }
+
+      .dropdown-content {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        font-family: sans-serif;
+        font-size: 12px;
+        font-weight: normal;
+        color: gray;
+        background-color: white;
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+        padding: 10px 0;
+        border-bottom-left-radius: 10px;
+        border-bottom-right-radius: 10px;
+        border-top: 2px solid #44a5db;
+        z-index: 1;
+      }
+
+      .dropdown-content a {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        width: 300px;
+        line-height: 2.5;
+        font-family: sans-serif;
+        font-size: 12px;
+        font-weight: normal;
+        color: gray;
+        text-decoration: none;
+        padding: 8px 16px;
+        display: block;
+      }
+
+      .dropdown-content a:hover {
+        background-color: #f0f4f8;
+        color: #0e67d3;
+      }
+
+      .dropdown:hover .dropdown-content {
+        display: block;
+        color: rgb(186, 227, 252);
+      }
+
+      .navbar-select a {
+        color: black;
+        font-weight: bold;
+        text-decoration: none;
+        font-family: Arial, Helvetica, sans-serif;
+        font-size: 14px;
+      }
+
+      .navbar-select a:hover {
+        color: #44a5db;
+      }
+
+      .button-section {
+        display: flex;
+        align-items: center;
+        gap: 20px;
+        margin-left: 50px;
+      }
+
+      .book {
+        color: #44a5db;
+        font: 13px sans-serif;
+        font-weight: bolder;
+        text-transform: uppercase;
+        background-color: #ddefff;
+        border: none;
+        width: 150px;
+        height: 45px;
+        border-radius: 5px;
+        padding: 12px 8px;
+      }
+
+      .book:hover {
+        background-color: #cce7fe;
+      }
+
+      #login {
+        text-align: center;
+        color: #44a5db;
+        font: 13px sans-serif;
+        font-weight: bolder;
+        text-transform: uppercase;
+        background-color: #ddefff;
+        border: none;
+        width: 90px;
+        height: 15px;
+        border-radius: 5px;
+        padding: 15px 8px;
+        text-decoration: none;
+      }
+
+      #login:hover {
+        background-color: #cce7fe;
+        text-decoration: none;
+      }
+      /************************Revolutionize Your Operations************************************/
+
+      .Revolutionize-your-operations {
+        padding: 80px 25px;
+        width: full;
+        height: max-content;
+        display: flex;
+
+      }
+
+      .Revolutionize-your-operations img {
+        width: 600px;
+        height: 450px;
+        margin: 0 0 20px 105px;
+      }
+
+      .Revolutionize-three {
+        margin-left: 50px;
+      }
+
+      .Revolutionize-three h3 {
+        margin: 0 0 32px;
+        font: 11px sans-serif;
+        font-weight: bolder;
+        color: #44a5db;
+        text-transform: uppercase;
+        border: 1px solid #c4e6f9;
+        background-color: #e3f1fd;
+        border-radius: 25px;
+        width: 181px;
+        padding: 5px;
+        text-align: right;
+        position: relative;
+        word-spacing: 2px;
+        letter-spacing: 1px;
+      }
+
+      .Revolutionize-three i {
+        position: absolute;
+        font-size: 8px;
+        margin: 2px 0 0 -15px;
+      }
+
+      .Revolutionize-three h1 {
+        font: 30px sans-serif;
+        font-weight: 800;
+        line-height: 1.02;
+        color: #242424;
+        margin: 0 0 32px;
+      }
+
+      .Revolutionize-three span {
+        color: #44a5db;
+      }
+
+      .Revolutionize-three p {
+        color: var(--color-slate-500);
+      }
+
+      /* *****************************Looking for a first-class distribution platform?********************************** */
+
+      .First-Class-Distribution {
+        width: full;
+        height: 50px;
+        padding: 25px;
+        background-color: black;
+        display: flex;
+        justify-content: center;
+        justify-content: start;
+        align-items: center;
+      }
+
+      .First-Class-Distribution p {
+        color: white;
+        font: 24px sans-serif;
+        margin-left: 8%;
+      }
+
+      .First-Class-Distribution span {
+        color: white;
+        font: 24px sans-serif;
+        margin: 0 0 12px;
+        font-weight: bolder;
+        padding-top: 10px;
+      }
+
+      .First-Class-Distribution button {
+        font: 16px sans-serif;
+        color: white;
+        text-align: center;
+        border: none;
+        background-color: red;
+        text-transform: uppercase;
+        width: 3.5cm;
+        height: 1cm;
+        border-radius: 7px;
+        font-weight: 500px;
+        margin-left: 25%;
+        margin-top: 5px;
+      }
+
+      /***************************************Footer******************************************************/
+
+      .footer {
+        display: grid;
+        grid-template-columns: repeat(5, 1fr);
+        gap: 30px;
+        padding: 80px 10% 60px;
+        background-color: #f3f4f7;
+      }
+
+      .footer-logo {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 30px;
+      }
+
+      .logo {
+        display: flex;
+        align-items: center;
+      }
+
+      .logo img {
+        background-color: #f3f4f7;
+        width: 32px;
+        height: 32px;
+        object-fit: contain;
+        border-radius: 100%;
+      }
+
+      .sales {
+        font-size: 25px;
+        font-weight: bold;
+        color: #44a5db;
+      }
+
+      .fusion {
+        font-size: 25px;
+        font-weight: bold;
+        color: #222;
+        position: relative;
+      }
+
+      sup {
+        position: absolute;
+        font-size: 5px;
+        margin-bottom: 20px;
+        margin-left: 65px;
+      }
+
+      .social-Media {
+        display: flex;
+        gap: 15px;
+      }
+
+      .social-Media a {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 30px;
+        height: 30px;
+        border-radius: 50%;
+        background-color: #d9dce2;
+        color: #4c596b;
+        font-size: 16px;
+        font-weight: bolder;
+        text-decoration: none;
+      }
+
+      .footer-contact {
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+      }
+
+      .address {
+        display: flex;
+        align-items: flex-start;
+        gap: 20px;
+        margin: 0;
+        color: #657386;
+        font: 16px sans-serif;
+        line-height: 1.6;
+      }
+
+      .address img {
+        width: 30px;
+        height: 25px;
+      }
+
+      .contact-item {
+        display: flex;
+        align-items: flex-start;
+        gap: 18px;
+        margin: 0;
+        color: #657386;
+        font: 14px sans-serif;
+        line-height: 1.6;
+      }
+
+      .contact-item i {
+        margin-top: 5px;
+      }
+
+      .contact-icon {
+        width: 15px;
+        color: #657386;
+        font-size: 14px;
+      }
+
+      .contact-icon i {
+        margin-top: 2px;
+      }
+
+      .footer-contact a {
+        color: #657386;
+        text-decoration: none;
+      }
+
+      .footer-column {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 15px;
+      }
+
+      .footer-column h2 {
+        margin: 0 0 8px;
+        color: #111;
+        font: 16px sans-serif;
+        font-weight: bold;
+      }
+
+      .footer-column a {
+        color: #657386;
+        font: 14px sans-serif;
+        text-decoration: none;
+      }
+
+      .footer a:hover {
+        color: #44a5db;
+      }
+
+      .contact-item:hover i {
+        color: #44a5db;
+      }
+
+      .social-Media a:hover {
+        background-color: #44a5db;
+        color: white;
+        text-decoration: none;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="navbar">
+      <div class="navbar-section">
+        <img id="image" src="image.png" alt="image" />
+        <h1 class="sales">sales</h1>
+        <h1 class="fusion">fusion<sup>320</sup></h1>
+        <p class="software">Software</p>
+        <p class="Company">Company</p>
+      </div>
+
+      <div class="navbar-select">
+        <a href="#">Home</a>
+        <p>
+          <span class="dropdown">
+            <span class="dropdown-trigger"
+              >Solutions
+              <span class="dropdown-button">
+                <i class="fa-solid fa-chevron-down"></i></span
+            ></span>
+
+            <span class="dropdown-content">
+              <a href="#">Distributor Operation Platform</a>
+              <a href="#">Sales Team Automation</a>
+              <a href="#">Retail Partner App</a>
+              <a href="#">Rural Distribution Management</a>
+              <a href="#">Asset Tracking System</a>
+              <a href="#">AI & Data Intelligence</a>
+            </span>
+          </span>
+        </p>
+
+        <p>
+          <span class="dropdown">
+            <span class="dropdown-trigger"
+              >Resources
+              <span class="dropdown-button">
+                <i class="fa-solid fa-chevron-down"></i> </span
+            ></span>
+
+            <span class="dropdown-content">
+              <a href="#">Blogs</a>
+              <a href="#">Customer Stories</a>
+            </span>
+          </span>
+        </p>
+
+        <p>
+          <span class="dropdown">
+            <span class="dropdown-trigger"
+              >About Us
+              <span class="dropdown-button">
+                <i class="fa-solid fa-chevron-down"></i> </span
+            ></span>
+            <span class="dropdown-content">
+              <a href="#">About salesfusion</a>
+              <a href="#">Careers</a>
+              <a href="#">Contact Us</a>
+              <a href="#">Partners</a>
+            </span>
+          </span>
+        </p>
+      </div>
+
+      <div class="button-section">
+        <button class="book">Book a demo</button>
+        <a href="login.html" id="login">Log in </a>
+      </div>
+    </div>
+    <!-----------------Revolutionize Your Operations-->
+
+    <div class="Revolutionize-your-operations">
+      <div class="Revolutionize-one">
+        <img src="shivit.webp" alt="image" />
+      </div>
+
+      <div class="Revolutionize-two"></div>
+      <div class="Revolutionize-three">
+        <h3><i class="fa-solid fa-circle"></i> Next-Gen Distribution</h3>
+        <h1>
+          Revolutionize Your <br />
+         <span>Operations</span> 
+        </h1>
+        <h4>With Advanced Distribution <br> Management System Software</h4>
+        <p>
+          Unlock your business potential with our cutting-edge software.
+          Streamline order <br />
+          processing, optimise inventory management, and leverage data analytics
+          for <br />
+          informed decision-making. Achieve excellence and accelerate your
+          growth <br />
+          trajectory today. Book A Demo
+        </p>
+        <button>Book A Demo</button>
+      </div>
+    </div>
+
+    <!--Experience Unmatched Efficiency With salesfusion DMS-->
+    <div class="Experience-umatched">
+      <div class="Experience-unmatched-one">
+        <h1>
+          Experience <span> Unmatched Efficiency </span>With salesfusion DMS
+        </h1>
+        <div class="tradepluse">
+          tardes <span>pluse</span>
+          <p>The Pulse of your Distribution</p>
+        </div>
+        <p id="Experience-paragraph">
+          Transform your distribution operations with <span> TradePulse</span>.
+          Designed to boost sales growth and enhance visibility across your
+          supply chain, providing brands with accurate secondary sales data and
+          stockist-level inventory control.
+        </p>
+      </div>
+      <div class="Experience-unmatched-two">
+        <img src="tradepulse.webp" alt="image" />
+      </div>
+    </div>
+
+    <!--Core Features of BrandBuddy-->
+
+    <div class="Core-features">
+      <div class="Core-features-header">
+        <h1>Core Features of BrandBuddy</h1>
+        <p>
+          BrandBuddy is more than just an in-shop promoter app. It’s a
+          full-featured operational engine built for fast, secure, and reliable
+          execution of in-store campaigns. We close the visibility loop between
+          planning and performance.
+        </p>
+        <h3>What makes BrandBuddy a must-have tool for retail management?</h3>
+      </div>
+
+      <div class="clickable-function">
+        <div class="left-button-icon">
+          <i class="fa-solid fa-angle-left"></i>
+        </div>
+        <div class="Leave-Attendance">
+          <i class="fa-light fa-location-dot"></i>
+          <h3>Leave & Attendance</h3>
+        </div>
+        <div class="sale-order">
+          <i class="fa-regular fa-clipboard"></i>
+          <h3>Sales Order Managements</h3>
+        </div>
+        <div class="store-product">
+          <i class="fa-light fa-cube"></i>
+          <h3>Store & Product Master</h3>
+        </div>
+        <div class="promoter-store">
+          <i class="fa-regular fa-user-group"></i>
+          <h3>Promoter-Store Mapping</h3>
+        </div>
+        <div class="right-button-icon">
+          <i class="fa-solid fa-angle-right"></i>
+        </div>
+      </div>
+    </div>
+
+    <!--Looking for distribution/*******************************************************-->
+    <div class="First-Class-Distribution">
+      <p>Looking for a First-Class <span>Distribution</span> Solution?</p>
+      <button>Contact us</button>
+    </div>
+
+    <!--**********************************************Footer*****************************************-->
+
+    <footer class="footer">
+      <div class="footer-logo">
+        <div class="logo">
+          <img src="image.png" alt="SalesFusion logo" />
+          <span class="sales">sales</span
+          ><span class="fusion">fusion<sup>360</sup></span>
+        </div>
+
+        <div class="social-Media">
+          <a href="#" aria-label="Facebook"
+            ><i class="fa-brands fa-facebook"></i
+          ></a>
+          <a href="#" aria-label="LinkedIn"
+            ><i class="fa-brands fa-linkedin"></i
+          ></a>
+        </div>
+      </div>
+
+      <div class="footer-contact">
+        <p class="address">
+          <span class="contact-icon">
+            <i class="fa-solid fa-location-dot"></i>
+          </span>
+
+          2nd Floor, Baneshwar, B &amp; S Complex, Sankhamul - Balkumari Rd,
+          Kathmandu 44600
+        </p>
+
+        <p class="contact-item">
+          <span class="contact-item">
+            <i class="fa-solid fa-phone"></i>
+          </span>
+          <a href="telphone">+977 9805600000</a>
+        </p>
+
+        <p class="contact-item">
+          <span class="contact-item">
+            <i class="fa-regular fa-envelope"></i
+          ></span>
+          <a href="mail">sales@salesfusion.online</a>
+        </p>
+      </div>
+
+      <div class="footer-column">
+        <h2>Solutions</h2>
+        <a href="Distributor_Management_System.html"
+          >Distributor Management System</a
+        >
+        <a href="#">Salesforce Automation</a>
+        <a href="#">Retailer App</a>
+        <a href="#">Rural DMS</a>
+        <a href="#">Asset Management</a>
+        <a href="#">AI &amp; Data Analytics</a>
+      </div>
+
+      <div class="footer-column">
+        <h2>Resources</h2>
+        <a href="#">Blogs</a>
+        <a href="#">Customer Stories</a>
+        <a href="#">Request A Demo</a>
+      </div>
+
+      <div class="footer-column">
+        <h2>Company</h2>
+        <a href="#">About Us</a>
+        <a href="#">Careers</a>
+        <a href="#">Privacy Policy</a>
+      </div>
+    </footer>
+  </body>
+</html>
