@@ -407,7 +407,6 @@
         height: 250px;
         margin: 50px auto;
         overflow: hidden; /* Clips the images when they are off-screen */
-    
       }
 
       .img-layer {
@@ -1059,6 +1058,12 @@
         margin-left: 15px;
       }
 
+      .case-study-paragraph {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
       .case-study-paragraph h2 {
         color: #c9c8c8;
         font: 14px sans-serif;
@@ -1101,7 +1106,6 @@
       }
       #circle-icon {
         font-size: 6px;
-        
       }
 
       .case-study-paragraph button:hover {
@@ -1322,6 +1326,7 @@
         justify-content: center;
         justify-content: start;
         align-items: center;
+        gap: 400px;
       }
 
       .First-Class-Distribution p {
@@ -1706,7 +1711,9 @@
       </div>
       <div class="business-section">
         <div>
-          <button id="left-button"><i class="fa-solid fa-angle-left"></i></button>
+          <button id="left-button">
+            <i class="fa-solid fa-angle-left"></i>
+          </button>
         </div>
         <div class="business-section-content">
           <div>
@@ -1724,7 +1731,9 @@
           <img id="end-to-end" src="image8.png" alt="image" />
         </div>
         <div>
-          <button id="right-button"><i class="fa-solid fa-angle-right"></i></button>
+          <button id="right-button">
+            <i class="fa-solid fa-angle-right"></i>
+          </button>
         </div>
       </div>
     </div>
@@ -1818,14 +1827,14 @@
           for Rural Nepal
         </h1>
         <p>
-          <i class="fa-solid fa-circle" id="circle-icon"></i> Sales Fusion offers a dedicated and
-          customized solution called SubERP, <br />
+          <i class="fa-solid fa-circle" id="circle-icon"></i> Sales Fusion
+          offers a dedicated and customized solution called SubERP, <br />
           designed specifically to address the automation needs of rural
           sub-stockists.
         </p>
         <p>
-          <i class="fa-solid fa-circle" id="circle-icon"></i> The SubERP implementation has
-          enabled greater visibility and streamlined
+          <i class="fa-solid fa-circle" id="circle-icon"></i> The SubERP
+          implementation has enabled greater visibility and streamlined
           <br />
           management of distribution chains deep within the rural areas of
           Nepal. This
@@ -1836,8 +1845,8 @@
           network.
         </p>
         <p>
-          <i class="fa-solid fa-circle" id="circle-icon"></i> Sales Fusion provides end-to-end
-          ownership of the entire implementation <br />
+          <i class="fa-solid fa-circle" id="circle-icon"></i> Sales Fusion
+          provides end-to-end ownership of the entire implementation <br />
           process – from selecting the right solution, configuring it for
           specific needs, to <br />
           providing hands-on support to ensure tangible results.
@@ -1898,7 +1907,7 @@
 
     <div class="First-Class-Distribution">
       <p>Looking for a First-Class <span>Distribution</span> Solution?</p>
-      <button>Contact us</button>
+      <a href="#"> <button>Contact us</button></a>
     </div>
 
     <footer class="footer">
@@ -1910,8 +1919,12 @@
         </div>
 
         <div class="social-Media">
-          <a href="#" aria-label="Facebook"><i class="fa-brands fa-facebook"></i></a>
-          <a href="#" aria-label="LinkedIn"><i class="fa-brands fa-linkedin"></i></a>
+          <a href="#" aria-label="Facebook"
+            ><i class="fa-brands fa-facebook"></i
+          ></a>
+          <a href="#" aria-label="LinkedIn"
+            ><i class="fa-brands fa-linkedin"></i
+          ></a>
         </div>
       </div>
 

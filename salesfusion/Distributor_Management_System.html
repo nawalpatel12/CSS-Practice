@@ -222,7 +222,6 @@
         width: full;
         height: max-content;
         display: flex;
-
       }
 
       .Revolutionize-your-operations img {
@@ -235,43 +234,288 @@
         margin-left: 50px;
       }
 
-      .Revolutionize-three h3 {
-        margin: 0 0 32px;
-        font: 11px sans-serif;
-        font-weight: bolder;
-        color: #44a5db;
-        text-transform: uppercase;
-        border: 1px solid #c4e6f9;
-        background-color: #e3f1fd;
-        border-radius: 25px;
-        width: 181px;
-        padding: 5px;
-        text-align: right;
-        position: relative;
-        word-spacing: 2px;
-        letter-spacing: 1px;
+      .Revolutionize-three {
+        font-family: sans-serif;
+        max-width: 550px;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
       }
 
-      .Revolutionize-three i {
-        position: absolute;
-        font-size: 8px;
-        margin: 2px 0 0 -15px;
+      .Revolutionize-three h3 {
+        background-color: #e8f4fd;
+        color: #44a5db;
+        font-size: 11px;
+        font-weight: 700;
+        letter-spacing: 0.8px;
+        text-transform: uppercase;
+        padding: 7px 14px;
+        border: 0.1px solid #cce6f8;
+        border-radius: 50px;
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        margin: 0 0 32px;
+      }
+
+      .Revolutionize-three h3 i {
+        font-size: 6px;
+        color: #44a5db;
       }
 
       .Revolutionize-three h1 {
-        font: 30px sans-serif;
+        color: #1a234d;
+        font-size: 30px;
         font-weight: 800;
-        line-height: 1.02;
-        color: #242424;
-        margin: 0 0 32px;
+        line-height: 1.15;
+        margin-bottom: 20px;
       }
 
-      .Revolutionize-three span {
-        color: #44a5db;
+      .Revolutionize-three h1 span {
+        color: #38b6ff;
+      }
+
+      .Revolutionize-three h2 {
+        color: #2c3a5e;
+        font-size: 20px;
+        font-weight: 700;
+        line-height: 1.4;
+        margin-bottom: 20px;
       }
 
       .Revolutionize-three p {
-        color: var(--color-slate-500);
+        color: #62748e;
+        font-size: 15px;
+        line-height: 1.65;
+        margin-bottom: 30px;
+      }
+
+      .Revolutionize-three button {
+        background-color: #134e80;
+        color: #ffffff;
+        font-size: 15px;
+        font-weight: 700;
+        padding: 12px 26px;
+        border: none;
+        border-radius: 6px;
+        outline: none;
+        transition: all 0.2s ease;
+      }
+
+      .Revolutionize-three button:active {
+        transform: scale(0.96);
+        background-color: #092a47;
+      }
+
+      /*  ************************************** TRADEPULSE Badge ************************************************/
+      .Experience-umatched {
+        background-color: #dbebf7;
+        font-family: sans-serif;
+        padding: 60px 130px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 50px;
+        width: full;
+        height: 450px;
+      }
+
+      .Experience-unmatched-one h1 {
+        color: #242360;
+        font-size: 30px;
+        font-weight: 600;
+        line-height: 1.25;
+        margin: 0 0 32px;
+      }
+
+      .Experience-unmatched-one h1 span {
+        color: #44a5db;
+      }
+
+      .tradepluse {
+        margin-left: 50px;
+        display: flex;
+        align-items: center;
+        gap: 25px;
+        margin: 0 0 32px 30px;
+      }
+
+      .tradepluse-box {
+        background-color: #0f172b;
+        color: #ffffff;
+        font-weight: 1000;
+        font-style: italic;
+        text-transform: uppercase;
+        font-size: 20px;
+        padding: 8px 5px;
+        border-radius: 8px;
+        letter-spacing: -1px;
+        position: relative;
+      }
+
+      .tradepluse-box::before {
+        content: "";
+        position: absolute;
+        height: 60px;
+        border-left: 4px solid #44a5db;
+        top: -9px;
+        left: -29px;
+      }
+
+      .tradepluse-box span {
+        color: #44a5db;
+      }
+
+      .tradepluse p {
+        color: #556882;
+        font-size: 16px;
+        font-style: italic;
+        margin: 0;
+      }
+
+      #Experience-paragraph {
+        color: #4a5c73;
+        font-size: 16px;
+        line-height: 1.8;
+      }
+
+      #Experience-paragraph span {
+        font-weight: 700;
+        color: #1a2753;
+      }
+
+      .Experience-unmatched-two img {
+        width: 600px;
+        height: 400px;
+        background-color: #ffffff;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04);
+      }
+
+      /***********************--Core Features of BrandBuddy------***************************************/
+
+      .Core-features {
+        padding: 96px 0;
+      }
+
+      .Core-features-header {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .Core-features-header h1 {
+        color: #44a5db;
+        font: 30px sans-serif;
+        font-weight: bold;
+        margin: 0 0 24px;
+      }
+
+      .Core-features-header p {
+        color: #45556c;
+        font: 16px sans-serif;
+        line-height: 1.7;
+        text-align: center;
+        margin: 0 0 24px;
+      }
+
+      .Core-features-header h4 {
+        color: #1d293d;
+        font: 16px sans-serif;
+        background-color: #f8fafc;
+        border-radius: 30px;
+        text-align: center;
+        border: 0.1px solid #f0f1ef;
+        padding: 10px 24px;
+        margin: 0 0 64px;
+      }
+
+      /* Container */
+      .clickable-function {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 10px;
+        padding: 10px 0;
+        max-width: 100%;
+        overflow-x: auto;
+      }
+
+      /* Arrows */
+      .left-button-icon,
+      .right-button-icon {
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        color: #94a3b8;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      /* Tabs */
+      .Leave-Attendance,
+      .sale-order,
+      .store-product,
+      .promoter-store {
+        display: inline-flex;
+        align-items: center;
+        gap: 5px;
+        padding: 16px 20px;
+        border-radius: 12px;
+        background-color: transparent;
+        border-bottom: 3px solid transparent;
+        color: #64748b;
+        transition: all 0.2s ease;
+      }
+
+      /* Inner Button Reset */
+      .Leave-Attendance button,
+      .sale-order button,
+      .store-product button,
+      .promoter-store button {
+        background: none;
+        border: none;
+        padding: 0;
+        margin: 0;
+        font-family: sans-serif;
+        font-size: 15px;
+        font-weight: 600;
+        color: inherit;
+        outline: none;
+      }
+
+      .Leave-Attendance i,
+      .sale-order i,
+      .store-product i,
+      .promoter-store i {
+        font-size: 16px;
+        color: inherit;
+        transition: color 0.2s ease;
+      }
+
+      /* Hover */
+      .Leave-Attendance:hover,
+      .sale-order:hover,
+      .store-product:hover,
+      .promoter-store:hover {
+        background-color: #f5f7fb;
+        color: #334155;
+      }
+
+      /* Active / Focus State */
+      .Leave-Attendance.active,
+      .sale-order.active,
+      .store-product.active,
+      .promoter-store.active,
+      .Leave-Attendance:focus-within,
+      .sale-order:focus-within,
+      .store-product:focus-within,
+      .promoter-store:focus-within {
+        background-color: #f0f7fe;
+        color: #44a5db;
+        border-bottom: 3px solid #44a5db;
+        border-bottom-left-radius: 12px;
+        border-bottom-right-radius: 12px;
       }
 
       /* *****************************Looking for a first-class distribution platform?********************************** */
@@ -285,6 +529,7 @@
         justify-content: center;
         justify-content: start;
         align-items: center;
+        gap: 400px;
       }
 
       .First-Class-Distribution p {
@@ -538,7 +783,7 @@
         <a href="login.html" id="login">Log in </a>
       </div>
     </div>
-    <!-----------------Revolutionize Your Operations-->
+    <!-----------------Revolutionize Your Operations----------------------------->
 
     <div class="Revolutionize-your-operations">
       <div class="Revolutionize-one">
@@ -550,9 +795,12 @@
         <h3><i class="fa-solid fa-circle"></i> Next-Gen Distribution</h3>
         <h1>
           Revolutionize Your <br />
-         <span>Operations</span> 
+          <span>Operations</span>
         </h1>
-        <h4>With Advanced Distribution <br> Management System Software</h4>
+        <h2>
+          With Advanced Distribution <br />
+          Management System Software
+        </h2>
         <p>
           Unlock your business potential with our cutting-edge software.
           Streamline order <br />
@@ -562,18 +810,18 @@
           growth <br />
           trajectory today. Book A Demo
         </p>
-        <button>Book A Demo</button>
+        <a href="#"> <button>Book A Demo</button></a>
       </div>
     </div>
 
-    <!--Experience Unmatched Efficiency With salesfusion DMS-->
+    <!--Experience Unmatched Efficiency With salesfusion DMS--------------------------------------->
     <div class="Experience-umatched">
       <div class="Experience-unmatched-one">
         <h1>
           Experience <span> Unmatched Efficiency </span>With salesfusion DMS
         </h1>
         <div class="tradepluse">
-          tardes <span>pluse</span>
+          <div class="tradepluse-box">tarde<span>pluse</span></div>
           <p>The Pulse of your Distribution</p>
         </div>
         <p id="Experience-paragraph">
@@ -588,7 +836,7 @@
       </div>
     </div>
 
-    <!--Core Features of BrandBuddy-->
+    <!--Core Features of BrandBuddy---------------------------------------->
 
     <div class="Core-features">
       <div class="Core-features-header">
@@ -596,42 +844,43 @@
         <p>
           BrandBuddy is more than just an in-shop promoter app. It’s a
           full-featured operational engine built for fast, secure, and reliable
+          <br />
           execution of in-store campaigns. We close the visibility loop between
           planning and performance.
         </p>
-        <h3>What makes BrandBuddy a must-have tool for retail management?</h3>
+        <h4>What makes BrandBuddy a must-have tool for retail management?</h4>
       </div>
 
       <div class="clickable-function">
-        <div class="left-button-icon">
+        <button class="left-button-icon">
           <i class="fa-solid fa-angle-left"></i>
-        </div>
+        </button>
         <div class="Leave-Attendance">
-          <i class="fa-light fa-location-dot"></i>
-          <h3>Leave & Attendance</h3>
+          <i class="fa-solid fa-location-dot"></i>
+          <button>Leave & Attendance</button>
         </div>
         <div class="sale-order">
           <i class="fa-regular fa-clipboard"></i>
-          <h3>Sales Order Managements</h3>
+          <button>Sales Order Managements</button>
         </div>
         <div class="store-product">
-          <i class="fa-light fa-cube"></i>
-          <h3>Store & Product Master</h3>
+          <i class="fa-solid fa-cube"></i>
+          <button>Store & Product Master</button>
         </div>
         <div class="promoter-store">
-          <i class="fa-regular fa-user-group"></i>
-          <h3>Promoter-Store Mapping</h3>
+          <i class="fa-solid fa-user-group"></i>
+          <button>Promoter-Store Mapping</button>
         </div>
-        <div class="right-button-icon">
+        <button class="right-button-icon">
           <i class="fa-solid fa-angle-right"></i>
-        </div>
+        </button>
       </div>
     </div>
 
     <!--Looking for distribution/*******************************************************-->
     <div class="First-Class-Distribution">
       <p>Looking for a First-Class <span>Distribution</span> Solution?</p>
-      <button>Contact us</button>
+      <a href="#"> <button>Contact us</button></a>
     </div>
 
     <!--**********************************************Footer*****************************************-->
