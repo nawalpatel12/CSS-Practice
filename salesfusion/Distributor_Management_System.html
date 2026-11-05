@@ -429,95 +429,262 @@
         margin: 0 0 64px;
       }
 
-      /* Container */
-      .clickable-function {
+      /* ========== TAB BAR ============================================== */
+      .tabs-section {
+        max-width: 1100px;
+        margin: 0 auto 36px;
         display: flex;
         justify-content: center;
         align-items: center;
-        gap: 10px;
-        padding: 10px 0;
-        max-width: 100%;
-        overflow-x: auto;
+        gap: 5px;
       }
 
-      /* Arrows */
-      .left-button-icon,
-      .right-button-icon {
-        width: 40px;
-        height: 40px;
+      .nav-arrow {
+        width: 42px;
+        height: 42px;
         border-radius: 50%;
+        background: #fff;
+        border: 1px solid #fff;
         color: #94a3b8;
         display: flex;
         align-items: center;
         justify-content: center;
-      }
-
-      /* Tabs */
-      .Leave-Attendance,
-      .sale-order,
-      .store-product,
-      .promoter-store {
-        display: inline-flex;
-        align-items: center;
-        gap: 5px;
-        padding: 16px 20px;
-        border-radius: 12px;
-        background-color: transparent;
-        border-bottom: 3px solid transparent;
-        color: #64748b;
+        flex-shrink: 0;
+        box-shadow: 0 4px 14px rgba(0, 0, 0, 0.06);
         transition: all 0.2s ease;
       }
 
-      /* Inner Button Reset */
-      .Leave-Attendance button,
-      .sale-order button,
-      .store-product button,
-      .promoter-store button {
-        background: none;
-        border: none;
-        padding: 0;
-        margin: 0;
-        font-family: sans-serif;
-        font-size: 15px;
-        font-weight: 600;
-        color: inherit;
-        outline: none;
+      .nav-arrow:hover {
+        color: #3895d3;
+        box-shadow: 0 6px 18px rgba(0, 0, 0, 0.1);
       }
 
-      .Leave-Attendance i,
-      .sale-order i,
-      .store-product i,
-      .promoter-store i {
+      .nav-arrow:active {
+        transform: scale(0.95);
+      }
+
+      .tabs-viewport {
+        overflow: hidden;
+        max-width: 920px;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+      }
+
+      .tabs-track {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        overflow-x: auto;
+        scroll-behavior: smooth;
+        padding: 8px 4px;
+        scrollbar-width: none;
+        justify-content: safe center;
+      }
+
+      .tabs-track::-webkit-scrollbar {
+        display: none;
+      }
+
+      .tab-btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        padding: 16px 24px;
+        border-radius: 14px;
+        background: transparent;
+        border: none;
+        border-bottom: 3px solid transparent;
+        color: #64748b;
+        font-size: 16px;
+        font-weight: 600;
+        cursor: pointer;
+        white-space: nowrap;
+        transition: all 0.22s ease;
+        outline: none;
+        flex-shrink: 0;
+      }
+
+      .tab-btn i {
         font-size: 16px;
         color: inherit;
-        transition: color 0.2s ease;
       }
 
-      /* Hover */
-      .Leave-Attendance:hover,
-      .sale-order:hover,
-      .store-product:hover,
-      .promoter-store:hover {
-        background-color: #f5f7fb;
+      .tab-btn:hover {
+        background: #f5f7fb;
         color: #334155;
       }
 
-      /* Active / Focus State */
-      .Leave-Attendance.active,
-      .sale-order.active,
-      .store-product.active,
-      .promoter-store.active,
-      .Leave-Attendance:focus-within,
-      .sale-order:focus-within,
-      .store-product:focus-within,
-      .promoter-store:focus-within {
-        background-color: #f0f7fe;
-        color: #44a5db;
-        border-bottom: 3px solid #44a5db;
-        border-bottom-left-radius: 12px;
-        border-bottom-right-radius: 12px;
+      .tab-btn.active {
+        background: #f0f7fe;
+        color: #3895d3;
+        border-bottom: 3px solid #3895d3;
+        border-bottom-left-radius: 14px;
+        border-bottom-right-radius: 14px;
       }
 
+      /* ========== CONTENT PANELS ========== */
+      .content-wrapper {
+        max-width: 1100px;
+        margin: 0 auto;
+      }
+
+      .tab-panel {
+        display: none;
+        background: #f7f9fc;
+        border-radius: 28px;
+        padding: 48px;
+        gap: 48px;
+        align-items: center;
+      }
+
+      .tab-panel.active {
+        display: flex;
+        animation: fadeUp 0.35s ease;
+      }
+
+      @keyframes fadeUp {
+        from {
+          opacity: 0;
+          transform: translateY(12px);
+        }
+
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      /* Left text column */
+      .panel-left {
+        flex: 1;
+        min-width: 0;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .panel-left h1,
+      .panel-left h2 {
+        margin: 0 0 24px;
+        color: #101c35;
+        font: 30px sans-serif;
+        font-weight: 600;
+      }
+
+      .panel-left .subtitle {
+        margin: 0 0 32px;
+        color: #34445f;
+        font: 16px sans-serif;
+        font-weight: 400;
+      }
+
+      /* Feature list */
+      .feature-list {
+        width: 100%;
+        margin: 0;
+        padding: 0;
+        list-style: none;
+        display: flex;
+        flex-direction: column;
+        gap: 24px;
+      }
+
+      .feature-list li {
+        display: flex;
+        align-items: flex-start;
+        gap: 14px;
+        color: #1c2b46;
+        font:16px sans-serif;
+        font-weight: 400;
+      }
+
+      .feature-list li i {
+        flex: 0 0 32px;
+        width: 24px;
+        height: 24px;
+        margin-top: 2px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border: 1 solid #e5f3ff;
+        border-radius: 50%;
+        background: #e5f3ff;
+        color: #269be8;
+        font-size: 16px;
+        
+      }
+
+      /* Icon border and fill change when hovering over a feature */
+      .feature-list li:hover i {
+        background: #2162ff;
+        border-color: #2162ff;
+        color: #fff;
+      }
+
+      /* Right image column */
+      .panel-right {
+        flex: 1;
+        min-width: 0;
+        display: flex;
+        justify-content: center;
+      }
+
+      .panel-right img {
+        display: block;
+        width: 100%;
+        max-width: 610px;
+        height: auto;
+        border: 1px solid transparent;
+        border-radius: 30px;
+        background: #fff;
+        object-fit: cover;
+        box-shadow: 0 18px 45px rgba(24, 43, 74, 0.14);
+      }
+
+      /* Placeholder shown if the image fails to load */
+      .img-placeholder {
+        width: 100%;
+        max-width: 610px;
+        aspect-ratio: 4 / 3;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border: 1px solid #d9e2ee;
+        border-radius: 30px;
+        background: #fff;
+        color: #52627a;
+        font-size: 14px;
+        box-shadow: 0 18px 45px rgba(24, 43, 74, 0.14);
+      }
+
+      /* Responsive layout */
+      @media (max-width: 900px) {
+        .tab-panel.active {
+          flex-direction: column;
+          padding: 28px 22px;
+          gap: 32px;
+        }
+
+        .panel-left h1,
+        .panel-left h2 {
+          font-size: 30px;
+        }
+
+        .panel-left .subtitle,
+        .feature-list li {
+          font-size: 18px;
+        }
+
+        .panel-left .subtitle {
+          margin-bottom: 28px;
+        }
+
+        .panel-right img,
+        .img-placeholder {
+          max-width: 100%;
+        }
+      }
       /* *****************************Looking for a first-class distribution platform?********************************** */
 
       .First-Class-Distribution {
@@ -814,7 +981,7 @@
       </div>
     </div>
 
-    <!--Experience Unmatched Efficiency With salesfusion DMS--------------------------------------->
+    <!--=============================Experience Unmatched Efficiency With salesfusion DMS===========================-->
     <div class="Experience-umatched">
       <div class="Experience-unmatched-one">
         <h1>
@@ -836,7 +1003,7 @@
       </div>
     </div>
 
-    <!--Core Features of BrandBuddy---------------------------------------->
+    <!--===================Core Features of BrandBuddy============================-->
 
     <div class="Core-features">
       <div class="Core-features-header">
@@ -851,37 +1018,298 @@
         <h4>What makes BrandBuddy a must-have tool for retail management?</h4>
       </div>
 
-      <div class="clickable-function">
-        <button class="left-button-icon">
+      <!-- ===================== TAB BAR ===================== -->
+      <div class="tabs-section">
+        <button class="nav-arrow" id="prevBtn">
           <i class="fa-solid fa-angle-left"></i>
         </button>
-        <div class="Leave-Attendance">
-          <i class="fa-solid fa-location-dot"></i>
-          <button>Leave & Attendance</button>
+
+        <div class="tabs-viewport">
+          <div class="tabs-track" id="tabsTrack">
+            <button class="tab-btn active" data-target="panel-1">
+              <i class="fa-solid fa-location-dot"></i>
+              Leave & Attendance
+            </button>
+
+            <button class="tab-btn" data-target="panel-2">
+              <i class="fa-regular fa-clipboard"></i>
+              Sales Order Management
+            </button>
+
+            <button class="tab-btn" data-target="panel-3">
+              <i class="fa-solid fa-cube"></i>
+              Store & Product Master
+            </button>
+
+            <button class="tab-btn" data-target="panel-4">
+              <i class="fa-solid fa-user-group"></i>
+              Promoter-Store Mapping
+            </button>
+          </div>
         </div>
-        <div class="sale-order">
-          <i class="fa-regular fa-clipboard"></i>
-          <button>Sales Order Managements</button>
-        </div>
-        <div class="store-product">
-          <i class="fa-solid fa-cube"></i>
-          <button>Store & Product Master</button>
-        </div>
-        <div class="promoter-store">
-          <i class="fa-solid fa-user-group"></i>
-          <button>Promoter-Store Mapping</button>
-        </div>
-        <button class="right-button-icon">
+
+        <button class="nav-arrow" id="nextBtn">
           <i class="fa-solid fa-angle-right"></i>
         </button>
       </div>
+
+      <!-- ===================== CONTENT ===================== -->
+      <div class="content-wrapper">
+        <!-- 1. Leave & Attendance -->
+        <div class="tab-panel active" id="panel-1">
+          <div class="panel-left">
+            <h1>Geo-Fenced Attendance</h1>
+            <p class="subtitle">
+              Eliminate time-theft and ensure field accountability with
+              location-intelligent check-ins.
+            </p>
+            <ul class="feature-list">
+              <li>
+                <i class="fa-regular fa-circle-check"></i
+                ><span
+                  >Ensures promoters are physically present at assigned stores
+                  via GPS.</span
+                >
+              </li>
+              <li>
+                <i class="fa-regular fa-circle-check"></i
+                ><span
+                  >Prevents location fraud with real-time geo-validation and
+                  selfie-capture.</span
+                >
+              </li>
+              <li>
+                <i class="fa-regular fa-circle-check"></i
+                ><span
+                  >Digitized punch-in/out tracking perfectly aligned with
+                  promoter rosters.</span
+                >
+              </li>
+              <li>
+                <i class="fa-regular fa-circle-check"></i
+                ><span
+                  >Automatic flagging of irregular check-ins for immediate
+                  manager review.</span
+                >
+              </li>
+            </ul>
+          </div>
+          <div class="panel-right">
+            <!-- Replace src with your image -->
+            <img
+              src="attendance.webp"
+              alt="Geo-Fenced Attendance"
+              onerror="
+                this.style.display = 'none';
+                this.nextElementSibling.style.display = 'flex';
+              "
+            />
+            <div class="img-placeholder" style="display: none">
+              Attendance Dashboard Preview
+            </div>
+          </div>
+        </div>
+
+        <!-- 2. Sales Order Management -->
+        <div class="tab-panel" id="panel-2">
+          <div class="panel-left">
+            <h2>Streamlined Order Processing</h2>
+            <p class="subtitle">
+              Empower your promoters to capture sales and stock data instantly
+              from the retail floor.
+            </p>
+            <ul class="feature-list">
+              <li>
+                <i class="fa-regular fa-circle-check"></i
+                ><span
+                  >Real-time order booking with instant sync to the central
+                  distribution hub.</span
+                >
+              </li>
+              <li>
+                <i class="fa-regular fa-circle-check"></i
+                ><span
+                  >Stock-out alerts and automated replenishment
+                  suggestions.</span
+                >
+              </li>
+              <li>
+                <i class="fa-regular fa-circle-check"></i
+                ><span
+                  >Support for offline mode to ensure no data is lost in
+                  low-connectivity areas.</span
+                >
+              </li>
+              <li>
+                <i class="fa-regular fa-circle-check"></i
+                ><span
+                  >Visual sales dashboards for promoters to track daily targets
+                  vs achievement.</span
+                >
+              </li>
+            </ul>
+          </div>
+          <div class="panel-right">
+            <img
+              src="orderdetail.webp"
+              alt="Sales Order Management"
+              onerror="
+                this.style.display = 'none';
+                this.nextElementSibling.style.display = 'flex';
+              "
+            />
+            <div class="img-placeholder" style="display: none">
+              Sales Order Dashboard Preview
+            </div>
+          </div>
+        </div>
+
+        <!-- 3. Store & Product Master -->
+        <div class="tab-panel" id="panel-3">
+          <div class="panel-left">
+            <h2>Centralized Asset Control</h2>
+            <p class="subtitle">
+              Manage your entire retail footprint and product catalog from a
+              single source of truth.
+            </p>
+            <ul class="feature-list">
+              <li>
+                <i class="fa-regular fa-circle-check"></i
+                ><span
+                  >Dynamic SKU management with category-specific attributes and
+                  pricing.</span
+                >
+              </li>
+              <li>
+                <i class="fa-regular fa-circle-check"></i
+                ><span
+                  >Store profiling including location, type, and historical
+                  performance data.</span
+                >
+              </li>
+              <li>
+                <i class="fa-regular fa-circle-check"></i
+                ><span
+                  >Easy bulk updates for new product launches or seasonal
+                  campaign changes.</span
+                >
+              </li>
+              <li>
+                <i class="fa-regular fa-circle-check"></i
+                ><span
+                  >Hierarchical view of retail chains from regional to
+                  individual store level.</span
+                >
+              </li>
+            </ul>
+          </div>
+          <div class="panel-right">
+            <img
+              src="centralized2.webp"
+              alt="Store & Product Master"
+              onerror="
+                this.style.display = 'none';
+                this.nextElementSibling.style.display = 'flex';
+              "
+            />
+            <div class="img-placeholder" style="display: none">
+              Store & Product Master Preview
+            </div>
+          </div>
+        </div>
+
+        <!-- 4. Promoter-Store Mapping -->
+        <div class="tab-panel" id="panel-4">
+          <div class="panel-left">
+            <h2>Intelligent Resource Allocation</h2>
+            <p class="subtitle">
+              Optimize your workforce by mapping the right people to the right
+              locations.
+            </p>
+            <ul class="feature-list">
+              <li>
+                <i class="fa-regular fa-circle-check"></i
+                ><span
+                  >Visual route planning to minimize travel time and maximize
+                  store coverage.</span
+                >
+              </li>
+              <li>
+                <i class="fa-regular fa-circle-check"></i
+                ><span
+                  >Flexible mapping to handle permanent or floating promoter
+                  assignments.</span
+                >
+              </li>
+              <li>
+                <i class="fa-regular fa-circle-check"></i
+                ><span
+                  >Real-time performance-to-location analysis to identify
+                  high-growth zones.</span
+                >
+              </li>
+              <li>
+                <i class="fa-regular fa-circle-check"></i
+                ><span
+                  >Audit logs of all promoter-store associations for historical
+                  tracking.</span
+                >
+              </li>
+            </ul>
+          </div>
+          <div class="panel-right">
+            <img
+              src="intelligent.webp"
+              alt="Promoter-Store Mapping"
+              onerror="
+                this.style.display = 'none';
+                this.nextElementSibling.style.display = 'flex';
+              "
+            />
+            <div class="img-placeholder" style="display: none">
+              Promoter-Store Mapping Preview
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
 
-    <!--Looking for distribution/*******************************************************-->
-    <div class="First-Class-Distribution">
-      <p>Looking for a First-Class <span>Distribution</span> Solution?</p>
-      <a href="#"> <button>Contact us</button></a>
-    </div>
+    <!-- ===================== JAVASCRIPT ===================== -->
+    <script>
+      const tabsTrack = document.getElementById("tabsTrack");
+      const tabBtns = document.querySelectorAll(".tab-btn");
+      const panels = document.querySelectorAll(".tab-panel");
+      const prevBtn = document.getElementById("prevBtn");
+      const nextBtn = document.getElementById("nextBtn");
+
+      // Tab click → switch content
+      tabBtns.forEach((btn) => {
+        btn.addEventListener("click", () => {
+          tabBtns.forEach((b) => b.classList.remove("active"));
+          panels.forEach((p) => p.classList.remove("active"));
+
+          btn.classList.add("active");
+          const target = document.getElementById(btn.dataset.target);
+          if (target) target.classList.add("active");
+
+          // Keep active tab visible
+          btn.scrollIntoView({
+            behavior: "smooth",
+            inline: "center",
+            block: "nearest",
+          });
+        });
+      });
+
+      // Arrow scroll
+      const scrollAmount = 240;
+      nextBtn.addEventListener("click", () => {
+        tabsTrack.scrollBy({ left: scrollAmount, behavior: "smooth" });
+      });
+      prevBtn.addEventListener("click", () => {
+        tabsTrack.scrollBy({ left: -scrollAmount, behavior: "smooth" });
+      });
+    </script>
 
     <!--**********************************************Footer*****************************************-->
 
