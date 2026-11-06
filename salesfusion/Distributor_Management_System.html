@@ -904,7 +904,7 @@
 
       /* ===== CARDS (STAGGERED HEIGHTS: ONE BIG / ONE SMALL) ===== */
       .why-card {
-        background: #ffffff;
+        background: white;
         border-radius: 20px;
         overflow: hidden;
         width: 340px;
@@ -931,7 +931,6 @@
       }
 
       .why-card:hover {
-        transform: translateY(-6px);
         box-shadow: 0 16px 40px rgba(15, 23, 42, 0.12);
       }
 
@@ -949,6 +948,11 @@
         height: 100%;
         object-fit: cover;
         display: block;
+        transition: all 0.25s ease-in-out;
+      }
+
+      .why-card:hover img {
+        transform: scale(1.05) translateY(-8px);
       }
 
       /* Icon Badge on Image */
@@ -1014,11 +1018,11 @@
       }
 
       /* ===== BOTTOM DOTS ===== */
-      .dots-container {
+      .slider-controls {
         display: flex;
         justify-content: center;
-        gap: 12px;
-        margin-top: 36px;
+        align-items: center;
+        gap: 50px;
       }
 
       .dot {
@@ -1068,6 +1072,297 @@
           max-width: 82vw;
         }
       }
+
+      /* ======================= Frequently Asked Questions===================== */
+
+      /* FAQ SECTION */
+      .faq-section {
+        width: 100%;
+        background: #0e4b81;
+        padding: 80px 32px;
+        box-sizing: border-box;
+        font-family: sans-serif;
+      }
+
+      /* HEADER */
+      .faq-header {
+        text-align: center;
+        color: #fff;
+      }
+
+      .faq-header h2 {
+        font-size: 14px;
+        font-weight: 600;
+        letter-spacing: 2px;
+      }
+
+      .faq-header h1 {
+        font-size: 30px;
+        font-weight: 800;
+        margin: -5px -5px;
+      }
+
+      .faq-header p {
+        font-size: 16px;
+        line-height: 1.5;
+        margin: 16px 0 65px;
+      }
+
+      /* FAQ GRID */
+      .faq-container {
+        max-width: 1180px;
+        margin: auto;
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 24px 26px;
+      }
+
+      /* FAQ CARD */
+      .faq-item {
+        background: #fff;
+        border-radius: 20px;
+        padding: 20px;
+        display: flex;
+        align-items: center;
+        box-sizing: border-box;
+      }
+
+      /* QUESTION */
+      .faq-question {
+        display: flex;
+        align-items: center;
+        gap: 18px;
+        width: 100%;
+      }
+
+      /* QUESTION ICON */
+      .faq-question .fa-circle-question {
+        width: 40px;
+        height: 40px;
+        min-width: 40px;
+        background: #edf6ff;
+        color: #39a5e5;
+        border-radius: 12px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 16px;
+      }
+
+      /* QUESTION TEXT */
+      .faq-question span {
+        flex: 1;
+        color: #17243b;
+        font-size: 16px;
+        font-weight: 600;
+        line-height: 1.4;
+        margin: 0;
+      }
+
+      /* DOWN ARROW */
+      .faq-question .arrow {
+        color: #94a8bd;
+        font-size: 16px;
+      }
+
+      /* RESPONSIVE */
+      @media (max-width: 900px) {
+        .faq-container {
+          grid-template-columns: 1fr;
+        }
+
+        .faq-header h1 {
+          font-size: 32px;
+        }
+
+        .faq-header p {
+          font-size: 17px;
+        }
+      }
+
+      @media (max-width: 500px) {
+        .faq-section {
+          padding: 65px 18px;
+        }
+
+        .faq-header {
+          margin-bottom: 45px;
+        }
+
+        .faq-header h1 {
+          font-size: 27px;
+        }
+
+        .faq-item {
+          padding: 20px;
+        }
+
+        .faq-question {
+          gap: 12px;
+        }
+
+        .faq-question h3 {
+          font-size: 15px;
+        }
+      }
+
+      /* ======================= other-services-section =========================== */
+      /* Outer Container */
+      .other-services-section {
+        max-width: 1280px;
+        width: 100%;
+        margin: 0 auto;
+        text-align: center;
+        margin: 96px 24px;
+      }
+
+      /* Header Styling */
+      .services-header h1 {
+        font-size: 30px;
+        font-weight: 800;
+        color: #1e293b;
+        letter-spacing: -0.5px;
+      }
+
+      .services-header h1 span {
+        color: #44a5db; /* Blue highlight */
+      }
+
+      /* Underline Accent */
+      .header-line {
+        max-width: 120px;
+        height: 6px;
+        background-color: #3895d3;
+        border-radius: 4px;
+        margin: -5px auto 50px auto;
+        margin-bottom: 74px;
+      }
+
+      /* Cards Grid */
+      .service-content {
+        display: flex;
+        justify-content: center;
+        align-items: center; /* Centers cards inside the grid wrapper */
+        gap: 20px;
+      }
+
+      .services-grid {
+        display: grid;
+        grid-template-columns: repeat(5, 1fr);
+        gap: 20px;
+        align-items: stretch;
+      }
+
+      /* Individual Card */
+      .service-card {
+        background: #ffffff;
+        border: 1px solid #f1f2f4;
+        border-radius: 12px;
+        padding: 28px 22px 24px;
+        text-align: left;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        transition: all 0.3s ease;
+        position: relative;
+      }
+
+      /* Top Icon Box */
+      .icon-box {
+        width: 64px;
+        height: 64px;
+        background-color: #f0f7fe;
+        border-radius: 12px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 28px;
+      }
+
+      .icon-box img {
+        width: 32px;
+        height: 32px;
+        object-fit: contain;
+      }
+
+      /* Titles */
+      .service-card h2 {
+        font: 20px sans-serif;
+        font-weight: 700;
+        color: #1e293b;
+        line-height: 1.35;
+        margin-bottom: 16px;
+        transition: color 0.3s ease;
+      }
+
+      /* Paragraph Description */
+      .service-card p {
+        font: 14px sans-serif;
+        color: #64748b;
+        font-weight: 400;
+        line-height: 1.55;
+        margin-bottom: 32px;
+        flex-grow: 1;
+      }
+
+      /* Read More Link */
+      .read-more {
+        font: 14px sans-serif;
+        font-weight: bolder;
+        color: #44a5db;
+        text-decoration: none;
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        letter-spacing: 0.5px;
+        transition: color 0.2s ease;
+      }
+
+      .read-more i {
+        font-size: 14px;
+        transition: transform 0.2s ease;
+      }
+
+      /* ===== HOVER & FEATURED STATE ===== */
+
+      /* Card 2 / Active Featured State from screenshot */
+
+      .service-card:hover {
+        border-color: transparent;
+        box-shadow: 0 12px 32px rgba(56, 149, 211, 0.15);
+        transform: translateY(-4px);
+      }
+
+      .service-card:hover h2 {
+        color: #3895d3;
+      }
+
+      .service-card:hover .read-more i {
+        transform: translateX(4px);
+      }
+
+      /* ===== RESPONSIVE BREAKPOINTS ===== */
+      @media (max-width: 1100px) {
+        .services-grid {
+          grid-template-columns: repeat(3, 1fr);
+        }
+      }
+
+      @media (max-width: 768px) {
+        .services-grid {
+          grid-template-columns: repeat(2, 1fr);
+        }
+        .services-header h2 {
+          font-size: 26px;
+        }
+      }
+
+      @media (max-width: 500px) {
+        .services-grid {
+          grid-template-columns: 1fr;
+        }
+      }
+
       /* *****************************Looking for a first-class distribution platform?********************************** */
 
       .First-Class-Distribution {
@@ -1860,10 +2155,7 @@
           <!-- Card 2 -->
           <div class="why-card">
             <div class="card-image">
-              <img
-                src="whyleading1.jpeg"
-                alt="Scalability"
-              />
+              <img src="whyleading1.jpeg" alt="Scalability" />
               <div class="card-badge">
                 <i class="fa-solid fa-bolt badge-yellow"></i>
               </div>
@@ -1881,10 +2173,7 @@
           <!-- Card 3 -->
           <div class="why-card">
             <div class="card-image">
-              <img
-                src="photo-1552664730-d307ca884978.avif"
-                alt="Adoption"
-              />
+              <img src="photo-1552664730-d307ca884978.avif" alt="Adoption" />
               <div class="card-badge">
                 <i class="fa-solid fa-users badge-green"></i>
               </div>
@@ -1902,10 +2191,7 @@
           <!-- Card 4 -->
           <div class="why-card">
             <div class="card-image">
-              <img
-                src="photo-1550751827-4bd374c3f58b.avif"
-                alt="Security"
-              />
+              <img src="photo-1550751827-4bd374c3f58b.avif" alt="Security" />
               <div class="card-badge">
                 <i class="fa-solid fa-shield-halved badge-blue"></i>
               </div>
@@ -2047,6 +2333,176 @@
         }
       });
     </script>
+
+    <!--================================Frequently Asked Questions=====================================-->
+
+    <section class="faq-section">
+      <div class="faq-header">
+        <h2>GOT QUESTIONS?</h2>
+        <h1>Frequently Asked Questions</h1>
+        <p>
+          Everything you need to know about optimizing your distribution network
+          with Heera DMS.
+        </p>
+      </div>
+
+      <div class="faq-container">
+        <!-- FAQ 1 -->
+        <div class="faq-item">
+          <div class="faq-question">
+            <i class="fa-regular fa-circle-question"></i>
+            <span>What exactly is a Distributor Management System (DMS)?</span>
+            <i class="fa-solid fa-chevron-down arrow"></i>
+          </div>
+        </div>
+
+        <!-- FAQ 2 -->
+        <div class="faq-item">
+          <div class="faq-question">
+            <i class="fa-regular fa-circle-question"></i>
+            <span>How does the system improve supply chain visibility?</span>
+            <i class="fa-solid fa-chevron-down arrow"></i>
+          </div>
+        </div>
+
+        <!-- FAQ 3 -->
+        <div class="faq-item">
+          <div class="faq-question">
+            <i class="fa-regular fa-circle-question"></i>
+            <span>Can Heera DMS integrate with our existing ERP?</span>
+            <i class="fa-solid fa-chevron-down arrow"></i>
+          </div>
+        </div>
+
+        <!-- FAQ 4 -->
+        <div class="faq-item">
+          <div class="faq-question">
+            <i class="fa-regular fa-circle-question"></i>
+            <span>What ROI can we expect after implementation?</span>
+            <i class="fa-solid fa-chevron-down arrow"></i>
+          </div>
+        </div>
+
+        <!-- FAQ 5 -->
+        <div class="faq-item">
+          <div class="faq-question">
+            <i class="fa-regular fa-circle-question"></i>
+            <span>Is the system mobile-friendly for field sales teams?</span>
+            <i class="fa-solid fa-chevron-down arrow"></i>
+          </div>
+        </div>
+
+        <!-- FAQ 6 -->
+        <div class="faq-item">
+          <div class="faq-question">
+            <i class="fa-regular fa-circle-question"></i>
+            <span>How long does a typical implementation take?</span>
+            <i class="fa-solid fa-chevron-down arrow"></i>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!--=========================other-services-section====================-->
+
+    <section class="other-services-section">
+      <!-- Section Header -->
+      <div class="services-header">
+        <h1>Other Services You <span>Might Be Looking For</span></h1>
+        <div class="header-line"></div>
+      </div>
+
+      <!-- Cards Grid -->
+      <div class="service-content">
+        <div class="services-grid">
+          <!-- Card 1 -->
+          <div class="service-card">
+            <div>
+              <div class="icon-box">
+                <img src="team.webp" alt="image" />
+              </div>
+              <h2>Sales Team Automation</h2>
+              <p>
+                Single platform that captures market demand, manages
+                merchandising, journey planning & tracking for salesforce in
+                real time.
+              </p>
+            </div>
+            <a href="#" class="read-more"
+              >READ MORE <i class="fa-solid fa-arrow-right-long"></i
+            ></a>
+          </div>
+
+          <!-- Card 2 (Featured Active State matching screenshot) -->
+          <div class="service-card">
+            <div>
+              <div class="icon-box">
+                <img src="partner.webp" alt="image" />
+              </div>
+              <h2>Retail Partner App</h2>
+              <p>
+                Discover new RTM (Route-to-market) and directly communicate with
+                your retailers efficiently.
+              </p>
+            </div>
+            <a href="#" class="read-more"
+              >READ MORE <i class="fa-solid fa-arrow-right-long"></i
+            ></a>
+          </div>
+
+          <!-- Card 3 -->
+          <div class="service-card">
+            <div>
+              <div class="icon-box">
+                <img src="asset.webp" alt="image" />
+              </div>
+              <h2>Asset Tracking System</h2>
+              <p>
+                Tracking & Monitoring of Asset Deployments at Retail outlets and
+                dealers with precision.
+              </p>
+            </div>
+            <a href="#" class="read-more"
+              >READ MORE <i class="fa-solid fa-arrow-right-long"></i
+            ></a>
+          </div>
+
+          <!-- Card 4 -->
+          <div class="service-card">
+            <div>
+              <div class="icon-box">
+                <img src="rural.webp" alt="image" />
+              </div>
+              <h2>Rural Distribution Management</h2>
+              <p>
+                Expand your rural sales channels to match the pace of rural
+                economic growth and reach.
+              </p>
+            </div>
+            <a href="#" class="read-more"
+              >READ MORE <i class="fa-solid fa-arrow-right-long"></i
+            ></a>
+          </div>
+
+          <!-- Card 5 -->
+          <div class="service-card">
+            <div>
+              <div class="icon-box">
+                <img src="ai.webp" alt="image" />
+              </div>
+              <h2>AI & Data Intelligence</h2>
+              <p>
+                Cutting edge AI to generate actionable insights from your
+                distribution data and trends.
+              </p>
+            </div>
+            <a href="#" class="read-more"
+              >READ MORE <i class="fa-solid fa-arrow-right-long"></i
+            ></a>
+          </div>
+        </div>
+      </div>
+    </section>
 
     <!--**********************************************Footer*****************************************-->
 
