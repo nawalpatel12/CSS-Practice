@@ -1,0 +1,450 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Contact Form</title>
+
+    <style>
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        padding: 0;
+        font-family: Arial, Helvetica, sans-serif;
+      }
+
+      .container {
+        width: 70%;
+        min-height: 70vh;
+        margin: 2px auto;
+        padding: 50px;
+        background-color: white;
+        border-radius: 10px;
+        position: relative;
+      }
+
+      .close {
+        position: absolute;
+        top: 20px;
+        right: 20px;
+        height: 30px;
+        width: 30px;
+        border-radius: 50%;
+        background-color: black;
+        color: white;
+        font-size: 24px;
+        text-align: center;
+        line-height: 35px;
+        cursor: pointer;
+      }
+
+      .form-row {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 25px;
+        margin-bottom: 36px;
+      }
+
+      .form-group {
+        display: flex;
+        flex-direction: column;
+      }
+
+      label {
+        font-size: 14px;
+        font-weight: bold;
+        color: #374151;
+        margin-bottom: 8px;
+      }
+
+      .required {
+        color: red;
+      }
+
+      input:not([type="checkbox"]),
+      textarea {
+        width: 100%;
+        padding: 15px 12px;
+        font-size: 14px;
+        border: 1px solid #ced4da;
+        border-radius: 8px;
+        background-color: #f8f9fa;
+        outline: none;
+        font-family: Arial, Helvetica, sans-serif;
+      }
+
+      input:focus,
+      textarea:focus {
+        border-color: #80bdff;
+      }
+
+      .error {
+        border: 1px solid red !important;
+      }
+
+      .error-message {
+        color: red;
+        font-size: 14px;
+        margin-top: 8px;
+        display: none;
+      }
+
+      textarea {
+        height: 132px;
+        resize: none;
+      }
+
+      .solutions {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 17px;
+        margin-top: 12px;
+      }
+
+      .solutions label {
+        font-size: 14px;
+        font-weight: normal;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        cursor: pointer;
+        margin: 0;
+      }
+
+      .solutions input {
+        width: 20px;
+        height: 20px;
+        accent-color: #f56868;
+        cursor: pointer;
+      }
+
+      .bottom {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-top: 55px;
+      }
+
+      .captcha {
+        width: 320px;
+        height: 80px;
+        border: 1px solid #ced4da;
+        border-radius: 5px;
+        background-color: #f8f9fa;
+        box-shadow: 0 2px 5px #ddd;
+        display: flex;
+        align-items: center;
+        padding: 10px;
+        gap: 15px;
+      }
+
+      .captcha input {
+        width: 30px;
+        height: 30px;
+        cursor: pointer;
+      }
+
+      .captcha span {
+        font-size: 17px;
+        color: #374151;
+      }
+
+      .recaptcha {
+        margin-left: auto;
+        text-align: center;
+        color: #555;
+        font-size: 13px;
+      }
+
+      .recaptcha img {
+        width: 35px;
+        height: 35px;
+      }
+
+      button {
+        padding: 19px 40px;
+        background-color: #f56868;
+        color: white;
+        border: none;
+        border-radius: 8px;
+        font-size: 18px;
+        font-weight: bold;
+        cursor: pointer;
+      }
+
+      button:hover {
+        background-color: #e64f4f;
+      }
+
+      @media (max-width: 768px) {
+        .container {
+          padding: 50px 20px 25px;
+        }
+
+        .form-row {
+          grid-template-columns: 1fr;
+          gap: 25px;
+          margin-bottom: 25px;
+        }
+
+        .bottom {
+          flex-direction: column;
+          gap: 25px;
+          align-items: flex-start;
+        }
+
+        .captcha {
+          width: 100%;
+          max-width: 320px;
+        }
+
+        button {
+          width: 100%;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="container">
+      <div class="close" onclick="window.history.back()">&times;</div>
+
+      <form id="contactForm" novalidate>
+        <div class="form-row">
+          <div class="form-group">
+            <label>First Name <span class="required">*</span></label>
+            <input type="text" id="firstName" placeholder="First Name" />
+            <span class="error-message">First name is required</span>
+          </div>
+
+          <div class="form-group">
+            <label>Last Name</label>
+            <input type="text" placeholder="Last Name" />
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label>Company Name <span class="required">*</span></label>
+            <input type="text" id="company" placeholder="Company Name" />
+            <span class="error-message">Company name is required</span>
+          </div>
+
+          <div class="form-group">
+            <label>Phone Number <span class="required">*</span></label>
+            <input type="tel" id="phone" placeholder="Phone Number" />
+            <span class="error-message">Phone number is required</span>
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label>City</label>
+            <input type="text" placeholder="City" />
+          </div>
+
+          <div class="form-group">
+            <label>Email <span class="required">*</span></label>
+            <input type="email" id="email" placeholder="Email Address" />
+            <span class="error-message">Email is required</span>
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label>
+              Which solution are you interested in?
+              <span class="required">*</span>
+            </label>
+
+            <div class="solutions">
+              <label> <input type="checkbox" name="solution" /> DMS </label>
+
+              <label>
+                <input type="checkbox" name="solution" /> Sales Force Automation
+              </label>
+
+              <label>
+                <input type="checkbox" name="solution" /> Retailer Application
+              </label>
+
+              <label>
+                <input type="checkbox" name="solution" /> Rural DMS
+              </label>
+
+              <label>
+                <input type="checkbox" name="solution" /> Asset Management
+              </label>
+
+              <label>
+                <input type="checkbox" name="solution" /> AI & Data Analytics
+              </label>
+            </div>
+
+            <span class="error-message" id="solutionError">
+              Please select at least one solution
+            </span>
+          </div>
+
+          <div class="form-group">
+            <label> Your Message <span class="required">*</span> </label>
+
+            <textarea id="message" placeholder="Your Message"></textarea>
+
+            <span class="error-message"> Message is required </span>
+          </div>
+        </div>
+
+        <div class="bottom">
+          <div class="captcha">
+            <input type="checkbox" id="robot" />
+
+            <span>I'm not a robot</span>
+
+            <div class="recaptcha">
+              <img
+                src="https://www.gstatic.com/recaptcha/api2/logo_48.png"
+                alt="reCAPTCHA"
+              />
+              <div>reCAPTCHA</div>
+              <small>Privacy - Terms</small>
+            </div>
+          </div>
+
+          <button type="submit">Submit Form</button>
+        </div>
+      </form>
+    </div>
+
+    <script>
+      const form = document.getElementById("contactForm");
+
+      function showError(input, message) {
+        input.classList.add("error");
+
+        let error = input.parentElement.querySelector(".error-message");
+
+        if (error) {
+          error.style.display = "block";
+
+          if (message) {
+            error.innerText = message;
+          }
+        }
+      }
+
+      function removeError(input) {
+        input.classList.remove("error");
+
+        let error = input.parentElement.querySelector(".error-message");
+
+        if (error) {
+          error.style.display = "none";
+        }
+      }
+
+      // Live validation
+      const fields = [
+        document.getElementById("firstName"),
+        document.getElementById("company"),
+        document.getElementById("phone"),
+        document.getElementById("email"),
+        document.getElementById("message"),
+      ];
+
+      fields.forEach((input) => {
+        input.addEventListener("input", function () {
+          if (input.value.trim() !== "") {
+            removeError(input);
+          }
+        });
+      });
+
+      // Checkbox validation
+      const checkboxes = document.querySelectorAll(
+        '.solutions input[type="checkbox"]',
+      );
+
+      checkboxes.forEach((checkbox) => {
+        checkbox.addEventListener("change", function () {
+          let checked = Array.from(checkboxes).some(
+            (checkbox) => checkbox.checked,
+          );
+
+          document.getElementById("solutionError").style.display = checked
+            ? "none"
+            : "block";
+        });
+      });
+
+      // Form submission validation
+      form.addEventListener("submit", function (event) {
+        event.preventDefault();
+
+        let valid = true;
+
+        fields.forEach((input) => {
+          if (input.value.trim() === "") {
+            showError(input);
+            valid = false;
+          } else {
+            removeError(input);
+          }
+        });
+
+        // Email validation
+        const email = document.getElementById("email");
+
+        if (
+          email.value.trim() !== "" &&
+          !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.value.trim())
+        ) {
+          showError(email, "Please enter a valid email address");
+          valid = false;
+        }
+
+        // Phone validation
+        const phone = document.getElementById("phone");
+
+        if (
+          phone.value.trim() !== "" &&
+          !/^\+?[0-9\s()-]{7,20}$/.test(phone.value.trim())
+        ) {
+          showError(phone, "Please enter a valid phone number");
+          valid = false;
+        }
+
+        // Solution validation
+        let checked = Array.from(checkboxes).some(
+          (checkbox) => checkbox.checked,
+        );
+
+        if (!checked) {
+          document.getElementById("solutionError").style.display = "block";
+          valid = false;
+        }
+
+        // CAPTCHA checkbox validation
+        const robot = document.getElementById("robot");
+
+        if (!robot.checked) {
+          alert("Please confirm that you are not a robot.");
+          valid = false;
+        }
+
+        if (valid) {
+          alert("Form submitted successfully!");
+
+          form.reset();
+
+          fields.forEach((input) => removeError(input));
+
+          document.getElementById("solutionError").style.display = "none";
+        }
+      });
+    </script>
+  </body>
+</html>
