@@ -439,286 +439,364 @@
       }
 
       /**************************Section II*************************/
-      /* **********************capabilities-section ******************** */
 
       .capabilities-section {
-        padding: 64px 20px;
-        background-color: #f8f9fa;
+        padding: 80px 32px;
+        background-color: #ffffff;
+        font-family: sans-serif;
       }
 
-      .container {
-        max-width: 1180px;
+      .capabilities-section .container {
+        max-width: 1120px;
         margin: 0 auto;
       }
 
-      .section-header {
-        max-width: 720px;
-        margin-bottom: 36px;
+      /* Header */
+      .section-header1 {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: flex-start;
+        width: 100%;
+        margin: 0 0 40px -62px;
       }
 
       .section-badge {
-        display: inline-block;
-        font-size: 0.72rem;
+        display: inline-flex;
+        align-items: center;
+        gap: 28px;
+        background-color: #dbeafe;
+        color: #44a5db;
+        width: 78px;
+        height: 18px;
+        font-size: 12px;
         font-weight: 700;
         letter-spacing: 0.08em;
         text-transform: uppercase;
-        color: #4b5563;
-        background-color: #e5e7eb;
-        padding: 4px 10px;
-        border-radius: 4px;
-        margin-bottom: 14px;
+        padding: 4px 12px;
+        border-radius: 20px;
+        margin-bottom: 18px;
       }
 
-      .section-header h2 {
-        font-size: clamp(1.6rem, 2.8vw, 2.25rem);
+      .section-badge::after {
+        content: "";
+        display: inline-block;
+        width: 48px;
+        height: 2px;
+        background-color: #b8dcf5;
+        margin-right: -80px;
+      }
+
+      #capabilities-heading {
+        font-size: 20px;
         font-weight: 700;
-        color: #111827;
-        margin-bottom: 10px;
+        color: #242360;
+        margin: 0 0 16px;
+        line-height: 1.25;
       }
 
       .section-subtitle {
-        font-size: 1rem;
-        color: #4b5563;
+        align-self: flex-start;
+        margin: 0 auto 0 0;
+        padding-left: 0;
+        font-size: 20px;
+        color: #45556c;
+        max-width: 600px;
+        line-height: 1.7;
       }
 
+      /* 2x2 Grid */
       .capabilities-grid {
         display: grid;
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-        gap: 24px;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 28px;
+        margin: 30px 0 0 -62px;
       }
 
+      /* Capability Card */
       .capability-card {
+        width: 560px;
+        height: 180px;
+        position: relative;
+        overflow: hidden;
         background-color: #ffffff;
-        border: 1px solid #e5e7eb;
-        border-radius: 12px;
-        padding: 28px;
-        box-shadow: 0 2px 10px rgba(15, 23, 42, 0.03);
+        border: 1px solid #eef2f6;
+        border-radius: 16px;
+        padding: 32px;
+        box-shadow: 0 4px 16px rgba(15, 23, 42, 0.04);
         transition:
-          transform 0.2s ease,
-          box-shadow 0.2s ease;
+          transform 0.25s ease,
+          box-shadow 0.25s ease,
+          border-color 0.25s ease;
       }
 
-      .capability-card:hover {
-        transform: translateY(-3px);
-        box-shadow: 0 10px 22px rgba(15, 23, 42, 0.07);
+      .capability-card::after {
+        content: "";
+        position: absolute;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        height: 4px;
+        background-color: #3898dc;
+        transform: scaleX(0);
+        transform-origin: left;
+        transition: transform 0.25s ease;
       }
 
       .card-top {
         display: flex;
         align-items: flex-start;
         justify-content: space-between;
-        gap: 16px;
-        margin-bottom: 20px;
+        margin-bottom: 24px;
       }
 
       .icon-badge {
-        width: 38px;
-        height: 38px;
-        border-radius: 8px;
-        background-color: #eef6fa;
-        color: #2b7a9b;
-        display: grid;
-        place-items: center;
-        font-size: 1rem;
-        flex-shrink: 0;
+        width: 48px;
+        height: 48px;
+        border-radius: 12px;
+        background-color: #eef6fd;
+        color: #3898dc;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 20px;
+        transition:
+          background-color 0.25s ease,
+          color 0.25s ease;
       }
 
       .category-tag {
-        font-size: 0.72rem;
-        font-weight: 700;
-        letter-spacing: 0.1em;
+        font-size: 12px;
+        font-weight: 550;
+        letter-spacing: 0.08em;
         text-transform: uppercase;
-        color: #6b7280;
-        padding-top: 2px;
+        color: #9ca3af;
+        padding-top: 4px;
+        transition: color 0.25s ease;
       }
 
       .capability-card h3 {
-        font-size: 1.12rem;
+        font-size: 20px;
         font-weight: 700;
         color: #111827;
-        margin-bottom: 8px;
+        margin: 0 0 12px;
+        line-height: 1.3;
+        transition: color 0.25s ease;
       }
 
       .capability-card p {
-        font-size: 0.94rem;
-        color: #6b7280;
+        font-size: 16px;
+        color: #4b5563;
+        margin: 0;
+        line-height: 1.65;
       }
 
-      /* Responsive Breakpoints */
-      @media (max-width: 768px) {
-        .capabilities-section {
-          padding: 48px 16px;
-        }
+      /* Hover State (matches 2nd screenshot) */
+      .capability-card:hover {
+        transform: translateY(-4px);
+        border-color: #dbeafe;
+        box-shadow: 0 14px 30px rgba(15, 23, 42, 0.09);
+      }
 
+      .capability-card:hover::after {
+        transform: scaleX(1);
+      }
+
+      .capability-card:hover .icon-badge {
+        background-color: #3898dc;
+        color: #ffffff;
+      }
+
+      .capability-card:hover .category-tag,
+      .capability-card:hover h3 {
+        color: #3898dc;
+      }
+
+      /* Responsive */
+      @media (max-width: 768px) {
         .capabilities-grid {
           grid-template-columns: 1fr;
-          gap: 16px;
+          gap: 20px;
         }
 
         .capability-card {
-          padding: 22px;
+          padding: 24px;
+        }
+
+        #capabilities-heading {
+          font-size: 24px;
         }
       }
 
-      /****************core advantages*******************/
-
+      /**************** core advantages *******************/
       .advantages {
-        max-width: 1560px;
+        max-width: 1440px;
         margin: 0 auto;
-        padding: 80px 32px;
-        background-color: lab(98.1434 -0.369549 -1.05968);
+        padding: 80px 130px;
+        background-color: #f9fafc;
         font-family: sans-serif;
       }
 
       /* ---------- Header ---------- */
-      .section-header {
+      .advantages .section-header {
         text-align: center;
-        margin-bottom: 70px;
+        margin-bottom: 56px;
       }
 
-      .eyebrow {
-        display: block;
+      .advantages .eyebrow {
+        display: inline-block;
         color: #44a5db;
-        font-size: 20px;
+        font-size: 14px;
         font-weight: 800;
         letter-spacing: 2px;
         text-transform: uppercase;
+        margin-bottom: 10px;
       }
 
-      .section-header h1 {
-        font-size: 30px;
+      .advantages .section-header h1 {
+        font-size: 32px;
         font-weight: 800;
         color: #0a0a0a;
-        margin-top: -10px;
+        margin: 0 0 12px;
+        line-height: 1.25;
       }
 
-      .section-header p {
+      .advantages .section-header p {
         max-width: 650px;
-        margin: -10px auto;
+        margin: 0 auto;
         font-size: 16px;
-        line-height: 1.4;
-        color: #0a0a0a;
+        line-height: 1.6;
+        color: #4b5563;
       }
 
-      /* ---------- Cards grid ---------- */
-      .cards-grid {
+      /* ---------- Cards Grid ---------- */
+      .advantages .cards-grid {
         display: grid;
         grid-template-columns: repeat(4, 1fr);
-        gap: 30px;
+        gap: 24px;
       }
 
-      .card {
-        width: 230px;
-        height: 165px;
+      .advantages .card {
+        width: 100%;
+        height: 240px;
         background: #fcfdff;
         border: 1px solid #edf0f5;
-        border-radius: 25px;
+        border-radius: 20px;
         padding: 32px;
+        box-sizing: border-box;
         transition:
           transform 0.25s ease,
           box-shadow 0.25s ease;
       }
 
-      .card:hover {
+      .advantages .card:hover {
         transform: translateY(-5px);
         box-shadow: 0 12px 28px rgba(0, 0, 0, 0.07);
       }
 
-      .icon-box {
-        width: 10px;
-        height: 10px;
-        border-radius: 8px;
+      /* Smaller Icon Background */
+      .advantages .icon-box {
+        width: 58px; /* 192px (w-48) */
+        height: 58px; /* 192px (h-48) */
+        border-radius: 15px;
         display: flex;
         align-items: center;
         justify-content: center;
-        font-size: 20px;
+        font-size: 20px; /* scaled up for a 192px box */
         margin-bottom: 24px;
         transition: transform 0.25s ease-in;
       }
 
-      .card:hover .icon-box {
-        transform: translateY(-5px);
+      .advantages .card:hover .icon-box {
+        transform: translateY(4px);
       }
 
-      .card h3 {
+      .advantages .card h3 {
         font-size: 20px;
-        color: #0a0a00;
+        color: #0a0a0a;
         font-weight: 700;
-        margin-bottom: 12px;
+        margin: 0 0 12px;
       }
 
-      .card p {
-        font-size: 14px;
-        line-height: 1.4;
+      .advantages .card p {
+        font-size: 16px;
+        line-height: 1.55;
         color: #64748b;
+        margin: 0;
       }
 
-      /* ---------- Color variants ---------- */
-      .card-speed {
+      /* ---------- Color Variants ---------- */
+      .advantages .card-speed {
         border-color: #e4ecf7;
       }
-      .card-speed .icon-box {
+      .advantages .card-speed .icon-box {
         background: #e1eefb;
         color: #1e88e5;
       }
 
-      .card-flexibility {
+      .advantages .card-flexibility {
         border-color: #e1f2e9;
       }
-      .card-flexibility .icon-box {
+      .advantages .card-flexibility .icon-box {
         background: #ddf3e8;
         color: #10a56f;
       }
 
-      .card-security {
+      .advantages .card-security {
         border-color: #ece7f9;
       }
-      .card-security .icon-box {
+      .advantages .card-security .icon-box {
         background: #f0e9fd;
         color: #7c3aed;
       }
 
-      .card-scalability {
+      .advantages .card-scalability {
         border-color: #f9e9e1;
       }
-      .card-scalability .icon-box {
+      .advantages .card-scalability .icon-box {
         background: #fdeae1;
         color: #e8491d;
       }
 
-      .card-integration {
+      .advantages .card-integration {
         border-color: #f8efd9;
       }
-      .card-integration .icon-box {
+      .advantages .card-integration .icon-box {
         background: #fcf3da;
         color: #ef8e0c;
       }
 
       /* ---------- Responsive ---------- */
       @media (max-width: 1200px) {
-        .cards-grid {
+        .advantages .cards-grid {
           grid-template-columns: repeat(2, 1fr);
         }
       }
 
       @media (max-width: 640px) {
-        .cards-grid {
+        .advantages {
+          padding: 56px 20px;
+        }
+
+        .advantages .cards-grid {
           grid-template-columns: 1fr;
         }
-        .section-header h2 {
-          font-size: 32px;
+
+        .advantages .section-header h1 {
+          font-size: 26px;
         }
       }
 
-      /* ----------Realted bolgs Section ---------- */
+      /******* ----------Realted bolgs Section ---------- ******/
       .related-blogs {
         background: #daecf8;
-        padding: 60px 80px;
+        padding: 60px 100px;
+        font-family: sans-serif;
       }
 
       .section-title {
         text-align: center;
-        font-size: 37px;
+        font-size: 30px;
         font-weight: 700;
         color: #1f2060;
         margin-bottom: 70px;
@@ -728,67 +806,55 @@
       /* Cards are 435px wide when there is room and shrink on smaller screens */
       .blog-grid {
         display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(280px, 435px));
-        justify-content: start;
-        gap: 30px;
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        gap: 24px;
       }
 
       /* ---------- Card ---------- */
       .blog-card {
+        width: 260px;
+        height: 450px;
         background: #ffffff;
-        padding: 20px;
+        padding: 16px;
         box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
-        transition:
-          transform 0.25s ease,
-          box-shadow 0.25s ease;
-      }
-
-      .blog-card:hover {
-        transform: translateY(-4px);
-        box-shadow: 0 10px 24px rgba(0, 0, 0, 0.12);
       }
 
       .blog-card__image {
         display: block;
         width: 100%;
-        height: 200px;
+        height: 155px;
         object-fit: cover;
         border-radius: 4px;
         background: #e5e7eb;
-        margin-bottom: 40px;
+        margin-bottom: 30px;
       }
 
       .blog-card__title {
-        font-size: 25px;
+        font-size: 20px;
         font-weight: 700;
         line-height: 1.35;
-        color: #1f2060;
-        margin-bottom: 14px;
+        color: #242360;
+        margin-bottom: 12px;
       }
 
       .blog-card__text {
-        font-size: 17.5px;
+        font-size: 14px;
         line-height: 1.45;
-        color: #3f4b5b;
-        margin-bottom: 30px;
+        color: #4a5565;
+        margin-bottom: 24px;
       }
 
       .blog-card__btn {
         display: block;
         width: max-content;
         margin: 0 auto;
-        padding: 17px 30px;
+        padding: 14px 24px;
         background: #0e4c80;
         color: #ffffff;
-        font-size: 17.5px;
+        font-size: 14px;
         text-transform: uppercase;
         text-decoration: none;
-        border-radius: 4px;
-        transition: background 0.2s ease;
-      }
-
-      .blog-card__btn:hover {
-        background: #093a63;
+        border-radius: 8px;
       }
 
       /* ---------- Responsive ---------- */
@@ -1168,14 +1234,17 @@
             ></span>
 
             <span class="dropdown-content">
-              <a href="Distributor_Management_System.html"
+              <a href="Distributor_Operational_Platform.html"
                 >Distributor Operation Platform</a
               >
-              <a href="sales_Team.html">Sales Team Automation</a>
-              <a href="retail_partner.html">Retail Partner App</a>
-              <a href="#">Rural Distribution Management</a>
-              <a href="#">Asset Tracking System</a>
-              <a href="#">AI & Data Intelligence</a>
+              <a href="sales_Team_Automation.html">Sales Team Automation</a>
+              <a href="Retail_Partner_App.html">Retail Partner App</a>
+              <a href="Rural_Distribution_Management.html"
+                >Rural Distribution Management</a
+              >
+              <a href="Asset_Tracking_System.html">Asset Tracking System</a>
+              <a href="AI_Data_Intelligence.html">AI & Data Intelligence</a>
+              <a href="Brand_Engagement Suite.html">Brand Engagement Suite</a>
             </span>
           </span>
         </p>
@@ -1220,24 +1289,27 @@
       </div>
     </div>
 
-
     <!-- ==================Hero Section =================-->
     <section class="hero-section">
       <div class="hero-content">
-        <h1 class="hero-title">Sales Team Automation</h1>
-        <p class="hero-subtitle">Let us tell you a little bit more about us</p>
-        <a href="Book_A_Demo.html"> <button>Book Demo</button></a>
+        <h1 class="hero-title">Retail Partner App</h1>
+        <p class="hero-subtitle">
+          Automating Downstream Sales activities and tracking seller activities
+        </p>
+        <a href="Book_A_Demo.html"> <button>Book A Demo</button></a>
       </div>
     </section>
 
+    <!--=======Core Functionality=========-->
     <section class="core-section">
       <!-- Section Heading -->
       <div class="core-header">
         <h1>Core Functionality</h1>
 
         <p>
-          Core functionality in 2025 focuses on streamlining the end-to-end
-          sales cycle, from the first touchpoint to the final contract.
+          The core of a 2025 partner app is built on self-service and real-time
+          synchronization, allowing retailers to manage their business without
+          constant manual intervention from sales reps.
         </p>
 
         <div class="heading-line"></div>
@@ -1250,65 +1322,67 @@
           <h3 class="section-label">HOW IT WORKS</h3>
 
           <div class="feature-item">
-            <h3>Lead Management & Routing</h3>
+            <h3>Real-Time Inventory & Catalog Management</h3>
             <div class="feature-description">
               <i class="fa-regular fa-circle-check"></i>
               <p>
-                Automation instantly captures leads from web forms, emails, and
-                social media. It uses AI-driven scoring to rank leads based on
-                their likelihood to convert and automatically routes them to the
-                most appropriate sales representative based on territory or
-                expertise.
+                Retailers can view live stock levels across multiple warehouses
+                and stores. This prevents "out-of-stock" frustrations and allows
+                for back-in-stock alerts and visibility into item availability
+                by specific location.
               </p>
             </div>
           </div>
 
           <div class="feature-item">
-            <h3>Pipeline & Deal Management</h3>
+            <h3>Intelligent Ordering & Reordering</h3>
             <div class="feature-description">
               <i class="fa-regular fa-circle-check"></i>
               <p>
-                Systems provide real-time visibility into the health of every
-                deal. They automatically update opportunity stages based on
-                buyer actions (like opening an email) and flag "at-risk" deals
-                that have been stagnant for too long.
+                Apps feature automated replenishment triggered when stock hits
+                predefined thresholds. Advanced systems use AI for predictive
+                replenishment, analyzing historical trends to suggest optimal
+                order quantities.
               </p>
             </div>
           </div>
 
           <div class="feature-item">
-            <h3>Automated Communication (Cadences)</h3>
+            <h3>B2B-Specific Checkout & Financing</h3>
             <div class="feature-description">
               <i class="fa-regular fa-circle-check"></i>
               <p>
-                Sales reps use pre-configured sequences for email, LinkedIn, and
-                SMS follow-ups. These "cadences" ensure consistent outreach
-                without manual tracking, with AI suggesting the optimal time to
-                send messages for maximum engagement.
+                Unlike B2C apps, partner apps support complex B2B payment
+                methods, including buying on account, installment plans, and
+                pay-by-loan. They also integrate CPQ (Configure, Price, Quote)
+                tools for custom-configured products with variable pricing
+                structures.
               </p>
             </div>
           </div>
 
           <div class="feature-item">
-            <h3>Forecasting & Predictive Analytics</h3>
+            <h3>Omnichannel Integration</h3>
             <div class="feature-description">
               <i class="fa-regular fa-circle-check"></i>
               <p>
-                Moving beyond spreadsheets, 2025 tools analyze historical data
-                and current pipeline trends to predict revenue with up to 90%
-                accuracy.
+                A unified experience where a retailer can research products on a
+                desktop, place an order via the mobile app, and track
+                fulfillment in real-time. This includes Click and Collect
+                (BOPIS) for professional partners.
               </p>
             </div>
           </div>
 
           <div class="feature-item">
-            <h3>Administrative Automation</h3>
+            <h3>Advanced Tracking & Logistics</h3>
             <div class="feature-description">
               <i class="fa-regular fa-circle-check"></i>
               <p>
-                Features like auto-logging of calls and emails, AI-generated
-                meeting summaries, and automated contact record creation
-                eliminate hours of manual data entry each week.
+                Integrated Order Management Systems (OMS) route orders to the
+                most cost-effective warehouse. Retailers receive live GPS
+                tracking for their deliveries and can manage returns or damaged
+                goods directly through the app.
               </p>
             </div>
           </div>
@@ -1317,7 +1391,7 @@
         <!-- Right Image -->
         <div class="core-right">
           <img
-            src="salesfusion/IMAGE/salesfunctionality.webp"
+            src="salesfusion/IMAGE/retailerfunctionality.webp"
             alt="AI Powered Sales Automation"
           />
         </div>
@@ -1344,12 +1418,13 @@
               <div class="icon-badge" aria-hidden="true">
                 <i class="fa-solid fa-layer-group"></i>
               </div>
-              <span class="category-tag">GOVERNANCE</span>
+              <span class="category-tag">Content Management</span>
             </div>
-            <h3>Centralized Asset Library</h3>
+            <h3>Product Information Management (PIM)</h3>
             <p>
-              Provides a single "source of truth" for the latest
-              marketing-approved pitch decks, case studies, and ROI calculators.
+              Acts as a single source of truth for technical specifications,
+              instruction manuals, and rich media assets such as high-definition
+              videos and 3D product models.
             </p>
           </article>
 
@@ -1359,12 +1434,13 @@
               <div class="icon-badge" aria-hidden="true">
                 <i class="fa-solid fa-wand-magic-sparkles"></i>
               </div>
-              <span class="category-tag">INTELLIGENCE</span>
+              <span class="category-tag">Enablement</span>
             </div>
-            <h3>AI-Powered Recommendations</h3>
+            <h3>On-Demand Educational Assets</h3>
             <p>
-              Systems analyze deal stages and buyer personas to suggest the
-              "next best asset," like technical whitepapers for CTOs.
+              Provides retailers with access to whitepapers, webinars, and
+              training modules, while AI-driven guided selling helps identify
+              the best products through dynamic recommendations.
             </p>
           </article>
 
@@ -1374,12 +1450,13 @@
               <div class="icon-badge" aria-hidden="true">
                 <i class="fa-solid fa-desktop"></i>
               </div>
-              <span class="category-tag">ENGAGEMENT</span>
+              <span class="category-tag">Personalization</span>
             </div>
-            <h3>Interactive Digital Sales Rooms</h3>
+            <h3>Personalized Dashboards</h3>
             <p>
-              Replace static PDFs with trackable web pages (e.g., Qwilr). Track
-              which sections prospects viewed and for how long.
+              Delivers tailored content based on retailer behavior, including
+              custom promotions, loyalty point balances, and region-specific
+              sales trends.
             </p>
           </article>
 
@@ -1391,10 +1468,11 @@
               </div>
               <span class="category-tag">EFFICIENCY</span>
             </div>
-            <h3>Automated Document Creation</h3>
+            <h3>AI-Generated Marketing Kits</h3>
             <p>
-              Using CPQ functionality, reps generate complex, error-free
-              proposals in minutes by pulling data directly from the CRM.
+              Empowers retailers with AI-generated social media assets and
+              pre-written product descriptions, enabling faster and more
+              effective product marketing with minimal effort.
             </p>
           </article>
         </div>
@@ -1408,44 +1486,47 @@
         <h2 class="eyebrow">Core Advantages</h2>
         <h1>Unlocking Growth Potential</h1>
         <p>
-          In 2025, businesses must choose between visual "no-code" builders and
-          traditional "custom code" development based on their complexity needs.
+          The choice of development path in 2025 depends on the scale and
+          complexity of the partnership ecosystem.
         </p>
       </div>
 
       <div class="cards-grid">
         <div class="card card-speed">
           <div class="icon-box"><i class="fa-solid fa-bolt"></i></div>
-          <h3>Speed</h3>
-          <p>Extremely fast; prototypes can be launched in hours or days.</p>
+          <h3>Speed to Market</h3>
+          <p>Launch MVPs for new partner programs in hours or days.</p>
         </div>
 
         <div class="card card-flexibility">
           <div class="icon-box"><i class="fa-solid fa-sliders"></i></div>
-          <h3>Flexibility</h3>
-          <p>Limited to the platform's pre-built templates and logic.</p>
+          <h3>Integration</h3>
+          <p>
+            Easy connections to common SaaS tools like Slack or simple CRMs.
+          </p>
         </div>
 
         <div class="card card-security">
           <div class="icon-box"><i class="fa-solid fa-shield-halved"></i></div>
-          <h3>Security</h3>
-          <p>Reliability depends on the vendor's global security standards.</p>
+          <h3>Ownership & Cost</h3>
+          <p>Lower upfront cost but recurring monthly platform fees.</p>
         </div>
 
         <div class="card card-scalability">
           <div class="icon-box">
             <i class="fa-solid fa-up-right-and-down-left-from-center"></i>
           </div>
-          <h3>Scalability</h3>
-          <p>May face performance bottlenecks as user volume grows.</p>
+          <h3>Security</h3>
+          <p>
+            Standard vendor security; good for non-sensitive internal tools.
+          </p>
         </div>
 
         <div class="card card-integration">
           <div class="icon-box"><i class="fa-solid fa-plug"></i></div>
-          <h3>Integration</h3>
+          <h3>Scalability</h3>
           <p>
-            Best for standard tools like Slack and Gmail via pre-built
-            connectors.
+            May face performance lag as the number of retail partners grows.
           </p>
         </div>
       </div>
@@ -1461,20 +1542,77 @@
         <div class="blog-card">
           <img
             class="blog-card__image"
-            src="salesfusion/IMAGE/forceteamautomation2.webp"
+            src="salesfusion/IMAGE/aianddata.webp"
             alt="Sales Force Automation illustration with Sales Fusion cloud"
           />
 
           <h3 class="blog-card__title">
-            Sales Force Automation (SFA) in Distributor Management System
+            Distributor Management involves planning, monitoring, and optimizing
+            the flow of
+          </h3>
+
+          <p class="blog-card__text">
+            Discover the top challenges facing the distribution industry and
+            effective ways to overcome them using modern technology solutions.
+          </p>
+
+          <a href="#" class="blog-card__btn">Read More</a>
+        </div>
+
+        <div class="blog-card">
+          <img
+            class="blog-card__image"
+            src="salesfusion/IMAGE/assetmanagement.webp"
+            alt="Sales Force Automation illustration with Sales Fusion cloud"
+          />
+
+          <h3 class="blog-card__title">
+            Asset Management in a Distributor Management System (DMS)
           </h3>
 
           <p class="blog-card__text">
             In the dynamic landscape of Consumer Packaged Goods (CPG) companies,
             having a robust DMS is crucial for scaling and efficiency.
-          </p>
 
-          <a href="#" class="blog-card__btn">Read More</a>
+            <a href="#" class="blog-card__btn">Read More</a>
+          </p>
+        </div>
+
+        <div class="blog-card">
+          <img
+            class="blog-card__image"
+            src="salesfusion/IMAGE/distributerplateform.webp"
+            alt="Sales Force Automation illustration with Sales Fusion cloud"
+          />
+
+          <h3 class="blog-card__title">
+            Complete Guide A Distributor Management System (DMS)
+          </h3>
+
+          <p class="blog-card__text">
+            Explore our comprehensive guide to Distribution Management Systems
+            (DMS), covering features, benefits, and implementation strategies.
+
+            <a href="#" class="blog-card__btn">Read More</a>
+          </p>
+        </div>
+
+        <div class="blog-card">
+          <img
+            class="blog-card__image"
+            src="salesfusion/IMAGE/retailerpartnerapp.webp"
+            alt="Sales Force Automation illustration with Sales Fusion cloud"
+          />
+
+          <h3 class="blog-card__title">
+            Retailer Application in Distributor Management System
+          </h3>
+
+          <p class="blog-card__text">
+            Discover the top challenges facing the distribution industry and
+            effective ways to overcome them using modern technology solutions.
+            <a href="#" class="blog-card__btn">Read More</a>
+          </p>
         </div>
       </div>
     </section>
@@ -1491,7 +1629,24 @@
       <!-- Cards Grid -->
       <div class="service-content">
         <div class="services-grid">
-          <!-- Card 1 -->
+          <!-- Card 1 (Featured Active State matching screenshot) -->
+          <div class="service-card">
+            <div>
+              <div class="icon-box">
+                <img src="salesfusion/IMAGE/distributor.webp" alt="image" />
+              </div>
+              <h2>Distributor Operations Platform</h2>
+              <p>
+                Achieve Sales growth & secondary sales visibility through
+                Heera’s Distribution Management Solutions
+              </p>
+            </div>
+            <a href="#" class="read-more"
+              >READ MORE <i class="fa-solid fa-arrow-right-long"></i
+            ></a>
+          </div>
+
+          <!-- Card 2 -->
           <div class="service-card">
             <div>
               <div class="icon-box">
@@ -1502,23 +1657,6 @@
                 Single platform that captures market demand, manages
                 merchandising, journey planning & tracking for salesforce in
                 real time.
-              </p>
-            </div>
-            <a href="#" class="read-more"
-              >READ MORE <i class="fa-solid fa-arrow-right-long"></i
-            ></a>
-          </div>
-
-          <!-- Card 2 (Featured Active State matching screenshot) -->
-          <div class="service-card">
-            <div>
-              <div class="icon-box">
-                <img src="salesfusion/IMAGE/partner.webp" alt="image" />
-              </div>
-              <h2>Retail Partner App</h2>
-              <p>
-                Discover new RTM (Route-to-market) and directly communicate with
-                your retailers efficiently.
               </p>
             </div>
             <a href="#" class="read-more"
@@ -1629,14 +1767,14 @@
 
       <div class="footer-column">
         <h2>Solutions</h2>
-        <a href="Distributor_Management_System.html"
+        <a href="Distributor_Operational_Platform.html"
           >Distributor Management System</a
         >
-        <a href="sales_Team.html">Salesforce Automation</a>
-        <a href="retail_partner.html">Retailer App</a>
-        <a href="#">Rural DMS</a>
-        <a href="#">Asset Management</a>
-        <a href="#">AI &amp; Data Analytics</a>
+        <a href="sales_Team_Automation.html">Salesforce Automation</a>
+        <a href="Retail_Partner_App.html">Retailer App</a>
+        <a href="Rural_Distribution_Management.html">Rural DMS</a>
+        <a href="Asset_Tracking_System.html">Asset Management</a>
+        <a href="AI_Data_Intelligence.html">AI &amp; Data Analytics</a>
       </div>
 
       <div class="footer-column">
