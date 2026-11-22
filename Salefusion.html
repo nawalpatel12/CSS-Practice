@@ -63,74 +63,6 @@
         margin-left: 418px;
       }
 
-      .dropdown {
-        position: relative;
-        display: inline-block;
-      }
-
-      .dropdown-trigger {
-        font: 14px sans-serif;
-        font-weight: 550;
-        cursor: pointer;
-        padding: 0px 4px 0px 0px;
-      }
-
-      .dropdown-trigger:hover {
-        color: #44a5db;
-      }
-
-      .dropdown-button i {
-        font-size: 8px;
-        padding: 0 0 4px 3px;
-      }
-
-      .dropdown-button:hover {
-        color: #44a5db;
-      }
-
-      .dropdown-content {
-        display: none;
-        position: absolute;
-        top: 100%;
-        left: 0;
-        font-family: sans-serif;
-        font-size: 8px;
-        font-weight: normal;
-        color: gray;
-        background-color: white;
-        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
-        padding: 10px 0;
-        border-bottom-left-radius: 10px;
-        border-bottom-right-radius: 10px;
-        border-top: 2px solid #44a5db;
-        z-index: 1;
-      }
-
-      .dropdown-content a {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        width: 300px;
-        line-height: 2.5;
-        font-family: sans-serif;
-        font-size: 8px;
-        font-weight: normal;
-        color: gray;
-        text-decoration: none;
-        padding: 8px 16px;
-        display: block;
-      }
-
-      .dropdown-content a:hover {
-        background-color: #f0f4f8;
-        color: #0e67d3;
-      }
-
-      .dropdown:hover .dropdown-content {
-        display: block;
-        color: rgb(186, 227, 252);
-      }
-
       .navbar-select a {
         color: black;
         font-weight: 600;
@@ -139,10 +71,87 @@
         font-size: 14px;
       }
 
-      .navbar-select a:hover {
+      .dropdown-trigger {
+        color: black;
+        font: 14px sans-serif;
+        font-weight: 600;
+        text-decoration: none;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        gap: 7px;
+        padding: 30px 0;
+        transition: color 0.2s ease;
+      }
+
+      .dropdown-trigger i {
+        font-size: 8px;
+        padding-bottom: 7px;
+        transition: transform 0.2s ease;
+      }
+
+      .navbar-select > a:hover,
+      .dropdown:hover .dropdown-trigger {
         color: #44a5db;
       }
 
+      .dropdown:hover .dropdown-trigger i {
+        transform: rotate(180deg);
+      }
+
+      /* Dropdown Container */
+      .dropdown {
+        position: relative;
+      }
+
+      /* Bridge to prevent hover loss when moving mouse into dropdown */
+      .dropdown-content::before {
+        content: "";
+        position: absolute;
+        top: -15px;
+        left: 0;
+        width: 100%;
+        height: 15px;
+      }
+
+      /* Dropdown Menu Box */
+      .dropdown-content {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        min-width: 260px;
+        background-color: #ffffff;
+        border-bottom-left-radius: 6px;
+        border-bottom-right-radius: 6px;
+        border-top: 3px solid #44a5db;
+        padding: 8px 0;
+        z-index: 10;
+      }
+
+      .dropdown:hover .dropdown-content {
+        display: block;
+        animation: fadeIn 0.2s ease-in-out;
+      }
+
+      /* Dropdown Links */
+      .dropdown-content a {
+        display: block;
+        padding: 10px 20px;
+        font-size: 14px;
+        font-weight: 500;
+        color: #4a5568;
+        line-height: 1.5;
+        text-decoration: none;
+        transition:
+          background-color 0.15s ease,
+          color 0.15s ease;
+      }
+
+      .dropdown-content a:hover {
+        background-color: #f0f7ff;
+        color: #44a5db;
+      }
       .button-section {
         display: flex;
         align-items: center;
@@ -570,7 +579,7 @@
       /************************************************************* Industries******************************* */
       .Industries {
         background-color: rgb(221, 240, 253);
-        width: 100%;
+        width: full;
         height: max-content;
         padding: 50px 32px;
       }
@@ -1486,7 +1495,7 @@
                 >Distributor Operation Platform</a
               >
               <a href="sales_Team.html">Sales Team Automation</a>
-              <a href="#">Retail Partner App</a>
+              <a href="retail_partner.html">Retail Partner App</a>
               <a href="#">Rural Distribution Management</a>
               <a href="#">Asset Tracking System</a>
               <a href="#">AI & Data Intelligence</a>
@@ -1503,7 +1512,7 @@
             ></span>
 
             <span class="dropdown-content">
-              <a href="#">Blogs</a>
+              <a href="blog.html">Blogs</a>
               <a href="#">Customer Stories</a>
             </span>
           </span>
@@ -1530,9 +1539,11 @@
         <a href="Book_A_Demo.html">
           <button class="book">Book a demo</button>
         </a>
-        <a href="login.html" id="login">Log in </a>
+        <a href="login.html" id="login">Log In </a>
       </div>
     </div>
+
+    <!--==================Hero section========================-->
 
     <div class="main-content">
       <div class="main-content-section">
@@ -1555,6 +1566,8 @@
         <img id="image7" src="salesfusion/IMAGE/hero6.webp" alt="image" />
       </div>
     </div>
+
+    <!--================Trusted by great==================-->
 
     <div class="after-main-content">
       <div class="Paragraph-section-content">
@@ -1613,6 +1626,8 @@
       </div>
     </div>
 
+    <!--=================Sales fusion section=======================-->
+
     <div class="header">
       <div>
         <h1 id="header-one">How Sales Fusion can help you?</h1>
@@ -1659,6 +1674,8 @@
       </div>
     </div>
 
+    <!--===================business-salefusion=======================-->
+
     <div class="business-salefusion">
       <div>
         <h1 id="business-header">
@@ -1693,6 +1710,8 @@
         </div>
       </div>
     </div>
+
+    <!--=======================Industries=========================-->
 
     <div class="Industries">
       <div class="industrie-header">
@@ -1772,6 +1791,8 @@
       </div>
     </div>
 
+    <!--==================case-study===================-->
+
     <div class="case-study">
       <div class="case-study-image">
         <img src="salesfusion/IMAGE/casestudy3.webp" alt="image" />
@@ -1813,6 +1834,8 @@
         </button>
       </div>
     </div>
+
+    <!--======================related-blogs===================================-->
 
     <div class="related-blogs">
       <div class="related-blogs-header">
@@ -1861,6 +1884,8 @@
       </div>
     </div>
 
+    <!--=================First-Class-Distribution==============================-->
+
     <div class="First-Class-Distribution">
       <p>Looking for a First-Class <span>Distribution</span> Solution?</p>
       <a href="#"> <button>Contact us</button></a>
@@ -1881,6 +1906,8 @@
           ></a>
         </div>
       </div>
+
+      <!--====================Footer===========================-->
 
       <div class="footer-contact">
         <p class="address">
@@ -1913,7 +1940,7 @@
           >Distributor Management System</a
         >
         <a href="sales_Team.html">Salesforce Automation</a>
-        <a href="#">Retailer App</a>
+        <a href="retail_partner.html">Retailer App</a>
         <a href="#">Rural DMS</a>
         <a href="#">Asset Management</a>
         <a href="#">AI &amp; Data Analytics</a>
@@ -1921,7 +1948,7 @@
 
       <div class="footer-column">
         <h2>Resources</h2>
-        <a href="#">Blogs</a>
+        <a href="blog.html">Blogs</a>
         <a href="#">Customer Stories</a>
         <a href="#">Request A Demo</a>
       </div>

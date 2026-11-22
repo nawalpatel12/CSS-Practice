@@ -64,75 +64,6 @@
         margin-left: 418px;
       }
 
-      .dropdown {
-        position: relative;
-        display: inline-block;
-      }
-
-      .dropdown-trigger {
-        font: 14px sans-serif;
-        font-weight: 550;
-        cursor: pointer;
-        padding: 0px 4px 0px 0px;
-       
-      }
-
-      .dropdown-trigger:hover {
-        color: #44a5db;
-      }
-
-      .dropdown-button i {
-        font-size: 8px;
-        padding: 0 0 4px 3px;
-      }
-
-      .dropdown-button:hover {
-        color: #44a5db;
-      }
-
-      .dropdown-content {
-        display: none;
-        position: absolute;
-        top: 100%;
-        left: 0;
-        font-family: sans-serif;
-        font-size: 8px;
-        font-weight: normal;
-        color: gray;
-        background-color: white;
-        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
-        padding: 10px 0;
-        border-bottom-left-radius: 10px;
-        border-bottom-right-radius: 10px;
-        border-top: 2px solid #44a5db;
-        z-index: 1;
-      }
-
-      .dropdown-content a {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        width: 300px;
-        line-height: 2.5;
-        font-family: sans-serif;
-        font-size: 8px;
-        font-weight: normal;
-        color: gray;
-        text-decoration: none;
-        padding: 8px 16px;
-        display: block;
-      }
-
-      .dropdown-content a:hover {
-        background-color: #f0f4f8;
-        color: #0e67d3;
-      }
-
-      .dropdown:hover .dropdown-content {
-        display: block;
-        color: rgb(186, 227, 252);
-      }
-
       .navbar-select a {
         color: black;
         font-weight: 600;
@@ -141,10 +72,87 @@
         font-size: 14px;
       }
 
-      .navbar-select a:hover {
+      .dropdown-trigger {
+        color: black;
+        font: 14px sans-serif;
+        font-weight: 600;
+        text-decoration: none;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        gap: 7px;
+        padding: 30px 0;
+        transition: color 0.2s ease;
+      }
+
+      .dropdown-trigger i {
+        font-size: 8px;
+        padding-bottom: 7px;
+        transition: transform 0.2s ease;
+      }
+
+      .navbar-select > a:hover,
+      .dropdown:hover .dropdown-trigger {
         color: #44a5db;
       }
 
+      .dropdown:hover .dropdown-trigger i {
+        transform: rotate(180deg);
+      }
+
+      /* Dropdown Container */
+      .dropdown {
+        position: relative;
+      }
+
+      /* Bridge to prevent hover loss when moving mouse into dropdown */
+      .dropdown-content::before {
+        content: "";
+        position: absolute;
+        top: -15px;
+        left: 0;
+        width: 100%;
+        height: 15px;
+      }
+
+      /* Dropdown Menu Box */
+      .dropdown-content {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        min-width: 260px;
+        background-color: #ffffff;
+        border-bottom-left-radius: 6px;
+        border-bottom-right-radius: 6px;
+        border-top: 3px solid #44a5db;
+        padding: 8px 0;
+        z-index: 10;
+      }
+
+      .dropdown:hover .dropdown-content {
+        display: block;
+        animation: fadeIn 0.2s ease-in-out;
+      }
+
+      /* Dropdown Links */
+      .dropdown-content a {
+        display: block;
+        padding: 10px 20px;
+        font-size: 14px;
+        font-weight: 500;
+        color: #4a5568;
+        line-height: 1.5;
+        text-decoration: none;
+        transition:
+          background-color 0.15s ease,
+          color 0.15s ease;
+      }
+
+      .dropdown-content a:hover {
+        background-color: #f0f7ff;
+        color: #44a5db;
+      }
       .button-section {
         display: flex;
         align-items: center;
@@ -163,7 +171,7 @@
         height: 44px;
         border-radius: 4px;
         padding: 12px 24px;
-         letter-spacing: 0.2px;
+        letter-spacing: 0.2px;
       }
 
       .book:hover {
@@ -182,14 +190,12 @@
         border-radius: 4px;
         padding: 12px 24px;
         text-decoration: none;
-      
       }
 
       #login:hover {
         background-color: #cce7fe;
         text-decoration: none;
       }
-
       /******************Hero section***************/
       /* Hero Banner Section */
       .hero-section {
@@ -236,12 +242,11 @@
         background-color: #fb2c36;
         color: #ffffff;
         text-decoration: none;
-        padding:11px 12px;
+        padding: 11px 12px;
         font: 16px sans-serif;
         font-weight: 500;
         border-radius: 2px;
         border: none;
-
       }
 
       /* Mobile Responsiveness */
@@ -434,186 +439,124 @@
       }
 
       /**************************Section II*************************/
-      .section_ii {
-        background-color: #ffffff;
-        color: #334155;
-        padding: 80px 32px;
-        font-family: sans-serif;
-        width: full;
-        height: max-content;
+      /* **********************capabilities-section ******************** */
+
+      .capabilities-section {
+        padding: 64px 20px;
+        background-color: #f8f9fa;
       }
+
       .container {
-        max-width: 1200px;
+        max-width: 1180px;
         margin: 0 auto;
       }
 
-      /* Section Tag & Line */
-      .section-tag-wrapper {
-        display: flex;
-        align-items: center;
-        gap: 12px;
-        margin-bottom: 18px;
+      .section-header {
+        max-width: 720px;
+        margin-bottom: 36px;
       }
 
-      .section-tag {
-        background-color: #e0f2fe;
-        color: #44a5db;
-        font-size: 12px;
+      .section-badge {
+        display: inline-block;
+        font-size: 0.72rem;
         font-weight: 700;
-        padding: 4px 12px;
-        border-radius: 20px;
-        letter-spacing: 1px;
+        letter-spacing: 0.08em;
         text-transform: uppercase;
+        color: #4b5563;
+        background-color: #e5e7eb;
+        padding: 4px 10px;
+        border-radius: 4px;
+        margin-bottom: 14px;
       }
 
-      .tag-line {
-        width: 45px;
-        height: 2px;
-        background-color: #bae6fd;
-        border-radius: 2px;
+      .section-header h2 {
+        font-size: clamp(1.6rem, 2.8vw, 2.25rem);
+        font-weight: 700;
+        color: #111827;
+        margin-bottom: 10px;
       }
 
-      /* Section Headings */
-      .section-title {
-        font-size: 20px;
-        font-weight: 600;
-        color: #242360;
-        margin-bottom: 16px;
+      .section-subtitle {
+        font-size: 1rem;
+        color: #4b5563;
       }
 
-      .section-desc {
-        font-size: 20px;
-        color: #475569;
-        max-width: 650px;
-        line-height: 1.5;
-        margin-bottom: 40px;
-      }
-
-      /* Cards Grid */
-      .cards-grid {
+      .capabilities-grid {
         display: grid;
-        grid-template-columns: repeat(2, 1fr);
-        gap: 25px;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 24px;
       }
 
-      /* Feature Card */
-      .feature-card {
-        width: 560px;
-        height: 160px;
-        position: relative;
+      .capability-card {
         background-color: #ffffff;
-        border-radius: 16px;
-        padding: 32px;
-        border: 1px solid #e2e8f0;
-        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
-        display: flex;
-        flex-direction: column;
-        cursor: pointer;
-        overflow: hidden; /* Ensures animated border stays within card curves */
-        transition:
-          transform 0.25s ease,
-          box-shadow 0.25s ease;
-      }
-
-      .feature-card:hover {
-        transform: translateY(-5px);
-        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.06);
-      }
-
-      /* --- Left-to-Right Animated Bottom Line --- */
-      .feature-card::after {
-        content: "";
-        position: absolute;
-        bottom: 0;
-        left: 0;
-        width: 100%;
-        height: 4px;
-        background-color: #38bdf8; /* Cyan accent line */
-        transform: scaleX(0); /* Initially hidden */
-        transform-origin: left; /* Animates from left to right */
-        transition: transform 0.35s ease-in-out;
-      }
-
-      /* Draw the line on Hover OR when Active (clicked) */
-      .feature-card:hover::after,
-      .feature-card.active::after {
-        transform: scaleX(1);
-      }
-
-      /* Card Header */
-      .card-header {
-        display: flex;
-        justify-content: space-between;
-        align-items: flex-start;
-      }
-
-      /* Icon Box */
-      .icon-box {
-        width: 5px;
-        height: 5px;
+        border: 1px solid #e5e7eb;
         border-radius: 12px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        font-size: 18px;
-        background-color: #f0f9ff;
-        color: #38bdf8;
-        border: 1px solid #e0f2fe;
+        padding: 28px;
+        box-shadow: 0 2px 10px rgba(15, 23, 42, 0.03);
         transition:
-          background-color 0.25s ease,
-          color 0.25s ease;
+          transform 0.2s ease,
+          box-shadow 0.2s ease;
       }
 
-      /* Category Tag */
+      .capability-card:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 10px 22px rgba(15, 23, 42, 0.07);
+      }
+
+      .card-top {
+        display: flex;
+        align-items: flex-start;
+        justify-content: space-between;
+        gap: 16px;
+        margin-bottom: 20px;
+      }
+
+      .icon-badge {
+        width: 38px;
+        height: 38px;
+        border-radius: 8px;
+        background-color: #eef6fa;
+        color: #2b7a9b;
+        display: grid;
+        place-items: center;
+        font-size: 1rem;
+        flex-shrink: 0;
+      }
+
       .category-tag {
-        font-size: 11px;
-        font-weight: 550;
-        color: #8393aa;
-        letter-spacing: 1.2px;
+        font-size: 0.72rem;
+        font-weight: 700;
+        letter-spacing: 0.1em;
         text-transform: uppercase;
-        transition: color 0.25s ease;
+        color: #6b7280;
+        padding-top: 2px;
       }
 
-      /* Card Typography */
-      .card-title {
-        font-size: 20px;
-        font-weight: 600;
-        color: #0f172a;
-        transition: color 0.25s ease;
+      .capability-card h3 {
+        font-size: 1.12rem;
+        font-weight: 700;
+        color: #111827;
+        margin-bottom: 8px;
       }
 
-      .card-text {
-        font-size: 16px;
-        color: #475569;
-        line-height: 1.55;
+      .capability-card p {
+        font-size: 0.94rem;
+        color: #6b7280;
       }
 
-      /* --- Interactive Highlights on Hover / Active --- */
-      .feature-card:hover .icon-box,
-      .feature-card.active .icon-box {
-        background-color: #38bdf8;
-        color: #ffffff;
-        border-color: #38bdf8;
-      }
-
-      .feature-card:hover .category-tag,
-      .feature-card.active .category-tag {
-        color: #0284c7;
-      }
-
-      .feature-card:hover .card-title,
-      .feature-card.active .card-title {
-        color: #0284c7;
-      }
-
-      /* Responsive */
-      @media (max-width: 868px) {
-        .cards-grid {
-          grid-template-columns: 1fr;
-          gap: 20px;
+      /* Responsive Breakpoints */
+      @media (max-width: 768px) {
+        .capabilities-section {
+          padding: 48px 16px;
         }
-        .section-title {
-          font-size: 1.5rem;
+
+        .capabilities-grid {
+          grid-template-columns: 1fr;
+          gap: 16px;
+        }
+
+        .capability-card {
+          padding: 22px;
         }
       }
 
@@ -770,7 +713,7 @@
       /* ----------Realted bolgs Section ---------- */
       .related-blogs {
         background: #daecf8;
-        padding: 60px 20px 80px;
+        padding: 60px 80px;
       }
 
       .section-title {
@@ -1229,7 +1172,7 @@
                 >Distributor Operation Platform</a
               >
               <a href="sales_Team.html">Sales Team Automation</a>
-              <a href="#">Retail Partner App</a>
+              <a href="retail_partner.html">Retail Partner App</a>
               <a href="#">Rural Distribution Management</a>
               <a href="#">Asset Tracking System</a>
               <a href="#">AI & Data Intelligence</a>
@@ -1246,7 +1189,7 @@
             ></span>
 
             <span class="dropdown-content">
-              <a href="#">Blogs</a>
+              <a href="blog.html">Blogs</a>
               <a href="#">Customer Stories</a>
             </span>
           </span>
@@ -1270,12 +1213,15 @@
       </div>
 
       <div class="button-section">
-        <button class="book">Book a demo</button>
+        <a href="Book_A_Demo.html">
+          <button class="book">Book a demo</button>
+        </a>
         <a href="login.html" id="login">Log In </a>
       </div>
     </div>
 
-    <!-- Hero Section -->
+
+    <!-- ==================Hero Section =================-->
     <section class="hero-section">
       <div class="hero-content">
         <h1 class="hero-title">Sales Team Automation</h1>
@@ -1379,8 +1325,81 @@
     </section>
 
     <!--=========Section II==========-->
- 
-   
+
+    <section class="capabilities-section">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-badge">SECTION 8</span>
+          <h2 id="capabilities-heading">Content Management Capabilities</h2>
+          <p class="section-subtitle">
+            Content is no longer just stored; it is strategically "activated"
+            within the automation platform.
+          </p>
+        </div>
+
+        <div class="capabilities-grid">
+          <!-- Card 1 -->
+          <article class="capability-card">
+            <div class="card-top">
+              <div class="icon-badge" aria-hidden="true">
+                <i class="fa-solid fa-layer-group"></i>
+              </div>
+              <span class="category-tag">GOVERNANCE</span>
+            </div>
+            <h3>Centralized Asset Library</h3>
+            <p>
+              Provides a single "source of truth" for the latest
+              marketing-approved pitch decks, case studies, and ROI calculators.
+            </p>
+          </article>
+
+          <!-- Card 2 -->
+          <article class="capability-card">
+            <div class="card-top">
+              <div class="icon-badge" aria-hidden="true">
+                <i class="fa-solid fa-wand-magic-sparkles"></i>
+              </div>
+              <span class="category-tag">INTELLIGENCE</span>
+            </div>
+            <h3>AI-Powered Recommendations</h3>
+            <p>
+              Systems analyze deal stages and buyer personas to suggest the
+              "next best asset," like technical whitepapers for CTOs.
+            </p>
+          </article>
+
+          <!-- Card 3 -->
+          <article class="capability-card">
+            <div class="card-top">
+              <div class="icon-badge" aria-hidden="true">
+                <i class="fa-solid fa-desktop"></i>
+              </div>
+              <span class="category-tag">ENGAGEMENT</span>
+            </div>
+            <h3>Interactive Digital Sales Rooms</h3>
+            <p>
+              Replace static PDFs with trackable web pages (e.g., Qwilr). Track
+              which sections prospects viewed and for how long.
+            </p>
+          </article>
+
+          <!-- Card 4 -->
+          <article class="capability-card">
+            <div class="card-top">
+              <div class="icon-badge" aria-hidden="true">
+                <i class="fa-solid fa-file-pen"></i>
+              </div>
+              <span class="category-tag">EFFICIENCY</span>
+            </div>
+            <h3>Automated Document Creation</h3>
+            <p>
+              Using CPQ functionality, reps generate complex, error-free
+              proposals in minutes by pulling data directly from the CRM.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
 
     <!--===========Core Advantages===============-->
 
@@ -1614,7 +1633,7 @@
           >Distributor Management System</a
         >
         <a href="sales_Team.html">Salesforce Automation</a>
-        <a href="#">Retailer App</a>
+        <a href="retail_partner.html">Retailer App</a>
         <a href="#">Rural DMS</a>
         <a href="#">Asset Management</a>
         <a href="#">AI &amp; Data Analytics</a>
@@ -1622,7 +1641,7 @@
 
       <div class="footer-column">
         <h2>Resources</h2>
-        <a href="#">Blogs</a>
+        <a href="blog.html">Blogs</a>
         <a href="#">Customer Stories</a>
         <a href="#">Request A Demo</a>
       </div>
