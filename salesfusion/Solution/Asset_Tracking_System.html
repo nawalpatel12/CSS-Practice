@@ -7,11 +7,6 @@
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
     />
-    <link
-      rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css"
-    />
-
     <title>Document</title>
 
     <style>
@@ -62,7 +57,7 @@
         height: 48px;
       }
 
-     .navbar-select {
+      .navbar-select {
         display: flex;
         align-items: center;
         gap: 40px;
@@ -203,8 +198,6 @@
         text-decoration: none;
       }
 
-
-      /******************Hero section***************/
       /* Hero Banner Section */
       .hero-section {
         position: relative;
@@ -218,7 +211,7 @@
         /* Dark overlay + Background Image */
         background:
           linear-gradient(rgba(0, 0, 0, 0.72), rgba(0, 0, 0, 0.72)),
-          url("salesfusion/IMAGE/dynamic.webp") no-repeat center center / cover;
+          url("../IMAGE/dynamic.webp") no-repeat center center / cover;
         color: #ffffff;
         padding: 20px;
       }
@@ -255,7 +248,6 @@
         font-weight: 500;
         border-radius: 2px;
         border: none;
-        text-transform: uppercase;
       }
 
       /* Mobile Responsiveness */
@@ -447,202 +439,11 @@
         }
       }
 
-      /**************************Section II*************************/
-
-      .capabilities-section {
-        padding: 80px 32px;
-        background-color: #ffffff;
-        font-family: sans-serif;
-      }
-
-      .capabilities-section .container {
-        max-width: 1120px;
-        margin: 0 auto;
-      }
-
-      /* Header */
-      .section-header1 {
-        display: flex;
-        flex-direction: column;
-        align-items: flex-start;
-        justify-content: flex-start;
-        width: 100%;
-        margin: 0 0 40px -62px;
-      }
-
-      .section-badge {
-        display: inline-flex;
-        align-items: center;
-        gap: 28px;
-        background-color: #dbeafe;
-        color: #44a5db;
-        width: 78px;
-        height: 18px;
-        font-size: 12px;
-        font-weight: 700;
-        letter-spacing: 0.08em;
-        text-transform: uppercase;
-        padding: 4px 12px;
-        border-radius: 20px;
-        margin-bottom: 18px;
-      }
-
-      .section-badge::after {
-        content: "";
-        display: inline-block;
-        width: 48px;
-        height: 2px;
-        background-color: #b8dcf5;
-        margin-right: -80px;
-      }
-
-      #capabilities-heading {
-        font-size: 20px;
-        font-weight: 700;
-        color: #242360;
-        margin: 0 0 16px;
-        line-height: 1.25;
-      }
-
-      .section-subtitle {
-        align-self: flex-start;
-        margin: 0 auto 0 0;
-        padding-left: 0;
-        font-size: 20px;
-        color: #45556c;
-        max-width: 600px;
-        line-height: 1.7;
-      }
-
-      /* 2x2 Grid */
-      .capabilities-grid {
-        display: grid;
-        grid-template-columns: repeat(2, 1fr);
-        gap: 28px;
-        margin: 30px 0 0 -62px;
-      }
-
-      /* Capability Card */
-      .capability-card {
-        width: 560px;
-        height: 180px;
-        position: relative;
-        overflow: hidden;
-        background-color: #ffffff;
-        border: 1px solid #eef2f6;
-        border-radius: 16px;
-        padding: 32px;
-        box-shadow: 0 4px 16px rgba(15, 23, 42, 0.04);
-        transition:
-          transform 0.25s ease,
-          box-shadow 0.25s ease,
-          border-color 0.25s ease;
-      }
-
-      .capability-card::after {
-        content: "";
-        position: absolute;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        height: 4px;
-        background-color: #3898dc;
-        transform: scaleX(0);
-        transform-origin: left;
-        transition: transform 0.25s ease;
-      }
-
-      .card-top {
-        display: flex;
-        align-items: flex-start;
-        justify-content: space-between;
-        margin-bottom: 24px;
-      }
-
-      .icon-badge {
-        width: 48px;
-        height: 48px;
-        border-radius: 12px;
-        background-color: #eef6fd;
-        color: #3898dc;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        font-size: 20px;
-        transition:
-          background-color 0.25s ease,
-          color 0.25s ease;
-      }
-
-      .category-tag {
-        font-size: 12px;
-        font-weight: 550;
-        letter-spacing: 0.08em;
-        text-transform: uppercase;
-        color: #9ca3af;
-        padding-top: 4px;
-        transition: color 0.25s ease;
-      }
-
-      .capability-card h3 {
-        font-size: 20px;
-        font-weight: 700;
-        color: #111827;
-        margin: 0 0 12px;
-        line-height: 1.3;
-        transition: color 0.25s ease;
-      }
-
-      .capability-card p {
-        font-size: 16px;
-        color: #4b5563;
-        margin: 0;
-        line-height: 1.65;
-      }
-
-      /* Hover State (matches 2nd screenshot) */
-      .capability-card:hover {
-        transform: translateY(-4px);
-        border-color: #dbeafe;
-        box-shadow: 0 14px 30px rgba(15, 23, 42, 0.09);
-      }
-
-      .capability-card:hover::after {
-        transform: scaleX(1);
-      }
-
-      .capability-card:hover .icon-badge {
-        background-color: #3898dc;
-        color: #ffffff;
-      }
-
-      .capability-card:hover .category-tag,
-      .capability-card:hover h3 {
-        color: #3898dc;
-      }
-
-      /* Responsive */
-      @media (max-width: 768px) {
-        .capabilities-grid {
-          grid-template-columns: 1fr;
-          gap: 20px;
-        }
-
-        .capability-card {
-          padding: 24px;
-        }
-
-        #capabilities-heading {
-          font-size: 24px;
-        }
-      }
-
       /**************** core advantages *******************/
       .advantages {
         max-width: 1440px;
         margin: 0 auto;
         padding: 80px 130px;
-        background-color: #f9fafc;
         font-family: sans-serif;
       }
 
@@ -687,7 +488,7 @@
 
       .advantages .card {
         width: 100%;
-        height: 240px;
+        height: 350px;
         background: #fcfdff;
         border: 1px solid #edf0f5;
         border-radius: 20px;
@@ -739,16 +540,16 @@
         border-color: #e4ecf7;
       }
       .advantages .card-speed .icon-box {
-        background: #e1eefb;
-        color: #1e88e5;
+        background: #ddf3e8;
+        color: #10a56f;
       }
 
       .advantages .card-flexibility {
         border-color: #e1f2e9;
       }
       .advantages .card-flexibility .icon-box {
-        background: #ddf3e8;
-        color: #10a56f;
+        background: #e1eefb;
+        color: #1e88e5;
       }
 
       .advantages .card-security {
@@ -823,6 +624,7 @@
       .blog-card {
         width: 260px;
         height: 450px;
+        position: relative;
         background: #ffffff;
         padding: 16px;
         box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
@@ -854,6 +656,10 @@
       }
 
       .blog-card__btn {
+        position: absolute;
+        bottom: 24px;
+        left: 50%;
+        transform: translateX(-50%);
         display: block;
         width: max-content;
         margin: 0 auto;
@@ -1226,13 +1032,13 @@
     <!--nav bar section-->
     <div class="navbar">
       <div class="navbar-section">
-        <img id="image" src="salesfusion/IMAGE/sitelogo.webp" alt="image" />
+        <img id="image" src="../IMAGE/sitelogo.webp" alt="image" />
         <p class="software">Software</p>
         <p class="Company">Company</p>
       </div>
 
       <div class="navbar-select">
-        <a href="Salefusion.html">Home</a>
+        <a href="../../Salefusion.html">Home</a>
         <p>
           <span class="dropdown">
             <span class="dropdown-trigger"
@@ -1266,8 +1072,8 @@
             ></span>
 
             <span class="dropdown-content">
-              <a href="blog.html">Blogs</a>
-              <a href="Salefusion.html">Customer Stories</a>
+              <a href="../Resources/blog.html">Blogs</a>
+              <a href="../../Salefusion.html">Customer Stories</a>
             </span>
           </span>
         </p>
@@ -1280,44 +1086,43 @@
                 <i class="fa-solid fa-chevron-down"></i> </span
             ></span>
             <span class="dropdown-content">
-              <a href="#">About salesfusion</a>
-              <a href="#">Careers</a>
-              <a href="#">Contact Us</a>
-              <a href="#">Partners</a>
+              <a href="../About us/About_salesfusion.html">About salesfusion</a>
+              <a href="../About us/Career.html">Careers</a>
+              <a href="../About us/Contact_us.html">Contact Us</a>
+              <a href="../About us/Partner.html">Partners</a>
             </span>
           </span>
         </p>
       </div>
 
       <div class="button-section">
-        <a href="Book_A_Demo.html">
+        <a href="../../Book_A_Demo.html">
           <button class="book">Book a demo</button>
         </a>
-        <a href="login.html" id="login">Log In </a>
+        <a href="../../login.html" id="login">Log In </a>
       </div>
     </div>
 
     <!-- ==================Hero Section =================-->
     <section class="hero-section">
       <div class="hero-content">
-        <h1 class="hero-title">Retail Partner App</h1>
+        <h1 class="hero-title">Asset Tracking System</h1>
         <p class="hero-subtitle">
-          Automating Downstream Sales activities and tracking seller activities
+          Tracking & Monitoring of Asset Deployments at Retail outlets and
+          dealers
         </p>
-        <a href="Book_A_Demo.html"> <button>Book A Demo</button></a>
+        <a href="../../Book_A_Demo.html"> <button>Book A Demo</button></a>
       </div>
     </section>
 
-    <!--=======Core Functionality=========-->
     <section class="core-section">
       <!-- Section Heading -->
       <div class="core-header">
-        <h1>Core Functionality</h1>
+        <h1>Core Functionalities of Modern Asset Tracking (2025)</h1>
 
         <p>
-          The core of a 2025 partner app is built on self-service and real-time
-          synchronization, allowing retailers to manage their business without
-          constant manual intervention from sales reps.
+          Modern systems are defined by their ability to provide high-fidelity,
+          real-time data and automate complex administrative tasks.
         </p>
 
         <div class="heading-line"></div>
@@ -1330,67 +1135,66 @@
           <h3 class="section-label">HOW IT WORKS</h3>
 
           <div class="feature-item">
-            <h3>Real-Time Inventory & Catalog Management</h3>
+            <h3>Real-Time Precision Location Tracking</h3>
             <div class="feature-description">
               <i class="fa-regular fa-circle-check"></i>
               <p>
-                Retailers can view live stock levels across multiple warehouses
-                and stores. This prevents "out-of-stock" frustrations and allows
-                for back-in-stock alerts and visibility into item availability
-                by specific location.
+                Using a blend of technologies—such as GPS for long-range outdoor
+                tracking, RFID for bulk scanning, and Ultra-Wideband (UWB) or
+                Bluetooth Low Energy (BLE) for centimeter-level indoor
+                accuracy—businesses can pinpoint an asset's exact location at
+                any second.
               </p>
             </div>
           </div>
 
           <div class="feature-item">
-            <h3>Intelligent Ordering & Reordering</h3>
+            <h3>IoT-Driven Condition Monitoring</h3>
             <div class="feature-description">
               <i class="fa-regular fa-circle-check"></i>
               <p>
-                Apps feature automated replenishment triggered when stock hits
-                predefined thresholds. Advanced systems use AI for predictive
-                replenishment, analyzing historical trends to suggest optimal
-                order quantities.
+                Beyond location, 2025 systems use smart sensors to track an
+                asset's "health," including temperature, humidity, vibration,
+                and impact. This is vital for industries like healthcare (cold
+                chain monitoring) and manufacturing (machine health).
               </p>
             </div>
           </div>
 
           <div class="feature-item">
-            <h3>B2B-Specific Checkout & Financing</h3>
+            <h3>Geofencing and Automated Alerts</h3>
             <div class="feature-description">
               <i class="fa-regular fa-circle-check"></i>
               <p>
-                Unlike B2C apps, partner apps support complex B2B payment
-                methods, including buying on account, installment plans, and
-                pay-by-loan. They also integrate CPQ (Configure, Price, Quote)
-                tools for custom-configured products with variable pricing
-                structures.
+                Managers can set virtual boundaries (geofences) around sites. If
+                an asset leaves a designated area without authorization, the
+                system triggers instant alerts via SMS or email to prevent
+                theft.
               </p>
             </div>
           </div>
 
           <div class="feature-item">
-            <h3>Omnichannel Integration</h3>
+            <h3>Automated Lifecycle and Audit Management</h3>
             <div class="feature-description">
               <i class="fa-regular fa-circle-check"></i>
               <p>
-                A unified experience where a retailer can research products on a
-                desktop, place an order via the mobile app, and track
-                fulfillment in real-time. This includes Click and Collect
-                (BOPIS) for professional partners.
+                The system records every stage of an asset's life—from
+                procurement and deployment to maintenance and disposal. It
+                automatically generates audit-ready reports, simplifying
+                regulatory compliance.
               </p>
             </div>
           </div>
 
           <div class="feature-item">
-            <h3>Advanced Tracking & Logistics</h3>
+            <h3>Automated Check-in/Check-out</h3>
             <div class="feature-description">
               <i class="fa-regular fa-circle-check"></i>
               <p>
-                Integrated Order Management Systems (OMS) route orders to the
-                most cost-effective warehouse. Retailers receive live GPS
-                tracking for their deliveries and can manage returns or damaged
-                goods directly through the app.
+                Using RFID or mobile barcode scanning, systems log which
+                employee is using which tool and when, ensuring a clear chain of
+                accountability without manual paperwork.
               </p>
             </div>
           </div>
@@ -1399,90 +1203,9 @@
         <!-- Right Image -->
         <div class="core-right">
           <img
-            src="salesfusion/IMAGE/retailerfunctionality.webp"
+            src="../IMAGE/assetfunctionality.webp"
             alt="AI Powered Sales Automation"
           />
-        </div>
-      </div>
-    </section>
-
-    <!--=========Section II==========-->
-
-    <section class="capabilities-section">
-      <div class="container">
-        <div class="section-header">
-          <span class="section-badge">SECTION 8</span>
-          <h2 id="capabilities-heading">Content Management Capabilities</h2>
-          <p class="section-subtitle">
-            Content is no longer just stored; it is strategically "activated"
-            within the automation platform.
-          </p>
-        </div>
-
-        <div class="capabilities-grid">
-          <!-- Card 1 -->
-          <article class="capability-card">
-            <div class="card-top">
-              <div class="icon-badge" aria-hidden="true">
-                <i class="fa-solid fa-layer-group"></i>
-              </div>
-              <span class="category-tag">Content Management</span>
-            </div>
-            <h3>Product Information Management (PIM)</h3>
-            <p>
-              Acts as a single source of truth for technical specifications,
-              instruction manuals, and rich media assets such as high-definition
-              videos and 3D product models.
-            </p>
-          </article>
-
-          <!-- Card 2 -->
-          <article class="capability-card">
-            <div class="card-top">
-              <div class="icon-badge" aria-hidden="true">
-                <i class="bi bi-mortarboard"></i>
-              </div>
-              <span class="category-tag">Enablement</span>
-            </div>
-            <h3>On-Demand Educational Assets</h3>
-            <p>
-              Provides retailers with access to whitepapers, webinars, and
-              training modules, while AI-driven guided selling helps identify
-              the best products through dynamic recommendations.
-            </p>
-          </article>
-
-          <!-- Card 3 -->
-          <article class="capability-card">
-            <div class="card-top">
-              <div class="icon-badge" aria-hidden="true">
-                <i class="bi bi-columns-gap"></i>
-              </div>
-              <span class="category-tag">Personalization</span>
-            </div>
-            <h3>Personalized Dashboards</h3>
-            <p>
-              Delivers tailored content based on retailer behavior, including
-              custom promotions, loyalty point balances, and region-specific
-              sales trends.
-            </p>
-          </article>
-
-          <!-- Card 4 -->
-          <article class="capability-card">
-            <div class="card-top">
-              <div class="icon-badge" aria-hidden="true">
-                <i class="bi bi-stars"></i>
-              </div>
-              <span class="category-tag">EFFICIENCY</span>
-            </div>
-            <h3>AI-Generated Marketing Kits</h3>
-            <p>
-              Empowers retailers with AI-generated social media assets and
-              pre-written product descriptions, enabling faster and more
-              effective product marketing with minimal effort.
-            </p>
-          </article>
         </div>
       </div>
     </section>
@@ -1494,47 +1217,70 @@
         <h2 class="eyebrow">Core Advantages</h2>
         <h1>Unlocking Growth Potential</h1>
         <p>
-          The choice of development path in 2025 depends on the scale and
-          complexity of the partnership ecosystem.
+          The primary advantage in 2025 is the shift from a reactive to a
+          proactive operational model, which transforms assets from costs into
+          strategic advantages.
         </p>
       </div>
 
       <div class="cards-grid">
         <div class="card card-speed">
-          <div class="icon-box"><i class="bi bi-stopwatch-fill"></i></div>
-          <h3>Speed to Market</h3>
-          <p>Launch MVPs for new partner programs in hours or days.</p>
+          <div class="icon-box"><i class="fa-solid fa-dollar-sign"></i></div>
+          <h3>Significant Cost Reduction</h3>
+          <p>
+            By eliminating ghost assets (items lost but still taxed or insured)
+            and preventing redundant purchases, businesses can save substantial
+            capital.
+          </p>
         </div>
 
         <div class="card card-flexibility">
-          <div class="icon-box"><i class="bi bi-diagram-2"></i></div>
-          <h3>Integration</h3>
+          <div class="icon-box"><i class="fa-solid fa-gear"></i></div>
+          <h3>Enhanced Operational Efficiency</h3>
           <p>
-            Easy connections to common SaaS tools like Slack or simple CRMs.
+            Employees spend zero time searching for tools, boosting productivity
+            by up to 40%. Automated workflows like low-stock reordering further
+            streamline operations.
           </p>
         </div>
 
         <div class="card card-security">
-          <div class="icon-box"><i class="bi bi-wallet"></i></div>
-          <h3>Ownership & Cost</h3>
-          <p>Lower upfront cost but recurring monthly platform fees.</p>
+          <div class="icon-box"><i class="fa-solid fa-chart-column"></i></div>
+          <h3>Maximized Asset Utilization</h3>
+          <p>
+            Analytics reveal idle equipment, enabling companies to redeploy
+            underused assets and maximize ROI across locations.
+          </p>
         </div>
 
         <div class="card card-scalability">
           <div class="icon-box">
-           <i class="bi bi-shield-fill-check"></i></i>
+            <i class="fa-solid fa-wrench"></i>
           </div>
-          <h3>Security</h3>
+          <h3>Extended Equipment Lifespan</h3>
           <p>
-            Standard vendor security; good for non-sensitive internal tools.
+            Proactive AI-driven maintenance can extend asset life by 20–40%,
+            reducing the need for frequent capital replacements.
+          </p>
+        </div>
+
+        <div class="card card-speed">
+          <div class="icon-box"><i class="fa-solid fa-shield-halved"></i></div>
+          <h3>Superior Security & Loss Prevention</h3>
+          <p>
+            Real-time visibility and geofencing act as a virtual security guard,
+            significantly reducing theft and improving recovery rates.
           </p>
         </div>
 
         <div class="card card-integration">
-          <div class="icon-box"><i class="bi bi-upc-scan"></i></div>
-          <h3>Scalability</h3>
+          <div class="icon-box">
+            <i class="fa-solid fa-file-circle-check"></i>
+          </div>
+          <h3>Future-Proof Compliance</h3>
           <p>
-            May face performance lag as the number of retail partners grows.
+            Tamper-proof blockchain records of maintenance and usage ensure
+            seamless compliance with strict industry regulations.
           </p>
         </div>
       </div>
@@ -1550,7 +1296,7 @@
         <div class="blog-card">
           <img
             class="blog-card__image"
-            src="salesfusion/IMAGE/aianddata.webp"
+            src="../IMAGE/aianddata.webp"
             alt="Sales Force Automation illustration with Sales Fusion cloud"
           />
 
@@ -1564,13 +1310,13 @@
             effective ways to overcome them using modern technology solutions.
           </p>
 
-          <a href="#" class="blog-card__btn">Read More</a>
+          <a href="../Resources/blogs/AI_Data_section.html" class="blog-card__btn">Read More</a>
         </div>
 
         <div class="blog-card">
           <img
             class="blog-card__image"
-            src="salesfusion/IMAGE/assetmanagement.webp"
+            src="../IMAGE/assetmanagement.webp"
             alt="Sales Force Automation illustration with Sales Fusion cloud"
           />
 
@@ -1582,14 +1328,14 @@
             In the dynamic landscape of Consumer Packaged Goods (CPG) companies,
             having a robust DMS is crucial for scaling and efficiency.
 
-            <a href="#" class="blog-card__btn">Read More</a>
+            <a href="../Resources/blogs/Asset_section.html" class="blog-card__btn">Read More</a>
           </p>
         </div>
 
         <div class="blog-card">
           <img
             class="blog-card__image"
-            src="salesfusion/IMAGE/distributerplateform.webp"
+            src="../IMAGE/distributerplateform.webp"
             alt="Sales Force Automation illustration with Sales Fusion cloud"
           />
 
@@ -1601,14 +1347,14 @@
             Explore our comprehensive guide to Distribution Management Systems
             (DMS), covering features, benefits, and implementation strategies.
 
-            <a href="#" class="blog-card__btn">Read More</a>
+            <a href="../Resources/blogs/Distribution_section.html" class="blog-card__btn">Read More</a>
           </p>
         </div>
 
         <div class="blog-card">
           <img
             class="blog-card__image"
-            src="salesfusion/IMAGE/retailerpartnerapp.webp"
+            src="../IMAGE/retailerpartnerapp.webp"
             alt="Sales Force Automation illustration with Sales Fusion cloud"
           />
 
@@ -1619,7 +1365,7 @@
           <p class="blog-card__text">
             Discover the top challenges facing the distribution industry and
             effective ways to overcome them using modern technology solutions.
-            <a href="#" class="blog-card__btn">Read More</a>
+            <a href="../Resources/blogs/Retail_section.html" class="blog-card__btn">Read More</a>
           </p>
         </div>
       </div>
@@ -1641,7 +1387,7 @@
           <div class="service-card">
             <div>
               <div class="icon-box">
-                <img src="salesfusion/IMAGE/distributor.webp" alt="image" />
+                <img src="../IMAGE/distributor.webp" alt="image" />
               </div>
               <h2>Distributor Operations Platform</h2>
               <p>
@@ -1649,7 +1395,7 @@
                 Heera’s Distribution Management Solutions
               </p>
             </div>
-            <a href="#" class="read-more"
+            <a href="Distributor_Operational_Platform.html" class="read-more"
               >READ MORE <i class="fa-solid fa-arrow-right-long"></i
             ></a>
           </div>
@@ -1658,7 +1404,7 @@
           <div class="service-card">
             <div>
               <div class="icon-box">
-                <img src="salesfusion/IMAGE/team.webp" alt="image" />
+                <img src="../IMAGE/team.webp" alt="image" />
               </div>
               <h2>Sales Team Automation</h2>
               <p>
@@ -1667,7 +1413,7 @@
                 real time.
               </p>
             </div>
-            <a href="#" class="read-more"
+            <a href="sales_Team_Automation.html" class="read-more"
               >READ MORE <i class="fa-solid fa-arrow-right-long"></i
             ></a>
           </div>
@@ -1676,7 +1422,7 @@
           <div class="service-card">
             <div>
               <div class="icon-box">
-                <img src="salesfusion/IMAGE/asset.webp" alt="image" />
+                <img src="../IMAGE/asset.webp" alt="image" />
               </div>
               <h2>Asset Tracking System</h2>
               <p>
@@ -1684,7 +1430,7 @@
                 dealers with precision.
               </p>
             </div>
-            <a href="#" class="read-more"
+            <a href="Asset_Tracking_System.html" class="read-more"
               >READ MORE <i class="fa-solid fa-arrow-right-long"></i
             ></a>
           </div>
@@ -1693,7 +1439,7 @@
           <div class="service-card">
             <div>
               <div class="icon-box">
-                <img src="salesfusion/IMAGE/rural.webp" alt="image" />
+                <img src="../IMAGE/rural.webp" alt="image" />
               </div>
               <h2>Rural Distribution Management</h2>
               <p>
@@ -1701,7 +1447,7 @@
                 economic growth and reach.
               </p>
             </div>
-            <a href="#" class="read-more"
+            <a href="Rural_Distribution_Management.html" class="read-more"
               >READ MORE <i class="fa-solid fa-arrow-right-long"></i
             ></a>
           </div>
@@ -1710,7 +1456,7 @@
           <div class="service-card">
             <div>
               <div class="icon-box">
-                <img src="salesfusion/IMAGE/ai.webp" alt="image" />
+                <img src="../IMAGE/ai.webp" alt="image" />
               </div>
               <h2>AI & Data Intelligence</h2>
               <p>
@@ -1718,7 +1464,7 @@
                 distribution data and trends.
               </p>
             </div>
-            <a href="#" class="read-more"
+            <a href="AI_Data_Intelligence.html" class="read-more"
               >READ MORE <i class="fa-solid fa-arrow-right-long"></i
             ></a>
           </div>
@@ -1729,13 +1475,13 @@
     <!--Footer section-->
     <div class="First-Class-Distribution">
       <p>Looking for a First-Class <span>Distribution</span> Solution?</p>
-      <a href="#"> <button>Contact us</button></a>
+      <a href="../../Book_A_Demo.html"> <button>Contact us</button></a>
     </div>
 
     <footer class="footer">
       <div class="footer-logo">
         <div class="logo">
-          <img src="salesfusion/IMAGE/sitelogo.webp" alt="SalesFusion logo" />
+          <img src="../IMAGE/sitelogo.webp" alt="SalesFusion logo" />
         </div>
 
         <div class="social-Media">
@@ -1762,14 +1508,14 @@
           <span class="contact-item">
             <i class="fa-solid fa-phone"></i>
           </span>
-          <a href="telphone">+977 9805600000</a>
+          <a href="tel:+9779805600000">+977 9805600000</a>
         </p>
 
         <p class="contact-item">
           <span class="contact-item">
             <i class="fa-regular fa-envelope"></i
           ></span>
-          <a href="mail">sales@salesfusion.online</a>
+          <a href="mailto:sales@salesfusion.online">sales@salesfusion.online</a>
         </p>
       </div>
 
@@ -1787,15 +1533,15 @@
 
       <div class="footer-column">
         <h2>Resources</h2>
-        <a href="blog.html">Blogs</a>
-        <a href="Salefusion.html">Customer Stories</a>
-        <a href="Book_A_Demo.html">Request A Demo</a>
+        <a href="../Resources/blog.html">Blogs</a>
+        <a href="../../Salefusion.html">Customer Stories</a>
+        <a href="../../Book_A_Demo.html">Request A Demo</a>
       </div>
 
       <div class="footer-column">
         <h2>Company</h2>
-        <a href="#">About Us</a>
-        <a href="#">Careers</a>
+        <a href="../About us/About_salesfusion.html">About Us</a>
+        <a href="../About us/Career.html">Careers</a>
         <a href="#">Privacy Policy</a>
       </div>
     </footer>

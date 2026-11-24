@@ -1,0 +1,745 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Salesfusion - Articles</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+    />
+    <style>
+      body {
+        margin: 0;
+        padding: 0;
+      }
+
+      .navbar {
+        padding: 0px 32px;
+        width: full;
+        height: 80px;
+        background-color: white;
+        display: flex;
+        border-top-left-radius: 4px;
+        border-top-right-radius: 4px;
+        box-shadow: 0 0px 5px rgba(0, 0, 0, 0.1);
+        position: sticky;
+        top: 0px;
+        z-index: 100;
+      }
+
+      .navbar-section {
+        display: flex;
+        position: relative;
+        align-items: center;
+      }
+
+      .software {
+        font: 10px sans-serif;
+        font-weight: 550;
+        position: absolute;
+        margin-top: 42px;
+        padding-left: 32px;
+      }
+
+      .Company {
+        font: 10px sans-serif;
+        font-weight: 550;
+        color: rgb(92, 159, 201);
+        position: absolute;
+        margin-top: 42px;
+        padding-left: 77px;
+      }
+
+      #image {
+        width: 151px;
+        height: 48px;
+      }
+
+      .navbar-select {
+        display: flex;
+        align-items: center;
+        gap: 40px;
+        margin-left: 418px;
+      }
+
+      .navbar-select a {
+        color: black;
+        font-weight: 600;
+        text-decoration: none;
+        font-family: sans-serif;
+        font-size: 14px;
+      }
+
+      .dropdown-trigger {
+        color: black;
+        font: 14px sans-serif;
+        font-weight: 600;
+        text-decoration: none;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        gap: 7px;
+        padding: 30px 0;
+        transition: color 0.2s ease;
+        margin-left: -6px;
+      }
+
+      .dropdown-trigger i {
+        font-size: 8px;
+        padding-bottom: 7px;
+        transition: transform 0.2s ease;
+      }
+
+      .navbar-select > a:hover,
+      .dropdown:hover .dropdown-trigger {
+        color: #44a5db;
+      }
+
+      .dropdown:hover .dropdown-trigger i {
+        transform: rotate(180deg);
+      }
+
+      /* Dropdown Container */
+      .dropdown {
+        position: relative;
+      }
+
+      /* Bridge to prevent hover loss when moving mouse into dropdown */
+      .dropdown-content::before {
+        content: "";
+        position: absolute;
+        top: -15px;
+        left: 0;
+        width: 100%;
+        height: 15px;
+      }
+
+      /* Dropdown Menu Box */
+      .dropdown-content {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        min-width: 260px;
+        background-color: #ffffff;
+        border-bottom-left-radius: 6px;
+        border-bottom-right-radius: 6px;
+        border-top: 3px solid #44a5db;
+        padding: 12px 5px;
+        z-index: 10;
+      }
+
+      .dropdown:hover .dropdown-content {
+        display: block;
+        animation: fadeIn 0.2s ease-in-out;
+      }
+
+      /* Dropdown Links */
+      .dropdown-content a {
+        display: block;
+        padding: 10px 20px;
+        font-size: 14px;
+        font-weight: 500;
+        color: #4a5568;
+        line-height: 1.8;
+        text-decoration: none;
+        transition:
+          background-color 0.15s ease,
+          color 0.15s ease;
+      }
+
+      .dropdown-content a:hover {
+        background-color: #f0f7ff;
+        color: #44a5db;
+      }
+      .button-section {
+        display: flex;
+        align-items: center;
+        gap: 17px;
+        margin-left: 43px;
+      }
+
+      .book {
+        color: #44a5db;
+        font: 14px sans-serif;
+        font-weight: 750;
+        text-transform: uppercase;
+        background-color: #ddefff;
+        border: none;
+        width: 153px;
+        height: 44px;
+        border-radius: 4px;
+        padding: 12px 24px;
+        letter-spacing: 0.2px;
+      }
+
+      .book:hover {
+        background-color: #cce7fe;
+      }
+
+      #login {
+        text-align: center;
+        color: #44a5db;
+        font: 14px sans-serif;
+        font-weight: bolder;
+        background-color: #ddefff;
+        border: none;
+        width: 42px;
+        height: 20px;
+        border-radius: 4px;
+        padding: 12px 24px;
+        text-decoration: none;
+      }
+
+      #login:hover {
+        background-color: #cce7fe;
+        text-decoration: none;
+      }
+
+      /* ----------------------Section Base Setup ----------------------*/
+
+   .blog-section {
+        width: 100%;
+        background-color: #ffffff;
+        padding: 20px 130px;
+        font-family: sans-serif;
+        box-sizing: border-box;
+      }
+
+      /* Page Layout: Sidebar + Grid */
+      .blog-container {
+        max-width: 1280px;
+        margin: 0 auto;
+        display: flex;
+        gap: 40px;
+      }
+
+      /* Sidebar Styles */
+      .sidebar {
+        width: 250px;
+        flex-shrink: 0;
+      }
+
+      .sidebar-title {
+        font-size: 30px;
+        font-weight: 700;
+        color: #0a0a0a;
+        margin: 0 0 10px;
+        line-height: 1.2;
+      }
+
+      .sidebar .category-list {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        display: flex;
+        flex-direction: column;
+        gap: 4px;
+        border: 1px solid #fffbeb;
+      }
+
+      .sidebar .category-list li {
+        margin: 0;
+        padding: 0;
+        line-height: normal;
+      }
+
+      .sidebar .category-list a {
+        display: block;
+        width: 100%;
+        box-sizing: border-box;
+        padding: 8px 12px;
+        text-decoration: none;
+        color: black;
+        font-size: 16px;
+        font-weight: 500;
+        line-height: 1.7;
+        transition:
+          background-color 0.15s ease,
+          color 0.15s ease;
+      }
+
+      .sidebar .category-list a:hover {
+        background-color: #44a5db;
+        color: #ffffff;
+      }
+
+      /* Main Content Styles */
+      .main-content {
+        flex-grow: 1;
+      }
+
+      .section-title {
+        text-align: center;
+        font-size: 30px;
+        font-weight: 700;
+        color: #0a0a0a;
+        margin: 0 0 32px;
+      }
+
+      /* 3-Column Card Grid */
+      .articles-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 24px;
+      }
+
+      /* Article Card */
+      .article-card {
+        background: #ffffff;
+        border-radius: 12px;
+        border: 1px solid #eaeaea;
+        box-shadow: 0 4px 14px rgba(0, 0, 0, 0.04);
+        overflow: hidden;
+        display: flex;
+        flex-direction: column;
+        min-height: 470px;
+        max-width: 280px;
+        transition: box-shadow 0.25s ease;
+      }
+
+      .article-card:hover {
+        box-shadow: 5px 10px 35px rgba(0, 0, 0, 0.08);
+      }
+
+      .card-image {
+        width: 100%;
+        height: 190px;
+        object-fit: cover;
+        display: block;
+      }
+
+      /* Card Body (Flex Column keeps 'Read More' at the bottom) */
+      .card-body {
+        padding: 20px;
+        display: flex;
+        flex-direction: column;
+        flex-grow: 1;
+      }
+
+      .card-title {
+        font-size: 20px;
+        font-weight: 700;
+        line-height: 1.35;
+        color: #111111;
+        margin: 0 0 12px;
+      }
+
+      .card-text {
+        font-size: 14px;
+        line-height: 1.7;
+        color: #666666;
+        margin: 0 0 24px;
+      }
+
+      /* Read More Link (Aligns to bottom left) */
+      .read-more {
+        margin-top: auto;
+        align-self: flex-start;
+        color: #4497d3;
+        font-size: 14px;
+        font-weight: 600;
+        text-decoration: none;
+        transition: color 0.2s ease;
+      }
+
+      .read-more:hover {
+        color: #1d72b8;
+      }
+
+
+      /* Responsive Adjustments */
+      @media (max-width: 1024px) {
+        .articles-grid {
+          grid-template-columns: repeat(2, 1fr);
+        }
+      }
+
+      @media (max-width: 768px) {
+        .blog-container {
+          flex-direction: column;
+        }
+
+        .sidebar {
+          width: 100%;
+        }
+
+        .articles-grid {
+          grid-template-columns: 1fr;
+        }
+      }
+
+      /* *****************************Looking for a first-class distribution platform?********************************** */
+
+      .First-Class-Distribution {
+        width: full;
+        height: 90px;
+        background-color: black;
+        display: flex;
+        justify-content: center;
+        justify-content: start;
+        align-items: center;
+        gap: 400px;
+      }
+
+      .First-Class-Distribution p {
+        color: white;
+        font: 24px sans-serif;
+        margin-left: 8%;
+      }
+
+      .First-Class-Distribution span {
+        color: white;
+        font: 24px sans-serif;
+        margin: 0 0 12px;
+        font-weight: bolder;
+        padding-top: 10px;
+      }
+
+      .First-Class-Distribution button {
+        font: 16px sans-serif;
+        color: white;
+        text-align: center;
+        border: none;
+        background-color: red;
+        text-transform: uppercase;
+        width: 3.5cm;
+        height: 1cm;
+        border-radius: 7px;
+        font-weight: 500px;
+        margin-top: 5px;
+      }
+
+      /***************************************Footer******************************************************/
+
+      .footer {
+        display: grid;
+        grid-template-columns: repeat(5, 1fr);
+        gap: 30px;
+        padding: 80px 10% 60px;
+        background-color: #f3f4f7;
+      }
+
+      .footer-logo {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 30px;
+      }
+
+      .logo {
+        display: flex;
+        align-items: center;
+      }
+
+      .logo img {
+        width: 151px;
+        height: 48px;
+      }
+
+      .social-Media {
+        display: flex;
+        gap: 15px;
+      }
+
+      .social-Media a {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 30px;
+        height: 30px;
+        border-radius: 50%;
+        background-color: #d9dce2;
+        color: #4c596b;
+        font-size: 16px;
+        font-weight: bolder;
+        text-decoration: none;
+      }
+
+      .footer-contact {
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+      }
+
+      .address {
+        display: flex;
+        align-items: flex-start;
+        gap: 20px;
+        margin: 0;
+        color: #657386;
+        font: 16px sans-serif;
+        line-height: 1.6;
+      }
+
+      .address img {
+        width: 30px;
+        height: 25px;
+      }
+
+      .contact-item {
+        display: flex;
+        align-items: flex-start;
+        gap: 18px;
+        margin: 0;
+        color: #657386;
+        font: 14px sans-serif;
+        line-height: 1.6;
+      }
+
+      .contact-item i {
+        margin-top: 5px;
+      }
+
+      .contact-icon {
+        width: 15px;
+        color: #657386;
+        font-size: 14px;
+      }
+
+      .contact-icon i {
+        margin-top: 2px;
+      }
+
+      .footer-contact a {
+        color: #657386;
+        text-decoration: none;
+      }
+
+      .footer-column {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 15px;
+      }
+
+      .footer-column h2 {
+        margin: 0 0 8px;
+        color: #111;
+        font: 16px sans-serif;
+        font-weight: bold;
+      }
+
+      .footer-column a {
+        color: #657386;
+        font: 14px sans-serif;
+        text-decoration: none;
+      }
+
+      .footer a:hover {
+        color: #44a5db;
+      }
+
+      .contact-item:hover i {
+        color: #44a5db;
+      }
+
+      .social-Media a:hover {
+        background-color: #44a5db;
+        color: white;
+        text-decoration: none;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="navbar">
+      <div class="navbar-section">
+        <img id="image" src="../IMAGE/sitelogo.webp" alt="image" />
+        <p class="software">Software</p>
+        <p class="Company">Company</p>
+      </div>
+
+      <div class="navbar-select">
+        <a href="../../Salefusion.html">Home</a>
+        <p>
+          <span class="dropdown">
+            <span class="dropdown-trigger"
+              >Solution
+              <span class="dropdown-button">
+                <i class="fa-solid fa-chevron-down"></i></span
+            ></span>
+
+            <span class="dropdown-content">
+              <a href="../Solution/Distributor_Operational_Platform.html"
+                >Distributor Operation Platform</a
+              >
+              <a href="../Solution/sales_Team_Automation.html">Sales Team Automation</a>
+              <a href="../Solution/Retail_Partner_App.html">Retail Partner App</a>
+              <a href="../Solution/Rural_Distribution_Management.html"
+                >Rural Distribution Management</a
+              >
+              <a href="../Solution/Asset_Tracking_System.html">Asset Tracking System</a>
+              <a href="../Solution/AI_Data_Intelligence.html">AI & Data Intelligence</a>
+              <a href="../Solution/Brand_Engagement Suite.html">Brand Engagement Suite</a>
+            </span>
+          </span>
+        </p>
+
+        <p>
+          <span class="dropdown">
+            <span class="dropdown-trigger"
+              >Resources
+              <span class="dropdown-button">
+                <i class="fa-solid fa-chevron-down"></i> </span
+            ></span>
+
+            <span class="dropdown-content">
+              <a href="blog.html">Blogs</a>
+              <a href="../../Salefusion.html">Customer Stories</a>
+            </span>
+          </span>
+        </p>
+
+        <p>
+          <span class="dropdown">
+            <span class="dropdown-trigger"
+              >About Us
+              <span class="dropdown-button">
+                <i class="fa-solid fa-chevron-down"></i> </span
+            ></span>
+            <span class="dropdown-content">
+              <a href="../About us/About_salesfusion.html">About salesfusion</a>
+              <a href="../About us/Career.html">Careers</a>
+              <a href="../About us/Contact_us.html">Contact Us</a>
+              <a href="../About us/Partner.html">Partners</a>
+            </span>
+          </span>
+        </p>
+      </div>
+
+      <div class="button-section">
+        <a href="../../Book_A_Demo.html">
+          <button class="book">Book a demo</button>
+        </a>
+        <a href="../../login.html" id="login">Log In </a>
+      </div>
+    </div>
+
+    <!--==========Articles==========-->
+
+    <section class="blog-section">
+      <div class="blog-container">
+        <!-- Left Sidebar: Categories -->
+        <aside class="sidebar">
+          <h2 class="sidebar-title">Categories</h2>
+          <ul class="category-list">
+             <li>
+              <a href="Distributor.html">Distributor Operations Platform</a>
+            </li>
+            <li><a href="Sales.html">Sales Team Automation</a></li>
+            <li><a href="Retail.html">Retail Partner App</a></li>
+            <li><a href="Rural.html">Rural Distribution Management</a></li>
+            <li><a href="Asset.html">Asset Tracking System</a></li>
+            <li><a href="AI_Data.html">AI & Data Intelligence</a></li>
+          </ul>
+        </aside>
+
+        <!-- Main Content Area: Articles -->
+        <main class="main-content">
+          <h2 class="section-title">Article</h2>
+
+          <div class="articles-grid">
+            <!-- Article Card 1 -->
+            <article class="article-card">
+              <img
+                class="card-image"
+                src="../IMAGE/forceteamautomation2.webp"
+                alt="Sales Force Automation"
+              />
+              <div class="card-body">
+                <h3 class="card-title">
+                  Sales Force Automation (SFA) in Distributor Management System
+                  -
+                </h3>
+                <p class="card-text">
+                  In the dynamic landscape of Consumer Packaged Goods (CPG)
+                  companies, having a robust DMS is crucial for scaling and
+                  efficiency.
+                </p>
+                <a href="blogs/sales_section.html" class="read-more">Read More</a>
+              </div>
+            </article>
+          </div>
+        </main>
+      </div>
+    </section>
+
+    <!--=================First-Class-Distribution==============================-->
+
+    <div class="First-Class-Distribution">
+      <p>Looking for a First-Class <span>Distribution</span> Solution?</p>
+      <a href="../../Book_A_Demo.html"> <button>Contact us</button></a>
+    </div>
+
+    <footer class="footer">
+      <div class="footer-logo">
+        <div class="logo">
+          <img src="../IMAGE/sitelogo.webp" alt="SalesFusion logo" />
+        </div>
+
+        <div class="social-Media">
+          <a href="#" aria-label="Facebook"
+            ><i class="fa-brands fa-facebook"></i
+          ></a>
+          <a href="#" aria-label="LinkedIn"
+            ><i class="fa-brands fa-linkedin"></i
+          ></a>
+        </div>
+      </div>
+
+      <!--====================Footer===========================-->
+
+      <div class="footer-contact">
+        <p class="address">
+          <span class="contact-icon">
+            <i class="fa-solid fa-location-dot"></i>
+          </span>
+
+          2nd Floor, Baneshwar, B &amp; S Complex, Sankhamul - Balkumari Rd,
+          Kathmandu 44600
+        </p>
+
+        <p class="contact-item">
+          <span class="contact-item">
+            <i class="fa-solid fa-phone"></i>
+          </span>
+          <a href="tel:+9779805600000">+977 9805600000</a>
+        </p>
+
+        <p class="contact-item">
+          <span class="contact-item">
+            <i class="fa-regular fa-envelope"></i
+          ></span>
+          <a href="mailto:sales@salesfusion.online">sales@salesfusion.online</a>
+        </p>
+      </div>
+
+      <div class="footer-column">
+        <h2>Solutions</h2>
+        <a href="../Solution/Distributor_Operational_Platform.html"
+          >Distributor Management System</a
+        >
+        <a href="../Solution/sales_Team_Automation.html">Salesforce Automation</a>
+        <a href="../Solution/Retail_Partner_App.html">Retailer App</a>
+        <a href="../Solution/Rural_Distribution_Management.html">Rural DMS</a>
+        <a href="../Solution/Asset_Tracking_System.html">Asset Management</a>
+        <a href="../Solution/AI_Data_Intelligence.html">AI &amp; Data Analytics</a>
+      </div>
+
+      <div class="footer-column">
+        <h2>Resources</h2>
+        <a href="blog.html">Blogs</a>
+        <a href="../../Salefusion.html">Customer Stories</a>
+        <a href="../../Book_A_Demo.html">Request A Demo</a>
+      </div>
+
+      <div class="footer-column">
+        <h2>Company</h2>
+        <a href="../About us/About_salesfusion.html">About Us</a>
+        <a href="../About us/Career.html">Careers</a>
+        <a href="#">Privacy Policy</a>
+      </div>
+    </footer>
+  </body>
+</html>

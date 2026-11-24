@@ -1,0 +1,318 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Industries We Serve</title>
+    <style>
+      /* -------------------- Container Setup -------------------- */
+      .industries {
+        background-color: #ddf0fd;
+        width: 100%;
+        padding: 50px 32px 80px;
+        box-sizing: border-box;
+        font-family: sans-serif;
+      }
+
+      .industrie-header {
+        padding: 20px;
+        text-align: center;
+      }
+
+      .industrie-header h1 {
+        color: #0a0a0a;
+        font-size: 32px;
+        font-weight: 700;
+        margin: 0;
+      }
+
+      /* -------------------- Responsive Grid -------------------- */
+      /* align-items: start ensures only the expanded card grows vertically */
+      .industrie-content {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 25px;
+        max-width: 1280px;
+        margin: 0 auto;
+        align-items: start;
+      }
+
+      /* -------------------- Card Base Styling -------------------- */
+      .industry-card {
+        background-color: #f3f4f6;
+        padding: 30px;
+        min-height: 222px;
+        box-sizing: border-box;
+        display: flex;
+        flex-direction: column;
+        transition: box-shadow 0.25s ease;
+      }
+
+      .industry-card:hover {
+        box-shadow: 0 8px 15px rgba(0, 0, 0, 0.12);
+      }
+
+      .industry-card h1 {
+        color: #1f2937;
+        font-size: 16px;
+        font-weight: 700;
+        margin: 0 0 15px;
+        line-height: 1.3;
+      }
+
+      .industry-card p {
+        color: #6b7280;
+        font-size: 14px;
+        line-height: 1.6;
+        margin: 0 0 20px;
+      }
+
+      /* Text Visibility Toggle */
+      .industry-card .full-text {
+        display: none;
+      }
+
+      .industry-card.is-expanded .short-text {
+        display: none;
+      }
+
+      .industry-card.is-expanded .full-text {
+        display: block;
+      }
+
+      /* -------------------- Toggle Button Styling -------------------- */
+      .toggle-btn {
+        background: none;
+        border: none;
+        padding: 0;
+        font: inherit;
+        color: #48a4dd;
+        font-size: 12px;
+        font-weight: 700;
+        cursor: pointer;
+        position: relative;
+        z-index: 1;
+        display: inline-flex;
+        align-items: center;
+        user-select: none;
+        margin-top: auto;
+        width: fit-content;
+      }
+
+      .btn-arrow {
+        font-size: 14px;
+        font-weight: 800;
+        margin-left: 6px;
+      }
+
+      /* Circle Badge Effect */
+      .toggle-btn::before {
+        content: "";
+        position: absolute;
+        width: 36px;
+        height: 36px;
+        background-color: #bcd8fa;
+        border-radius: 50%;
+        left: -8px;
+        top: -10px;
+        z-index: -1;
+      }
+
+      /* -------------------- Responsive Breakpoints -------------------- */
+      @media (max-width: 1024px) {
+        .industrie-content {
+          grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
+      }
+
+      @media (max-width: 640px) {
+        .industrie-content {
+          grid-template-columns: minmax(0, 1fr);
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!--======================= Industries Section =========================-->
+    <section class="industries">
+      <div class="industrie-header">
+        <h1>Industries We Serve</h1>
+      </div>
+
+      <div class="industrie-content">
+        <!-- FMCG Import Card -->
+        <div class="industry-card">
+          <h1>FMCG IMPORT & DISTRIBUTION</h1>
+          <p class="short-text">
+            Our FMCG import and distribution division operates through
+            Vishwanath Trade House, Vishwanath Overseas, and DV...
+          </p>
+          <p class="full-text">
+            Our FMCG import and distribution division operates through
+            Vishwanath Trade House, Vishwanath Overseas, and DV Trading. We
+            specialize in sourcing high-quality international brands and
+            ensuring efficient nationwide distribution, strong partner
+            relationships, and reliable supply chain management to serve diverse
+            consumer markets.
+          </p>
+          <button type="button" class="toggle-btn" onclick="toggleCard(this)">
+            <span class="btn-text">KNOW MORE</span>
+            <span class="btn-arrow">→</span>
+          </button>
+        </div>
+
+        <!-- Manufacturing Card -->
+        <div class="industry-card">
+          <h1>MANUFACTURING</h1>
+          <p class="short-text">
+            Gopal Soap Industries Pvt. Ltd., established in 1997, represents our
+            manufacturing strength. The division focu...
+          </p>
+          <p class="full-text">
+            Gopal Soap Industries Pvt. Ltd., established in 1997, represents our
+            manufacturing strength. The division focuses on producing
+            high-quality consumer products using modern production techniques
+            and strict quality control standards.
+          </p>
+          <button type="button" class="toggle-btn" onclick="toggleCard(this)">
+            <span class="btn-text">KNOW MORE</span>
+            <span class="btn-arrow">→</span>
+          </button>
+        </div>
+
+        <!-- Supermarkets Card -->
+        <div class="industry-card">
+          <h1>SUPERMARKETS / RETAIL</h1>
+          <p class="short-text">
+            Our supermarket and retail division has built a strong and growing
+            presence in the FMCG segment. We focus on o...
+          </p>
+          <p class="full-text">
+            Our supermarket and retail division has built a strong and growing
+            presence in the FMCG segment. We focus on offering wide product
+            selections, customer convenience, and steady retail growth across
+            our operations.
+          </p>
+          <button type="button" class="toggle-btn" onclick="toggleCard(this)">
+            <span class="btn-text">KNOW MORE</span>
+            <span class="btn-arrow">→</span>
+          </button>
+        </div>
+
+        <!-- Education Card -->
+        <div class="industry-card">
+          <h1>EDUCATION</h1>
+          <p class="short-text">
+            We strongly believe that quality education is the foundation of
+            long-term societal development. Our education ...
+          </p>
+          <p class="full-text">
+            We strongly believe that quality education is the foundation of
+            long-term societal development. Our education initiatives focus on
+            establishing modern institutions, enhancing learning environments,
+            and providing accessible academic resources.
+          </p>
+          <button type="button" class="toggle-btn" onclick="toggleCard(this)">
+            <span class="btn-text">KNOW MORE</span>
+            <span class="btn-arrow">→</span>
+          </button>
+        </div>
+
+        <!-- Hospitality Card -->
+        <div class="industry-card">
+          <h1>HOSPITALITY</h1>
+          <p class="short-text">
+            DV Hospitality is developing its first hospitality property
+            featuring 81 keys, designed to deliver comfort, qu...
+          </p>
+          <p class="full-text">
+            DV Hospitality is developing its first hospitality property
+            featuring 81 keys, designed to deliver comfort, quality service, and
+            premium experiences for leisure and business travelers.
+          </p>
+          <button type="button" class="toggle-btn" onclick="toggleCard(this)">
+            <span class="btn-text">KNOW MORE</span>
+            <span class="btn-arrow">→</span>
+          </button>
+        </div>
+
+        <!-- Media Card -->
+        <div class="industry-card">
+          <h1>MEDIA</h1>
+          <p class="short-text">
+            The group has an active presence in the media sector, focusing on
+            content creation, advertising, and communica...
+          </p>
+          <p class="full-text">
+            The group has an active presence in the media sector, focusing on
+            content creation, advertising, digital strategies, and communication
+            solutions that connect brands with diverse audiences.
+          </p>
+          <button type="button" class="toggle-btn" onclick="toggleCard(this)">
+            <span class="btn-text">KNOW MORE</span>
+            <span class="btn-arrow">→</span>
+          </button>
+        </div>
+
+        <!-- Agriculture Card -->
+        <div class="industry-card">
+          <h1>AGRICULTURE</h1>
+          <p class="short-text">
+            Our agriculture division includes Trishakti Organic Fertilizer,
+            located in Janakpur, dedicated to sustainable ...
+          </p>
+          <p class="full-text">
+            Our agriculture division includes Trishakti Organic Fertilizer,
+            located in Janakpur, dedicated to sustainable farming practices,
+            eco-friendly fertilizers, and boosting agricultural productivity.
+          </p>
+          <button type="button" class="toggle-btn" onclick="toggleCard(this)">
+            <span class="btn-text">KNOW MORE</span>
+            <span class="btn-arrow">→</span>
+          </button>
+        </div>
+
+        <!-- Food & Beverage Card -->
+        <div class="industry-card">
+          <h1>FOOD & BEVERAGE</h1>
+          <p class="short-text">
+            Starting with its first restaurant in 2010, Masala Cottage
+            Restaurant marked our entry into the food and bever...
+          </p>
+          <p class="full-text">
+            Starting with its first restaurant in 2010, Masala Cottage
+            Restaurant marked our entry into the food and beverage industry,
+            expanding into multiple dining outlets and culinary brands.
+          </p>
+          <button type="button" class="toggle-btn" onclick="toggleCard(this)">
+            <span class="btn-text">KNOW MORE</span>
+            <span class="btn-arrow">→</span>
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- -------------------- JavaScript -------------------- -->
+    <script>
+      function toggleCard(btn) {
+        // Get the target card container
+        const card = btn.closest(".industry-card");
+
+        // Toggle expanded state
+        const isExpanded = card.classList.toggle("is-expanded");
+
+        // Update button text and arrow icon dynamically
+        const btnText = btn.querySelector(".btn-text");
+        const btnArrow = btn.querySelector(".btn-arrow");
+
+        if (isExpanded) {
+          btnText.textContent = "SHOW LESS";
+          btnArrow.innerHTML = "↑";
+        } else {
+          btnText.textContent = "KNOW MORE";
+          btnArrow.innerHTML = "→";
+        }
+      }
+    </script>
+  </body>
+</html>

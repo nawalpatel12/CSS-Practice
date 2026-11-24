@@ -3,7 +3,9 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Salesfusion - Articles</title>
+    <title>
+      Retailer Application in a Distributor Management System - SalesFusion
+    </title>
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
@@ -197,9 +199,8 @@
         text-decoration: none;
       }
 
-      /* ----------------------Section Base Setup ----------------------*/
-
-   .blog-section {
+      /* -------------------- Article Detail Section -------------------- */
+      .article-detail-section {
         width: 100%;
         background-color: #ffffff;
         padding: 20px 130px;
@@ -207,15 +208,16 @@
         box-sizing: border-box;
       }
 
-      /* Page Layout: Sidebar + Grid */
-      .blog-container {
+      .article-detail-container {
         max-width: 1280px;
         margin: 0 auto;
-        display: flex;
+        display: grid;
+        grid-template-columns: 260px minmax(0, 1fr);
         gap: 40px;
+        align-items: start;
       }
 
-      /* Sidebar Styles */
+      /* Left Sidebar */
       .sidebar {
         width: 250px;
         flex-shrink: 0;
@@ -265,109 +267,86 @@
         color: #ffffff;
       }
 
-      /* Main Content Styles */
-      .main-content {
-        flex-grow: 1;
+      /* Main Article Column */
+      .article-detail-content {
+        min-width: 0;
+        max-width: 950px;
       }
 
-      .section-title {
-        text-align: center;
+      .article-detail-title {
         font-size: 30px;
         font-weight: 700;
-        color: #0a0a0a;
-        margin: 0 0 32px;
+        color: #0f172a;
+        line-height: 1.2;
+        margin: 20px 0 18px 8px;
       }
 
-      /* 3-Column Card Grid */
-      .articles-grid {
-        display: grid;
-        grid-template-columns: repeat(3, 1fr);
+      .article-hero-wrapper {
+        width: 100%;
+        margin: 0 0 28px;
+        border-radius: 16px;
+        overflow: hidden;
+        box-shadow: 0 12px 30px rgba(15, 23, 42, 0.08);
+      }
+
+      .article-hero-img {
+        display: block;
+        width: 100%;
+        max-height: 280px;
+        object-fit: cover;
+      }
+
+      .article-lead {
+        font-size: 16px;
+        font-weight: 400;
+        color: #0a0a0a;
+        line-height: 1.7;
+        margin: 0 0 0px;
+      }
+
+      /* Numbered Subsections & Bullets */
+      .article-points {
+        display: flex;
+        flex-direction: column;
         gap: 24px;
       }
 
-      /* Article Card */
-      .article-card {
-        background: #ffffff;
-        border-radius: 12px;
-        border: 1px solid #eaeaea;
-        box-shadow: 0 4px 14px rgba(0, 0, 0, 0.04);
-        overflow: hidden;
-        display: flex;
-        flex-direction: column;
-        min-height: 470px;
-        max-width: 280px;
-        transition: box-shadow 0.25s ease;
-      }
-
-      .article-card:hover {
-        box-shadow: 5px 10px 35px rgba(0, 0, 0, 0.08);
-      }
-
-      .card-image {
-        width: 100%;
-        height: 190px;
-        object-fit: cover;
-        display: block;
-      }
-
-      /* Card Body (Flex Column keeps 'Read More' at the bottom) */
-      .card-body {
-        padding: 20px;
-        display: flex;
-        flex-direction: column;
-        flex-grow: 1;
-      }
-
-      .card-title {
-        font-size: 20px;
+      .article-point-block h4 {
+        font-size: 18px;
         font-weight: 700;
-        line-height: 1.35;
-        color: #111111;
-        margin: 0 0 12px;
+        color: #0a0a0a;
+        line-height: 1.4;
+        margin: 16px 0px;
       }
 
-      .card-text {
-        font-size: 14px;
-        line-height: 1.7;
-        color: #666666;
-        margin: 0 0 24px;
+      .article-point-block ul {
+        margin: 0;
+        padding-left: 22px;
+        display: flex;
+        flex-direction: column;
+        gap: 6px;
       }
 
-      /* Read More Link (Aligns to bottom left) */
-      .read-more {
-        margin-top: auto;
-        align-self: flex-start;
-        color: #4497d3;
-        font-size: 14px;
-        font-weight: 600;
-        text-decoration: none;
-        transition: color 0.2s ease;
+      .article-point-block li {
+        font-size: 16px;
+        font-weight: 400;
+        color: #0a0a0a;
+        line-height: 1;
       }
 
-      .read-more:hover {
-        color: #1d72b8;
-      }
-
-
-
-      /* Responsive Adjustments */
-      @media (max-width: 1024px) {
-        .articles-grid {
-          grid-template-columns: repeat(2, 1fr);
-        }
-      }
-
-      @media (max-width: 768px) {
-        .blog-container {
-          flex-direction: column;
-        }
-
-        .sidebar {
-          width: 100%;
-        }
-
-        .articles-grid {
+      /* Responsive Layout */
+      @media (max-width: 900px) {
+        .article-detail-container {
           grid-template-columns: 1fr;
+          gap: 36px;
+        }
+
+        .detail-sidebar {
+          position: static;
+        }
+
+        .article-detail-title {
+          font-size: 25px;
         }
       }
 
@@ -546,13 +525,13 @@
   <body>
     <div class="navbar">
       <div class="navbar-section">
-        <img id="image" src="salesfusion/IMAGE/sitelogo.webp" alt="image" />
+        <img id="image" src="../../IMAGE/sitelogo.webp" alt="image" />
         <p class="software">Software</p>
         <p class="Company">Company</p>
       </div>
 
       <div class="navbar-select">
-        <a href="Salefusion.html">Home</a>
+        <a href="../../../Salefusion.html">Home</a>
         <p>
           <span class="dropdown">
             <span class="dropdown-trigger"
@@ -562,17 +541,17 @@
             ></span>
 
             <span class="dropdown-content">
-              <a href="Distributor_Operational_Platform.html"
+              <a href="../../Solution/Distributor_Operational_Platform.html"
                 >Distributor Operation Platform</a
               >
-              <a href="sales_Team_Automation.html">Sales Team Automation</a>
-              <a href="Retail_Partner_App.html">Retail Partner App</a>
-              <a href="Rural_Distribution_Management.html"
+              <a href="../../Solution/sales_Team_Automation.html">Sales Team Automation</a>
+              <a href="../../Solution/Retail_Partner_App.html">Retail Partner App</a>
+              <a href="../../Solution/Rural_Distribution_Management.html"
                 >Rural Distribution Management</a
               >
-              <a href="Asset_Tracking_System.html">Asset Tracking System</a>
-              <a href="AI_Data_Intelligence.html">AI & Data Intelligence</a>
-              <a href="Brand_Engagement Suite.html">Brand Engagement Suite</a>
+              <a href="../../Solution/Asset_Tracking_System.html">Asset Tracking System</a>
+              <a href="../../Solution/AI_Data_Intelligence.html">AI & Data Intelligence</a>
+              <a href="../../Solution/Brand_Engagement Suite.html">Brand Engagement Suite</a>
             </span>
           </span>
         </p>
@@ -586,8 +565,8 @@
             ></span>
 
             <span class="dropdown-content">
-              <a href="blog.html">Blogs</a>
-              <a href="Salefusion.html">Customer Stories</a>
+              <a href="../blog.html">Blogs</a>
+              <a href="../../../Salefusion.html">Customer Stories</a>
             </span>
           </span>
         </p>
@@ -600,82 +579,130 @@
                 <i class="fa-solid fa-chevron-down"></i> </span
             ></span>
             <span class="dropdown-content">
-              <a href="#">About salesfusion</a>
-              <a href="#">Careers</a>
-              <a href="#">Contact Us</a>
-              <a href="#">Partners</a>
+              <a href="../../About us/About_salesfusion.html">About salesfusion</a>
+              <a href="../../About us/Career.html">Careers</a>
+              <a href="../../About us/Contact_us.html">Contact Us</a>
+              <a href="../../About us/Partner.html">Partners</a>
             </span>
           </span>
         </p>
       </div>
 
       <div class="button-section">
-        <a href="Book_A_Demo.html">
+        <a href="../../../Book_A_Demo.html">
           <button class="book">Book a demo</button>
         </a>
-        <a href="login.html" id="login">Log In </a>
+        <a href="../../../login.html" id="login">Log In </a>
       </div>
     </div>
 
     <!--==========Articles==========-->
 
-    <section class="blog-section">
-      <div class="blog-container">
+    <section class="article-detail-section">
+      <div class="article-detail-container">
         <!-- Left Sidebar: Categories -->
         <aside class="sidebar">
           <h2 class="sidebar-title">Categories</h2>
           <ul class="category-list">
-             <li>
-              <a href="Distributor.html">Distributor Operations Platform</a>
+            <li>
+              <a href="../Distributor.html">Distributor Operations Platform</a>
             </li>
-            <li><a href="Sales.html">Sales Team Automation</a></li>
-            <li><a href="Retail.html">Retail Partner App</a></li>
-            <li><a href="Rural.html">Rural Distribution Management</a></li>
-            <li><a href="Asset.html">Asset Tracking System</a></li>
-            <li><a href="AI_Data.html">AI & Data Intelligence</a></li>
+            <li><a href="../Sales.html">Sales Team Automation</a></li>
+            <li><a href="../Retail.html">Retail Partner App</a></li>
+            <li><a href="../Rural.html">Rural Distribution Management</a></li>
+            <li><a href="../Asset.html">Asset Tracking System</a></li>
+            <li><a href="../AI_Data.html">AI & Data Intelligence</a></li>
           </ul>
         </aside>
 
-        <!-- Main Content Area: Articles -->
-        <main class="main-content">
-          <h2 class="section-title">Article</h2>
+        <!-- Main Content: Full Article View -->
+        <article class="article-detail-content">
+          <h1 class="article-detail-title">
+            Retailer Application in a Distributor Management System
+          </h1>
 
-          <div class="articles-grid">
-            <!-- Article Card 1 -->
-            <article class="article-card">
-              <img
-                class="card-image"
-                src="salesfusion/IMAGE/ruralds.webp"
-                alt="Rural DMS"
-              />
-              <div class="card-body">
-                <h3 class="card-title">
-                  Rural Distributor Management System (Rural DMS)
-                </h3>
-                <p class="card-text">
-                  Discover the top challenges facing the distribution industry
-                  and effective ways to overcome them using modern technology
-                  solutions.
-                </p>
-                <a href="#" class="read-more">Read More</a>
-              </div>
-            </article>
+          <div class="article-hero-wrapper">
+            <img
+              src="../../IMAGE/retailerpartnerapp.webp"
+              alt="Retailer Application in a Distributor Management System"
+              class="article-hero-img"
+            />
           </div>
-        </main>
+
+          <p class="article-lead">
+            Retailer Application in Distributor Management System A Retailer
+            Application is a mobile or web-based interface within a Distributor
+            Management System (DMS) that enables retailers to directly interact
+            with distributors and manufacturers. It allows retailers to place
+            orders, check product availability, track deliveries, view schemes,
+            manage invoices, and make payments digitally. Traditionally,
+            retailers depend on sales representatives and manual processes,
+            which often cause order delays, stock unavailability, pricing
+            errors, and poor communication. A retailer application streamlines
+            these operations by providing real-time information, faster
+            ordering, and transparent transactions. By integrating analytics,
+            automation, and mobile technology, retailer applications improve
+            order accuracy, sales efficiency, distributor coordination, and
+            retailer satisfaction. This makes them a critical component of
+            modern DMS, especially in CPG/FMCG, pharma, and retail distribution
+            networks. Retailer Application for Distributor Management System
+          </p>
+
+          <div class="article-points">
+            <div class="article-point-block">
+              <h4>1. Mobile-Based Retailer Ordering Application in DMS</h4>
+              <ul>
+                <li>Enables anytime, anywhere order placement</li>
+                <li>Reduces dependency on sales reps</li>
+              </ul>
+
+              <h4>2. Real-Time Inventory Visibility for Retailers</h4>
+              <ul>
+                <li>Shows live stock availability and delivery timelines</li>
+                <li>Prevents stock-outs and over-ordering</li>
+              </ul>
+
+              <h4>
+                3. Digital Scheme, Pricing, and Promotion Management for
+                Retailers
+              </h4>
+              <ul>
+                <li>Transparent view of offers and discounts</li>
+                <li>Ensures correct scheme application</li>
+              </ul>
+
+              <h4>4. Retailer Analytics and Buying Behavior Insights</h4>
+              <ul>
+                <li>Analyzes retailer purchase patterns</li>
+                <li>Supports personalized offers and better demand planning</li>
+              </ul>
+
+              <h4>
+                5. Integrated Payment and Credit Management in Retailer Apps
+              </h4>
+              <ul>
+                <li>
+                  Displays outstanding balances, credit limits, and payment
+                  options
+                </li>
+                <li>Improves cash flow and reduces disputes</li>
+              </ul>
+            </div>
+          </div>
+        </article>
       </div>
     </section>
-
     <!--=================First-Class-Distribution==============================-->
 
     <div class="First-Class-Distribution">
       <p>Looking for a First-Class <span>Distribution</span> Solution?</p>
-      <a href="#"> <button>Contact us</button></a>
+      <a href="../../../Book_A_Demo.html"> <button>Contact us</button></a>
     </div>
 
     <footer class="footer">
       <div class="footer-logo">
         <div class="logo">
-          <img src="salesfusion/IMAGE/sitelogo.webp" alt="SalesFusion logo" />
+          <img src="../../IMAGE/sitelogo.webp" alt="SalesFusion logo" />
         </div>
 
         <div class="social-Media">
@@ -704,40 +731,40 @@
           <span class="contact-item">
             <i class="fa-solid fa-phone"></i>
           </span>
-          <a href="telphone">+977 9805600000</a>
+          <a href="tel:+9779805600000">+977 9805600000</a>
         </p>
 
         <p class="contact-item">
           <span class="contact-item">
             <i class="fa-regular fa-envelope"></i
           ></span>
-          <a href="mail">sales@salesfusion.online</a>
+          <a href="mailto:sales@salesfusion.online">sales@salesfusion.online</a>
         </p>
       </div>
 
       <div class="footer-column">
         <h2>Solutions</h2>
-        <a href="Distributor_Operational_Platform.html"
+        <a href="../../Solution/Distributor_Operational_Platform.html"
           >Distributor Management System</a
         >
-        <a href="sales_Team_Automation.html">Salesforce Automation</a>
-        <a href="Retail_Partner_App.html">Retailer App</a>
-        <a href="Rural_Distribution_Management.html">Rural DMS</a>
-        <a href="Asset_Tracking_System.html">Asset Management</a>
-        <a href="AI_Data_Intelligence.html">AI &amp; Data Analytics</a>
+        <a href="../../Solution/sales_Team_Automation.html">Salesforce Automation</a>
+        <a href="../../Solution/Retail_Partner_App.html">Retailer App</a>
+        <a href="../../Solution/Rural_Distribution_Management.html">Rural DMS</a>
+        <a href="../../Solution/Asset_Tracking_System.html">Asset Management</a>
+        <a href="../../Solution/AI_Data_Intelligence.html">AI &amp; Data Analytics</a>
       </div>
 
       <div class="footer-column">
         <h2>Resources</h2>
-        <a href="blog.html">Blogs</a>
-        <a href="Salefusion.html">Customer Stories</a>
-        <a href="Book_A_Demo.html">Request A Demo</a>
+        <a href="../blog.html">Blogs</a>
+        <a href="../../../Salefusion.html">Customer Stories</a>
+        <a href="../../../Book_A_Demo.html">Request A Demo</a>
       </div>
 
       <div class="footer-column">
         <h2>Company</h2>
-        <a href="#">About Us</a>
-        <a href="#">Careers</a>
+        <a href="../../About us/About_salesfusion.html">About Us</a>
+        <a href="../../About us/Career.html">Careers</a>
         <a href="#">Privacy Policy</a>
       </div>
     </footer>

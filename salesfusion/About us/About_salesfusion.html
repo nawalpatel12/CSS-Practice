@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+     <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+    />
+   
+
+    <style>
+      body {
+        margin: 0;
+        padding: 0;
+      }
+
+      .navbar {
+        padding: 0px 32px;
+        width: full;
+        height: 80px;
+        background-color: white;
+        display: flex;
+        border-top-left-radius: 4px;
+        border-top-right-radius: 4px;
+        box-shadow: 0 0px 5px rgba(0, 0, 0, 0.1);
+        position: sticky;
+        top: 0px;
+        z-index: 100;
+      }
+
+      .navbar-section {
+        display: flex;
+        position: relative;
+        align-items: center;
+      }
+
+      .software {
+        font: 10px sans-serif;
+        font-weight: 550;
+        position: absolute;
+        margin-top: 42px;
+        padding-left: 32px;
+      }
+
+      .Company {
+        font: 10px sans-serif;
+        font-weight: 550;
+        color: rgb(92, 159, 201);
+        position: absolute;
+        margin-top: 42px;
+        padding-left: 77px;
+      }
+
+      #image {
+        width: 151px;
+        height: 48px;
+      }
+
+      .navbar-select {
+        display: flex;
+        align-items: center;
+        gap: 40px;
+        margin-left: 418px;
+      }
+
+      .navbar-select a {
+        color: black;
+        font-weight: 600;
+        text-decoration: none;
+        font-family: sans-serif;
+        font-size: 14px;
+      }
+
+      .dropdown-trigger {
+        color: black;
+        font: 14px sans-serif;
+        font-weight: 600;
+        text-decoration: none;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        gap: 7px;
+        padding: 30px 0;
+        transition: color 0.2s ease;
+        margin-left: -6px;
+      }
+
+      .dropdown-trigger i {
+        font-size: 8px;
+        padding-bottom: 7px;
+        transition: transform 0.2s ease;
+      }
+
+      .navbar-select > a:hover,
+      .dropdown:hover .dropdown-trigger {
+        color: #44a5db;
+      }
+
+      .dropdown:hover .dropdown-trigger i {
+        transform: rotate(180deg);
+      }
+
+      /* Dropdown Container */
+      .dropdown {
+        position: relative;
+      }
+
+      /* Bridge to prevent hover loss when moving mouse into dropdown */
+      .dropdown-content::before {
+        content: "";
+        position: absolute;
+        top: -15px;
+        left: 0;
+        width: 100%;
+        height: 15px;
+      }
+
+      /* Dropdown Menu Box */
+      .dropdown-content {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        min-width: 260px;
+        background-color: #ffffff;
+        border-bottom-left-radius: 6px;
+        border-bottom-right-radius: 6px;
+        border-top: 3px solid #44a5db;
+        padding: 12px 5px;
+        z-index: 10;
+      }
+
+      .dropdown:hover .dropdown-content {
+        display: block;
+        animation: fadeIn 0.2s ease-in-out;
+      }
+
+      /* Dropdown Links */
+      .dropdown-content a {
+        display: block;
+        padding: 10px 20px;
+        font-size: 14px;
+        font-weight: 500;
+        color: #4a5568;
+        line-height: 1.8;
+        text-decoration: none;
+        transition:
+          background-color 0.15s ease,
+          color 0.15s ease;
+      }
+
+      .dropdown-content a:hover {
+        background-color: #f0f7ff;
+        color: #44a5db;
+      }
+      .button-section {
+        display: flex;
+        align-items: center;
+        gap: 17px;
+        margin-left: 43px;
+      }
+
+      .book {
+        color: #44a5db;
+        font: 14px sans-serif;
+        font-weight: 750;
+        text-transform: uppercase;
+        background-color: #ddefff;
+        border: none;
+        width: 153px;
+        height: 44px;
+        border-radius: 4px;
+        padding: 12px 24px;
+        letter-spacing: 0.2px;
+      }
+
+      .book:hover {
+        background-color: #cce7fe;
+      }
+
+      #login {
+        text-align: center;
+        color: #44a5db;
+        font: 14px sans-serif;
+        font-weight: bolder;
+        background-color: #ddefff;
+        border: none;
+        width: 42px;
+        height: 20px;
+        border-radius: 4px;
+        padding: 12px 24px;
+        text-decoration: none;
+      }
+
+      #login:hover {
+        background-color: #cce7fe;
+        text-decoration: none;
+      }
+
+      /* Hero Banner Section */
+      .hero-section {
+        position: relative;
+        width: full;
+        height: 410px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+
+        /* Dark overlay + Background Image */
+        background:
+          linear-gradient(rgba(0, 0, 0, 0.72), rgba(0, 0, 0, 0.72)),
+          url("../IMAGE/dynamic.webp") no-repeat center center / cover;
+        color: #ffffff;
+        padding: 20px;
+      }
+
+      /* Content Container */
+      .hero-content {
+        max-width: 700px;
+        margin-top: 20px;
+      }
+
+      /* Main Heading */
+      .hero-title {
+        font: 30px sans-serif;
+        font-weight: 700;
+        letter-spacing: -0.7px;
+      }
+
+      /* Subtitle */
+      .hero-subtitle {
+        font: 20px sans-serif;
+        font-weight: 400;
+        color: #f3f4f6;
+        margin-bottom: 34px;
+      }
+      </style>
+</head>
+<body>
+    <!--nav bar section-->
+    <div class="navbar">
+      <div class="navbar-section">
+        <img id="image" src="../IMAGE/sitelogo.webp" alt="image" />
+        <p class="software">Software</p>
+        <p class="Company">Company</p>
+      </div>
+
+      <div class="navbar-select">
+        <a href="../../Salefusion.html">Home</a>
+        <p>
+          <span class="dropdown">
+            <span class="dropdown-trigger"
+              >Solution
+              <span class="dropdown-button">
+                <i class="fa-solid fa-chevron-down"></i></span
+            ></span>
+
+            <span class="dropdown-content">
+              <a href="../Solution/Distributor_Operational_Platform.html"
+                >Distributor Operation Platform</a
+              >
+              <a href="../Solution/sales_Team_Automation.html">Sales Team Automation</a>
+              <a href="../Solution/Retail_Partner_App.html">Retail Partner App</a>
+              <a href="../Solution/Rural_Distribution_Management.html"
+                >Rural Distribution Management</a
+              >
+              <a href="../Solution/Asset_Tracking_System.html">Asset Tracking System</a>
+              <a href="../Solution/AI_Data_Intelligence.html">AI & Data Intelligence</a>
+              <a href="../Solution/Brand_Engagement Suite.html">Brand Engagement Suite</a>
+            </span>
+          </span>
+        </p>
+
+        <p>
+          <span class="dropdown">
+            <span class="dropdown-trigger"
+              >Resources
+              <span class="dropdown-button">
+                <i class="fa-solid fa-chevron-down"></i> </span
+            ></span>
+
+            <span class="dropdown-content">
+              <a href="../Resources/blog.html">Blogs</a>
+              <a href="../../Salefusion.html">Customer Stories</a>
+            </span>
+          </span>
+        </p>
+
+        <p>
+          <span class="dropdown">
+            <span class="dropdown-trigger"
+              >About Us
+              <span class="dropdown-button">
+                <i class="fa-solid fa-chevron-down"></i> </span
+            ></span>
+            <span class="dropdown-content">
+              <a href="../About us/About_salesfusion.html">About salesfusion</a>
+              <a href="../About us/Career.html">Careers</a>
+              <a href="../About us/Contact_us.html">Contact Us</a>
+              <a href="../About us/Partner.html">Partners</a>
+            </span>
+          </span>
+        </p>
+      </div>
+
+      <div class="button-section">
+        <a href="../../Book_A_Demo.html">
+          <button class="book">Book a demo</button>
+        </a>
+        <a href="../../login.html" id="login">Log In </a>
+      </div>
+    </div>
+
+    <!-- ==================Hero Section =================-->
+    <section class="hero-section">
+      <div class="hero-content">
+        <h1 class="hero-title">Asset Tracking System</h1>
+        <p class="hero-subtitle">
+          Tracking & Monitoring of Asset Deployments at Retail outlets and
+          dealers
+        </p>
+</body>
+</html>

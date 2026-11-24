@@ -217,7 +217,7 @@
         /* Dark overlay + Background Image */
         background:
           linear-gradient(rgba(0, 0, 0, 0.72), rgba(0, 0, 0, 0.72)),
-          url("salesfusion/IMAGE/dynamic.webp") no-repeat center center / cover;
+          url("../IMAGE/dynamic.webp") no-repeat center center / cover;
         color: #ffffff;
         padding: 20px;
       }
@@ -821,6 +821,7 @@
       .blog-card {
         width: 260px;
         height: 450px;
+        position: relative;
         background: #ffffff;
         padding: 16px;
         box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
@@ -852,6 +853,10 @@
       }
 
       .blog-card__btn {
+        position: absolute;
+        bottom: 24px;
+        left: 50%;
+        transform: translateX(-50%);
         display: block;
         width: max-content;
         margin: 0 auto;
@@ -1223,13 +1228,13 @@
     <!--nav bar section-->
     <div class="navbar">
       <div class="navbar-section">
-        <img id="image" src="salesfusion/IMAGE/sitelogo.webp" alt="image" />
+        <img id="image" src="../IMAGE/sitelogo.webp" alt="image" />
         <p class="software">Software</p>
         <p class="Company">Company</p>
       </div>
 
       <div class="navbar-select">
-        <a href="Salefusion.html">Home</a>
+        <a href="../../Salefusion.html">Home</a>
         <p>
           <span class="dropdown">
             <span class="dropdown-trigger"
@@ -1263,8 +1268,8 @@
             ></span>
 
             <span class="dropdown-content">
-              <a href="blog.html">Blogs</a>
-              <a href="Salefusion.html">Customer Stories</a>
+              <a href="../Resources/blog.html">Blogs</a>
+              <a href="../../Salefusion.html">Customer Stories</a>
             </span>
           </span>
         </p>
@@ -1277,20 +1282,20 @@
                 <i class="fa-solid fa-chevron-down"></i> </span
             ></span>
             <span class="dropdown-content">
-              <a href="#">About salesfusion</a>
-              <a href="#">Careers</a>
-              <a href="#">Contact Us</a>
-              <a href="#">Partners</a>
+              <a href="../About us/About_salesfusion.html">About salesfusion</a>
+              <a href="../About us/Career.html">Careers</a>
+              <a href="../About us/Contact_us.html">Contact Us</a>
+              <a href="../About us/Partner.html">Partners</a>
             </span>
           </span>
         </p>
       </div>
 
       <div class="button-section">
-        <a href="Book_A_Demo.html">
+        <a href="../../Book_A_Demo.html">
           <button class="book">Book a demo</button>
         </a>
-        <a href="login.html" id="login">Log In </a>
+        <a href="../../login.html" id="login">Log In </a>
       </div>
     </div>
 
@@ -1301,7 +1306,7 @@
         <p class="hero-subtitle">
           Automating Downstream Sales activities for sub stockists
         </p>
-        <a href="Book_A_Demo.html"> <button>Book A Demo</button></a>
+        <a href="../../Book_A_Demo.html"> <button>Book A Demo</button></a>
       </div>
     </section>
 
@@ -1393,7 +1398,7 @@
         <!-- Right Image -->
         <div class="core-right">
           <img
-            src="salesfusion/IMAGE/ruralfunctionality.webp"
+            src="../IMAGE/ruralfunctionality.webp"
             alt="AI Powered Sales Automation"
           />
         </div>
@@ -1543,7 +1548,7 @@
         <div class="blog-card">
           <img
             class="blog-card__image"
-            src="salesfusion/IMAGE/aianddata.webp"
+            src="../IMAGE/aianddata.webp"
             alt="Sales Force Automation illustration with Sales Fusion cloud"
           />
 
@@ -1557,13 +1562,13 @@
             effective ways to overcome them using modern technology solutions.
           </p>
 
-          <a href="#" class="blog-card__btn">Read More</a>
+          <a href="../Resources/blogs/AI_Data_section.html" class="blog-card__btn">Read More</a>
         </div>
 
         <div class="blog-card">
           <img
             class="blog-card__image"
-            src="salesfusion/IMAGE/assetmanagement.webp"
+            src="../IMAGE/assetmanagement.webp"
             alt="Sales Force Automation illustration with Sales Fusion cloud"
           />
 
@@ -1575,14 +1580,14 @@
             In the dynamic landscape of Consumer Packaged Goods (CPG) companies,
             having a robust DMS is crucial for scaling and efficiency.
 
-            <a href="#" class="blog-card__btn">Read More</a>
+            <a href="../Resources/blogs/Asset_section.html" class="blog-card__btn">Read More</a>
           </p>
         </div>
 
         <div class="blog-card">
           <img
             class="blog-card__image"
-            src="salesfusion/IMAGE/distributerplateform.webp"
+            src="../IMAGE/distributerplateform.webp"
             alt="Sales Force Automation illustration with Sales Fusion cloud"
           />
 
@@ -1594,14 +1599,14 @@
             Explore our comprehensive guide to Distribution Management Systems
             (DMS), covering features, benefits, and implementation strategies.
 
-            <a href="#" class="blog-card__btn">Read More</a>
+            <a href="../Resources/blogs/Distribution_section.html" class="blog-card__btn">Read More</a>
           </p>
         </div>
 
         <div class="blog-card">
           <img
             class="blog-card__image"
-            src="salesfusion/IMAGE/retailerpartnerapp.webp"
+            src="../IMAGE/retailerpartnerapp.webp"
             alt="Sales Force Automation illustration with Sales Fusion cloud"
           />
 
@@ -1612,7 +1617,7 @@
           <p class="blog-card__text">
             Discover the top challenges facing the distribution industry and
             effective ways to overcome them using modern technology solutions.
-            <a href="#" class="blog-card__btn">Read More</a>
+            <a href="../Resources/blogs/Retail_section.html" class="blog-card__btn">Read More</a>
           </p>
         </div>
       </div>
@@ -1634,7 +1639,7 @@
           <div class="service-card">
             <div>
               <div class="icon-box">
-                <img src="salesfusion/IMAGE/distributor.webp" alt="image" />
+                <img src="../IMAGE/distributor.webp" alt="image" />
               </div>
               <h2>Distributor Operations Platform</h2>
               <p>
@@ -1642,7 +1647,7 @@
                 Heera’s Distribution Management Solutions
               </p>
             </div>
-            <a href="#" class="read-more"
+            <a href="Distributor_Operational_Platform.html" class="read-more"
               >READ MORE <i class="fa-solid fa-arrow-right-long"></i
             ></a>
           </div>
@@ -1651,7 +1656,7 @@
           <div class="service-card">
             <div>
               <div class="icon-box">
-                <img src="salesfusion/IMAGE/team.webp" alt="image" />
+                <img src="../IMAGE/team.webp" alt="image" />
               </div>
               <h2>Sales Team Automation</h2>
               <p>
@@ -1660,7 +1665,7 @@
                 real time.
               </p>
             </div>
-            <a href="#" class="read-more"
+            <a href="sales_Team_Automation.html" class="read-more"
               >READ MORE <i class="fa-solid fa-arrow-right-long"></i
             ></a>
           </div>
@@ -1669,7 +1674,7 @@
           <div class="service-card">
             <div>
               <div class="icon-box">
-                <img src="salesfusion/IMAGE/asset.webp" alt="image" />
+                <img src="../IMAGE/asset.webp" alt="image" />
               </div>
               <h2>Asset Tracking System</h2>
               <p>
@@ -1677,7 +1682,7 @@
                 dealers with precision.
               </p>
             </div>
-            <a href="#" class="read-more"
+            <a href="Asset_Tracking_System.html" class="read-more"
               >READ MORE <i class="fa-solid fa-arrow-right-long"></i
             ></a>
           </div>
@@ -1686,7 +1691,7 @@
           <div class="service-card">
             <div>
               <div class="icon-box">
-                <img src="salesfusion/IMAGE/rural.webp" alt="image" />
+                <img src="../IMAGE/rural.webp" alt="image" />
               </div>
               <h2>Rural Distribution Management</h2>
               <p>
@@ -1694,7 +1699,7 @@
                 economic growth and reach.
               </p>
             </div>
-            <a href="#" class="read-more"
+            <a href="Rural_Distribution_Management.html" class="read-more"
               >READ MORE <i class="fa-solid fa-arrow-right-long"></i
             ></a>
           </div>
@@ -1703,7 +1708,7 @@
           <div class="service-card">
             <div>
               <div class="icon-box">
-                <img src="salesfusion/IMAGE/ai.webp" alt="image" />
+                <img src="../IMAGE/ai.webp" alt="image" />
               </div>
               <h2>AI & Data Intelligence</h2>
               <p>
@@ -1711,7 +1716,7 @@
                 distribution data and trends.
               </p>
             </div>
-            <a href="#" class="read-more"
+            <a href="AI_Data_Intelligence.html" class="read-more"
               >READ MORE <i class="fa-solid fa-arrow-right-long"></i
             ></a>
           </div>
@@ -1722,13 +1727,13 @@
     <!--Footer section-->
     <div class="First-Class-Distribution">
       <p>Looking for a First-Class <span>Distribution</span> Solution?</p>
-      <a href="#"> <button>Contact us</button></a>
+      <a href="../../Book_A_Demo.html"> <button>Contact us</button></a>
     </div>
 
     <footer class="footer">
       <div class="footer-logo">
         <div class="logo">
-          <img src="salesfusion/IMAGE/sitelogo.webp" alt="SalesFusion logo" />
+          <img src="../IMAGE/sitelogo.webp" alt="SalesFusion logo" />
         </div>
 
         <div class="social-Media">
@@ -1755,14 +1760,14 @@
           <span class="contact-item">
             <i class="fa-solid fa-phone"></i>
           </span>
-          <a href="telphone">+977 9805600000</a>
+          <a href="tel:+9779805600000">+977 9805600000</a>
         </p>
 
         <p class="contact-item">
           <span class="contact-item">
             <i class="fa-regular fa-envelope"></i
           ></span>
-          <a href="mail">sales@salesfusion.online</a>
+          <a href="mailto:sales@salesfusion.online">sales@salesfusion.online</a>
         </p>
       </div>
 
@@ -1780,15 +1785,15 @@
 
       <div class="footer-column">
         <h2>Resources</h2>
-        <a href="blog.html">Blogs</a>
-        <a href="Salefusion.html">Customer Stories</a>
-        <a href="Book_A_Demo.html">Request A Demo</a>
+        <a href="../Resources/blog.html">Blogs</a>
+        <a href="../../Salefusion.html">Customer Stories</a>
+        <a href="../../Book_A_Demo.html">Request A Demo</a>
       </div>
 
       <div class="footer-column">
         <h2>Company</h2>
-        <a href="#">About Us</a>
-        <a href="#">Careers</a>
+        <a href="../About us/About_salesfusion.html">About Us</a>
+        <a href="../About us/Career.html">Careers</a>
         <a href="#">Privacy Policy</a>
       </div>
     </footer>
