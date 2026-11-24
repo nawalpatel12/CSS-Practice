@@ -198,6 +198,75 @@
         text-decoration: none;
       }
 
+      /* Hero Banner Section */
+      .hero-section {
+        position: relative;
+        width: full;
+        height: 410px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+
+        /* Dark overlay + Background Image */
+        background:
+          linear-gradient(rgba(0, 0, 0, 0.72), rgba(0, 0, 0, 0.72)),
+          url("salesfusion/IMAGE/dynamic.webp") no-repeat center center / cover;
+        color: #ffffff;
+        padding: 20px;
+      }
+
+      /* Content Container */
+      .hero-content {
+        max-width: 700px;
+        margin-top: 20px;
+      }
+
+      /* Main Heading */
+      .hero-title {
+        font: 30px sans-serif;
+        font-weight: 700;
+        letter-spacing: -0.7px;
+      }
+
+      /* Subtitle */
+      .hero-subtitle {
+        font: 20px sans-serif;
+        font-weight: 400;
+        color: #f3f4f6;
+        margin-bottom: 34px;
+      }
+
+      /* CTA Button */
+      .hero-content button {
+        display: inline-block;
+        background-color: #fb2c36;
+        color: #ffffff;
+        text-decoration: none;
+        padding: 11px 12px;
+        font: 16px sans-serif;
+        font-weight: 500;
+        border-radius: 2px;
+        border: none;
+      }
+
+      /* Mobile Responsiveness */
+      @media (max-width: 600px) {
+        .hero-section {
+          height: 380px;
+        }
+        .hero-title {
+          font-size: 1.75rem;
+        }
+        .hero-subtitle {
+          font-size: 1rem;
+        }
+        .hero-btn {
+          padding: 9px 20px;
+          font-size: 0.95rem;
+        }
+      }
+
 
       /* ====================CORE SECTION============== */
       .core-section {
@@ -1002,7 +1071,7 @@
 
             <span class="dropdown-content">
               <a href="blog.html">Blogs</a>
-              <a href="#">Customer Stories</a>
+              <a href="Salefusion.html">Customer Stories</a>
             </span>
           </span>
         </p>
@@ -1461,8 +1530,8 @@
       <div class="footer-column">
         <h2>Resources</h2>
         <a href="blog.html">Blogs</a>
-        <a href="#">Customer Stories</a>
-        <a href="#">Request A Demo</a>
+        <a href="Salefusion.html">Customer Stories</a>
+        <a href="Book_A_Demo.html">Request A Demo</a>
       </div>
 
       <div class="footer-column">

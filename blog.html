@@ -201,7 +201,7 @@
       .blog-section {
         width: 100%;
         background-color: #ffffff;
-        padding: 40px 24px 80px;
+        padding: 20px 130px;
         font-family: sans-serif;
         box-sizing: border-box;
       }
@@ -221,32 +221,47 @@
       }
 
       .sidebar-title {
-        font-size: 24px;
+        font-size: 30px;
         font-weight: 700;
-        color: #000000;
-        margin: 0 0 28px;
+        color: #0a0a0a;
+        margin: 0 0 10px;
+        line-height: 1.2;
       }
 
-      .category-list {
+      .sidebar .category-list {
         list-style: none;
         padding: 0;
         margin: 0;
         display: flex;
         flex-direction: column;
-        gap: 18px;
+        gap: 4px;
+         border: 1px solid #fffbeb;
       }
 
-      .category-list a {
+      .sidebar .category-list li {
+        margin: 0;
+        padding: 0;
+        line-height: normal;
+      }
+
+      .sidebar .category-list a {
+        display: block;
+        width: 100%;
+        box-sizing: border-box;
+        padding: 8px 12px;
         text-decoration: none;
-        color: #333333;
-        font-size: 14px;
+        color: black;
+        font-size: 16px;
         font-weight: 500;
-        line-height: 1.4;
-        transition: color 0.2s ease;
+        line-height: 1.7;
+        transition:
+          background-color 0.15s ease,
+          color 0.15s ease;
       }
 
-      .category-list a:hover {
-        color: #3898dc;
+      .sidebar .category-list a:hover {
+        background-color: #44a5db;
+        color: #ffffff;
       }
 
       /* Main Content Styles */
@@ -255,10 +270,11 @@
       }
 
       .section-title {
-        font-size: 24px;
+        text-align: center;
+        font-size: 30px;
         font-weight: 700;
-        color: #000000;
-        margin: 0 0 28px;
+        color: #0a0a0a;
+        margin: 0 0 32px;
       }
 
       /* 3-Column Card Grid */
@@ -277,19 +293,18 @@
         overflow: hidden;
         display: flex;
         flex-direction: column;
-        transition:
-          transform 0.25s ease,
-          box-shadow 0.25s ease;
+        min-height: 470px;
+        max-width: 280px;
+        transition: box-shadow 0.25s ease;
       }
 
       .article-card:hover {
-        transform: translateY(-4px);
-        box-shadow: 0 10px 24px rgba(0, 0, 0, 0.08);
+        box-shadow: 5px 10px 35px rgba(0, 0, 0, 0.08);
       }
 
       .card-image {
         width: 100%;
-        height: 180px;
+        height: 190px;
         object-fit: cover;
         display: block;
       }
@@ -303,7 +318,7 @@
       }
 
       .card-title {
-        font-size: 16px;
+        font-size: 20px;
         font-weight: 700;
         line-height: 1.35;
         color: #111111;
@@ -311,8 +326,8 @@
       }
 
       .card-text {
-        font-size: 13px;
-        line-height: 1.5;
+        font-size: 14px;
+        line-height: 1.7;
         color: #666666;
         margin: 0 0 24px;
       }
@@ -330,7 +345,7 @@
 
       .read-more:hover {
         color: #1d72b8;
-        text-decoration: underline;
+       
       }
 
       /* Responsive Adjustments */
@@ -524,8 +539,6 @@
         color: white;
         text-decoration: none;
       }
-
-      
     </style>
   </head>
   <body>
@@ -572,7 +585,7 @@
 
             <span class="dropdown-content">
               <a href="blog.html">Blogs</a>
-              <a href="#">Customer Stories</a>
+              <a href="Salefusion.html">Customer Stories</a>
             </span>
           </span>
         </p>
@@ -610,12 +623,14 @@
         <aside class="sidebar">
           <h2 class="sidebar-title">Categories</h2>
           <ul class="category-list">
-            <li><a href="#">Distributor Operations Platform</a></li>
-            <li><a href="#">Sales Team Automation</a></li>
-            <li><a href="#">Retail Partner App</a></li>
-            <li><a href="#">Rural Distribution Management</a></li>
-            <li><a href="#">Asset Tracking System</a></li>
-            <li><a href="#">AI & Data Intelligence</a></li>
+            <li>
+              <a href="Distributor.html">Distributor Operations Platform</a>
+            </li>
+            <li><a href="Sales.html">Sales Team Automation</a></li>
+            <li><a href="Retail.html">Retail Partner App</a></li>
+            <li><a href="Rural.html">Rural Distribution Management</a></li>
+            <li><a href="Asset.html">Asset Tracking System</a></li>
+            <li><a href="AI_Data.html">AI & Data Intelligence</a></li>
           </ul>
         </aside>
 
@@ -709,7 +724,7 @@
             <article class="article-card">
               <img
                 class="card-image"
-                src="salesfusion/IMAGE/ruraldms.webp"
+                src="salesfusion/IMAGE/ruralds.webp"
                 alt="Rural DMS"
               />
               <div class="card-body">
@@ -729,7 +744,7 @@
             <article class="article-card">
               <img
                 class="card-image"
-                src="salesfusion/IMAGE/salesforceautomation.webp"
+                src="salesfusion/IMAGE/forceteamautomation2.webp"
                 alt="Sales Force Automation"
               />
               <div class="card-body">
@@ -815,8 +830,8 @@
       <div class="footer-column">
         <h2>Resources</h2>
         <a href="blog.html">Blogs</a>
-        <a href="#">Customer Stories</a>
-        <a href="#">Request A Demo</a>
+        <a href="Salefusion.html">Customer Stories</a>
+        <a href="Book_A_Demo.html">Request A Demo</a>
       </div>
 
       <div class="footer-column">
